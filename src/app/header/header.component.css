@@ -1,0 +1,138 @@
+.rounded-circle{
+    height: 40px;
+    width: 40px;  
+}
+
+.rounded-circle{
+
+    height: 40px;
+    width: 40px;
+    
+}
+.form-control{
+    width: 300px;
+    height: 40px;
+    background-color: none;
+}
+a{
+    cursor: pointer;
+}
+ 
+
+.navbar-brand{
+    color: black;
+}
+
+.logo{
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+}
+.pic{
+    display: flex;
+}
+h3{
+    padding-top: 10px;
+}
+.ul li{
+    color: white;
+}
+.btn{
+    color: gray;
+    font-weight: bold;
+}
+
+.headpart{
+    background-color: rgb(75, 120, 235);
+    color: white;
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex-wrap: wrap;
+}
+h3{
+    font-weight: normal;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.box{
+    border: none;
+    background: transparent;
+    color: white;
+    margin-left: 50px;
+    font-size: 15px;
+    
+}
+.logo1{
+    margin-left: 5px; 
+}
+.headpart2{
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+
+.nav{
+   
+    display: flex;  
+    padding-left: 10px;
+    flex-wrap: wrap;
+}
+.menu{
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    color: grey;
+}
+.menu:hover{
+    color: black;
+}
+.filter{
+   margin-left: 700px ;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.box1{
+    border: 2px solid;
+    height: 100px;
+    width: 150px;
+    margin-left: 10px;
+}
+
+.row{
+    margin-left: 50px;
+}
+.btn{
+    border: none;
+    color: grey;
+}
+.btn:hover{
+    color: black;
+}
+
+.header{
+    width: auto;
+    background-color: rgb(172, 194, 196);
+}
+.container1{
+    height: 400px;
+    width: 300px;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+}
+.container2{
+    height: 400px;
+    width: 900px;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+}
+

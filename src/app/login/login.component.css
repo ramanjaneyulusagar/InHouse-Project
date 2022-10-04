@@ -1,0 +1,46 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background-color: #00ac96; */
+    
+}
+.img-fluid{
+    padding: 30px 30px;
+}
+.row{
+    margin: 80px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+    
+}
+.login-text{
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: bold;
+}
+.form-control{
+    border-color: #00ac96;
+    width: 50%;
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    box-shadow: none;
+    
+}
+
+.btn-class{
+    border-color: #93d0c8;
+    color: black; 
+    background-color: #00ac96;
+    width: 50%;
+    height: 35px;
+    margin-top: 20px;
+
+}
+.btn-class:hover{
+   background-color: #00ac96; 
+}
+.text-primary{
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
