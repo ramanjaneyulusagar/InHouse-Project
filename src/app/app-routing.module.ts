@@ -5,12 +5,16 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from './auth.guard';
 import { ApplicantComponent } from './applicant/applicant.component';
+import { AlldetailsComponent } from './alldetails/alldetails.component';
+import { ApplicantdataComponent } from './applicantdata/applicantdata.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]}, 
   {path: 'login', component: LoginComponent},
   {path: 'applicant', component: ApplicantComponent,canActivate:[AuthGuard]},
+  {path: 'alldetails', component: AlldetailsComponent},
+  {path:'Applicantdata',component:ApplicantdataComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-.rounded-circle{
+/* .rounded-circle{
     height: 40px;
     width: 40px;  
 }
@@ -135,5 +135,60 @@ h3{
     border-radius: 5px;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
 }
+ */
 
+mat-toolbar{
+    background-color: #004a9f;
+    color: white
+}
+mat-sidenav{
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background:  #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+.content{
+    /* height: calc(100vh - 98px); */
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 2rem;
+    color: lightgray;
 
+    border-radius: 10px;
+
+}
+mat-sidenav-container{
+    height: calc(100vh - 65px);
+}
+.menu-button{
+    margin-right: 8px;
+    padding: 10px;
+
+}
+mat-divider{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(243, 227, 227);
+}
+.name{
+    margin: 0;
+    margin-top: 8px;
+    font-weight: normal;
+}
+.designation{
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgray;
+}
+.view{
+    background-color: #004a9f;
+    color: white;
+    float: right;
+}

@@ -1,13 +1,125 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
+<mat-toolbar>
+  <span>
+    <img src="../../assets/google.png" style="width: 50px; border-radius: 50px;">
+    <img src="../../assets/Lin.png" style="width: 30px;">
+  </span>
+   <h1 style="margin-left: 20px">Googlin</h1>
+   <mat-icon style="margin-left:750px; cursor: pointer;">dashboard</mat-icon>
+   <span style="cursor: pointer;" (click)="refresh()">Dashboard</span>
+   <mat-icon style="margin-left:30px; cursor: pointer;">logout</mat-icon>
+   <span style="cursor: pointer;" (click)="logout()">LogOut</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
  
-  <!-- <div class="main" >
-    <div class="container1">
-      <div style="margin:auto ;"><i class="fa-solid fa-user"></i></div>
-     
-     </div>
+    <img class="avatar mat-elevation-24" src="../../assets/avatar.jpg" style="width: 90px; height: 90px; border-radius:150px;">
+    <h4 class="name">Name</h4>
+    <p class="designation">Software Engineer</p>  
+    <mat-divider></mat-divider>
     
-        <div class="container2">  
-          <img src="../../assets/linkedin.jpg" style="width:100% ; height: 100%;">
-         </div>
-</div> --> -->
- 
+    <button mat-button class="menu-button">
+        <mat-icon>home</mat-icon>
+        <span routerLink="/applicant">Applicants</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </button>
+      
+      <mat-divider></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <div class="row">
+  <div style="margin-left: 30px; margin-top: 20px;">
+    <div class="card" style="width: 18rem;" >
+      <img src="../../assets/addC1.png" class="card-img-top" style="width: 100px;">
+      <div class="card-body" >
+        <div class="container" style="margin: 20px;" *ngFor="let profile of profile">
+          <span  > <h5 class="card-title">{{profile?.name}}</h5></span>
+        </div>
+       
+       
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>   
+  </div>
+   -->
+   <mat-card class="example-card" style="width:1000px; margin: auto; height: 500px; margin-top: 20px;">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Applicants</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../assets/applicant.png" 
+     style="width: 500px; height: 300px; margin-left: 30px;">
+    <mat-card-content>
+      <p>
+        Googlin members with Premium subscriptions can use the Top Applicant feature to assist their job search. The feature helps job searchers to identify and apply for jobs where they're considered a top candidate based on the information listed on their profile.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="view" routerLink="/applicant">View More</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+   <mat-card class="example-card" style="margin-left: 10px;">
+    <mat-card-title-group>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Small</mat-card-subtitle>
+      <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+    </mat-card-title-group>
+    <mat-card-content>   
+    </mat-card-content>
+  </mat-card>  
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<!--  
+<div class="row" style="margin: 10px;">
+  <div class="card" style="width: 18rem; margin-left:30px; margin-top: 20px;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">Applicants</h3>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem; margin-left:30px; margin-top: 20px;">
+    
+    <div class="card-body">
+      <h3 class="card-title">Profile</h3>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem; margin-left:30px; margin-top: 20px;">
+    
+    <div class="card-body">
+      <h3 class="card-title">About</h3>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div>  -->
+

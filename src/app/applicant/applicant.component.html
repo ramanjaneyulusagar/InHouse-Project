@@ -1,16 +1,140 @@
-<!-- <app-header></app-header> -->
-<p>applicant works!</p>
-
-<!-- <div class="form-control">
-    <input type="text" name="">
-</div> -->
-<div class="btn-group">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-      Left-aligned but right aligned when large screen
+<p>
+  <mat-toolbar color="primary">
+    <img src="../assets/google.png" width="50px" style="margin-left: 10px; border-radius: 50px;">
+    <img src="../assets/Lin.png" width="30px">
+    <span>GoogLin</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon (click)="go()">logout</mat-icon>
     </button>
-    <ul class="dropdown-menu dropdown-menu-lg-end">
-      <li><button class="dropdown-item" type="button">Action</button></li>
-      <li><button class="dropdown-item" type="button">Another action</button></li>
-      <li><button class="dropdown-item" type="button">Something else here</button></li>
-    </ul>
+
+  </mat-toolbar>
+</p>
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
+</div> 
+ <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Experience
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Fresher</a></li>
+              <li><a class="dropdown-item">1-2 years</a></li>
+              <li><a class="dropdown-item">3-5years</a></li>
+            </ul>
+          </div>
+        </li> 
+      
+      
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 20px;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li>
+          <h3>Search by</h3>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <label>Name</label>
+            <input type="text" class="nav-item" placeholder="Name" style="padding-left: 10px;"> 
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Education
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">SSC</a></li>
+              <li><a class="dropdown-item">Inter</a></li>
+              <li><a class="dropdown-item">B.Tech</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Skills
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Java</a></li>
+              <li><a class="dropdown-item">Angular</a></li>
+              <li><a class="dropdown-item">SQL</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+         <div  class = "forms-group" style="float:right; margin-top: 57px; font-family: Verdana, Geneva, Tahoma, sans-serif; "> 
+
+
+          </div> 
+        </li>
+        <li class="nav-item"> <button class="btn btn-primary">search</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<table class="table table-striped" style="margin-top:50px;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data|filter: searchByKeyword">
+      <td  >{{d.name}}</td>
+      <td>{{d.email}}</td>
+      <td>{{d.mobile}}</td>
+
+      <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          View Details
+        </button></td>
+    </tr>
+
+  </tbody>
+</table>
+       <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> 
+  
+   <!-- <p ngIf="customer == null">No Customer</p>  -->
+         <!-- <app-alldetails [customer]="customer"></app-alldetails>  -->
+
+
+
+         
+
+ <button mat-raised-button (click)="openDialog()" style="margin-left:10px;">Profile</button> 
+
+
+ <app-filter
+ [list]="filterList" 
+ (onFilterChange)="filterChange($event)" style="float: right;">
+</app-filter> 
+
+
+
+
+  

@@ -11,11 +11,13 @@ email:string,password:string
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  erroremail : string | undefined;
 
  
   form:loginform={
     email: '',
-    password: ''
+    password: '',
+    
   }
   constructor(private _router:Router,private service:InhouseService) { }
 
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['dashboard'])
       }
       else{
-        alert("wrongpassword")
+        alert("Enter valid Details")
       }
      //
     }

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import {HttpClient } from '@angular/common/http';
+import { IUsers } from './users';
+import {Observable, Subject} from 'rxjs';
+
 interface loginform {
   email:string,password:string
   }
@@ -7,10 +10,14 @@ interface loginform {
   providedIn: 'root'
 })
 export class InhouseService {
-
-  constructor(private http:HttpClient) { }
+  setGroupFilter$ = new Subject<any>();
+  getGroupFilter = this.setGroupFilter$.asObservable();
+  constructor(private http:HttpClient) {
+    this.http.get("http://localhost:3000/profile").subscribe(data => 
+    console.log(data))
+   }
   login(email:string,password:string){   
-    if(email=='admin' && password=='123')
+    if(email=='admin@gmail.com' && password=='admin@1')
     {
       localStorage.setItem('user','log');
       return true
@@ -25,7 +32,17 @@ export class InhouseService {
   public get log():boolean{
     return (localStorage.getItem('user')!==null)
   }
-  jsondata(){
-    return this.http.get<loginform>("http://localhost3000/login")
+ 
+  // getUsers():Observable<IUsers[]>{
+  //   return this.http.get<IUsers[]>("http://localhost:3000/users")
+  // }
+
+
+ 
+  user(){
+   return this.http.get<IUsers>("http://localhost:3000/profile")
   }
+  user1(){
+    return this.http.get<IUsers>("http://localhost:3000/profile")
+   }
 }

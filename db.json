@@ -1,18 +1,58 @@
 {
-  "login": [
+  "profile": [
     {
-      "email":"admin",
-      "password":"123"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+      "id":1,
+        "name":"ram",
+        "email":"ram@gmail.com",
+        "mobile":1234567891,
+        "dob":"11/02/9000",
+        "skills":"java,sql",
+        "education": "SSC, Inter,B.Tech"    
   }
+  , {
+    "id":2,
+      "name":"Revanth",
+      "email":"revanth@gmail.com",
+      "mobile":1234567892,
+      "dob":"11/02/9000",
+      "skills":"java,sql,",
+      "education": "SSC, Inter,"    
+},
+{
+  "id":3,
+    "name":"Aishwarya",
+    "email":"aishwarya@gmail.com",
+    "mobile":1234567894,
+    "dob":"11/02/9000",
+    "skills":"sql,web technology",
+    "education": "SSC, Inter,B.Tech"    
+},
+{
+  "id":4,
+    "name":"Madhavi",
+    "email":"madhavi@gmail.com",
+    "mobile":1234567895,
+    "dob":"11/02/9000",
+    "skills":"web technology",
+    "education": "SSC, Inter,B.Tech"    
+},
+{
+  "id":5,
+    "name":"Nagaraj",
+    "email":"nagaraj@gmail.com",
+    "mobile":1234567896,
+    "dob":"11/02/9000",
+    "skills":"sql,web technology",
+    "education": "SSC, Inter"    
+},
+{
+  "id":6,
+    "name":"Pavan",
+    "email":"pavan@gmail.com",
+    "mobile":1234567897,
+    "dob":"11/02/9000",
+    "skills":"java,sql,web technology",
+    "education": "SSC, Inter,B.Tech"    
+}
+]
 }
