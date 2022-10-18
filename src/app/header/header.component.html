@@ -1,28 +1,23 @@
-<nav class="navbar navbar-expand-lg p-0" style="background-color:rgb(17, 60, 109);">
-    <div class="container-fluid">
-      <div>
-        <img src="../assets/google.png" class="rounded-circle">
-        <img src="../assets/Lin.png" class="rounded-circle">
-      </div>
-        <input type="text" class="form-control" placeholder="search" style="margin-left:60px ;">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-      
-      <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-          <li class="nav-item">
-            <a class="nav-link text-white" aria-current="page" routerLink="/applicant">Applicants</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" (click)="logout()">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-</nav>
+<mat-toolbar >
+  <span>
+    <img src="../../assets/google.png" style="width: 50px; border-radius: 50px;">
+    <img src="../../assets/Lin.png" style="width: 30px;">
+  </span>
+  <h1 style="margin-left: 20px">Googlin</h1>
+  <input type="search" id="form1" class="form-control" placeholder="Search here"  style="margin-left: 15px;" />
+  <button class="btn btn-primary" style="color: white;margin-left: 10px;" >search</button>
+  <!-- <span style="margin-left: 15px;">{{myDate | date:'yyyy-MM-dd'}}</span> -->
+  <mat-icon style="cursor: pointer;margin-left: 20px;">dashboard</mat-icon>
+  <span style="cursor: pointer;" routerLink="/dashboard">Dashboard</span>
+  <mat-icon style=" cursor: pointer;margin-left: 20px;">logout</mat-icon>
+  <span style="cursor: pointer;" (click)="logout()">LogOut</span>
+
+</mat-toolbar>
+
+
+
+
+
+
+
 

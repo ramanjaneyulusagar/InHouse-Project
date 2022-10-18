@@ -17,7 +17,7 @@ export class InhouseService {
     console.log(data))
    }
   login(email:string,password:string){   
-    if(email=='admin@gmail.com' && password=='admin@1')
+    if(email=='a' && password=='a')
     {
       localStorage.setItem('user','log');
       return true

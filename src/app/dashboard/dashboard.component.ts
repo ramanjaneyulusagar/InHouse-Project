@@ -26,7 +26,7 @@ logout(){
 }
 profile:any
 getData() {
-  debugger;
+ // debugger;
   this.service.user1().subscribe((data) => {
     this.profile =data
     console.log(this.profile)

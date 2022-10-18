@@ -32,6 +32,10 @@ import { NewuserComponent } from './newuser/newuser.component';
 import { ApplicantdataComponent } from './applicantdata/applicantdata.component';
 import { SearchComponent } from './search/search.component';
 import {MatCardModule} from '@angular/material/card';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import {MatListModule} from '@angular/material/list';
+import { LoginformComponent } from './loginform/loginform.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -52,7 +56,10 @@ import {MatCardModule} from '@angular/material/card';
     DialogComponent,
     NewuserComponent,
     ApplicantdataComponent,
-    SearchComponent
+    SearchComponent,
+    SideNavComponent,
+    LoginformComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,7 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,MatSidenavModule,MatButtonModule,MatIconModule,MatDividerModule,
     MatDialogModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatDatepickerModule,
     MatNativeDateModule,MatRadioModule,NgMultiSelectDropDownModule.forRoot(),
-    GenericListFilterModule,MatCardModule
+    GenericListFilterModule,MatCardModule,MatListModule
     
     
   ],

@@ -1,0 +1,32 @@
+
+
+<div class="container" style="width:500px ;margin-top: 100px;">
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+      <small class="form-text text-muted" 
+        *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
+          Please enter email address.!
+      </small>
+
+      <small class="form-text text-muted"
+      *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors">
+        Email address not well formed.!
+      </small>
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password">
+      <small class="form-text text-muted" 
+        *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors">
+          Please enter password address.!
+      </small>
+    </div>
+    <div class="d-flex" style="margin-top: 30px;">
+        <span >forgotpassword</span>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+    </div>
+  </form>
+</div>

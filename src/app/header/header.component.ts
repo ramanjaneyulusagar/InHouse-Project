@@ -9,6 +9,9 @@ import { InhouseService } from '../inhouse.service';
 })
 export class HeaderComponent implements OnInit {
 
+  myDate = Date.now();
+
+
   constructor(private service:InhouseService,private router:Router) { }
 
   ngOnInit(): void {
