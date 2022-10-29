@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav'
+import { Router } from '@angular/router';
+import { InhouseService } from '../inhouse.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -7,9 +12,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(MatSidenav)
+   sidenav!: MatSidenav
+
+  constructor(private observer: BreakpointObserver, private service:InhouseService, 
+    private router:Router,private http:HttpClient) { }
+    afuConfig = {
+      formatsAllowed: ".jpg,.png,.pdf",
+      uploadAPI: {
+        url: "https://8aa2-115-117-172-107.in.ngrok.io/app/uploadFile"
+      },
+      multiple: false,
+      fileNameIndex: false,
+    };
+    DocUpload(event: any) {
+      console.log(event);
+  
+    }
+  ngAfterViewInit(){
+    this.observer.observe(['(max-width:800px)']).subscribe((res)=>{
+      if(res.matches){
+        this.sidenav.mode='over';
+        this.sidenav.close();
+      }
+      else{
+        this.sidenav.mode = 'side';
+        this.sidenav.open();
+      }
+
+    });
+  }
 
   ngOnInit(): void {
   }
 
+  logout(){
+    localStorage.removeItem('admin');
+    // this.service.logout();
+    this.router.navigate([''])
+  }
+  hide :any
+// upload func for file
+  // upload() {
+  //   this.hide = !this.hide
+  // }
+
+  file:any=File;
+  onChange(event:any) {
+    this.file = event.target.files[0];
+  }
+  
+  onUpload() {
+    let formData=new FormData();
+    //formData.set('name',this.file);
+    formData.append('file',this.file)
+    if (this.file) {
+   
+      console.log(this.file);
+      this.http.post( "https://2ff1-115-117-172-107.in.ngrok.io/app/uploadFile",formData).subscribe((data:any) => console.log(data));
+      alert('file is uploaded');
+
+    }
+  }
 }

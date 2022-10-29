@@ -36,7 +36,10 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import {MatListModule} from '@angular/material/list';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
-
+import { AngularFileUploaderModule } from '@anderstornkvist/angular-file-uploader';
+import { ForgotComponent } from './forgot/forgot.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RegistrationformComponent } from './registrationform/registrationform.component';
 
 
 
@@ -59,7 +62,9 @@ import { HomeComponent } from './home/home.component';
     SearchComponent,
     SideNavComponent,
     LoginformComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotComponent,
+    RegistrationformComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,7 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,MatSidenavModule,MatButtonModule,MatIconModule,MatDividerModule,
     MatDialogModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatDatepickerModule,
     MatNativeDateModule,MatRadioModule,NgMultiSelectDropDownModule.forRoot(),
-    GenericListFilterModule,MatCardModule,MatListModule
+    GenericListFilterModule,MatCardModule,MatListModule,AngularFileUploaderModule,NgxPaginationModule
     
     
   ],

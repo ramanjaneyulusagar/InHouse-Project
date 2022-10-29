@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+        "target": "https://afe9-115-117-172-107.in.ngrok.io",
+        "secure": true,
+        "changeOrigin":true,
+        "logLevel": "debug"
+    }
+  }

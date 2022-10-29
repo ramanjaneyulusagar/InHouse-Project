@@ -1,3 +1,6 @@
+small{
+    color: red;
+}
 .login-form{
     display: flex;
     flex-direction: column;
@@ -18,7 +21,7 @@
   
   .login-content {
     width: 400px;
-    display: block;
+    
     margin: 0 auto;
   }
   
@@ -28,15 +31,10 @@
   
   .mat-form-field {
     width: 100%;
-    display: block;
+    
   }
   
   .mat-raised-button {
     width: 100%;
     margin-top: 15px;
   }
-  a{
-    color: blue;
-    text-decoration: none;
-  }
-  

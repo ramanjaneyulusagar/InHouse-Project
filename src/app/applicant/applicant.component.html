@@ -1,101 +1,115 @@
 <app-home></app-home>
-<div class="container-fluid" style="height:100%;background-color:whitesmoke;">
-  <div class="row" >
-    <div class="col-md-3" >
-      <app-side-nav></app-side-nav>
-    </div>
-    <div class="col-md-9">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent2" style="margin-top: 20px;">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-              <li class="nav-item">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Education
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">SSC</a></li>
-                    <li><a class="dropdown-item">Inter</a></li>
-                    <li><a class="dropdown-item">B.Tech</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Skills
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">Java</a></li>
-                    <li><a class="dropdown-item">Angular</a></li>
-                    <li><a class="dropdown-item">SQL</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="forms-group"
-                  style="float:right; margin-top: 57px; font-family: Verdana, Geneva, Tahoma, sans-serif; ">
-
-
-                </div>
-              </li>
-              <li class="nav-item"> <button class="btn btn-primary">search</button></li>
-            </ul>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2" style="margin-top:10px;">
+          <div>
           </div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 50px;">
+            <form #form="ngForm" (ngSubmit)="search(form.value)">
+              <nav class="navbar">
+                <div class="row">
+                  <!-- <div class="col">
+                    <div class="form-outline">
+                      <div>
+                        <input type="text" [(ngModel)]="searchByKeyword" placeholder="Search by Name" style="width: auto;" class="form-control"/>
+                      </div>
+                      
+                    </div>
+
+                  </div> -->
+
+                  <div class="col">
+                    <div class="form-outline" style="width: 200px;">
+                      <select class="form-select" aria-label="Default select example" [(ngModel)]="formdata.EDUCATION"
+                        name="education">
+                        <option selected value="">EDUCATION</option>
+                        <option value="SSC">SSC</option>
+                        <option value="INTER">INTER</option>
+                        <option value="B.TECH">B.TECH</option>
+                        <option value="M.TECH">M.TECH</option>
+                        <option value="MCA">MCA</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-outline" style="width: 200px;">
+                      <select class="form-select" aria-label="Default select example" [(ngModel)]="formdata.SKILLS"
+                        name="skills">
+                        <option selected value="">SKILLS</option>
+                        <option value="JAVA">JAVA</option>
+                        <option value="SQL">SQL</option>
+                        <option value="ORACLE">ORACLE</option>
+                        <option value="JAVASCRIPT">JAVASCRIPT</option>
+                        <option value="SPRING">SPRING</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-outline">
+                      <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-outline">
+                      <button class="btn btn-primary" (click)="exportXl()">
+                        Export
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </form>
+          </ul>
         </div>
-      </nav>
-      <table class="table table-striped" style="margin-top:50px;">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mobile Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let d of data|filter: searchByKeyword">
-            <td>{{d.name}}</td>
-            <td>{{d.email}}</td>
-            <td>{{d.mobile}}</td>
-
-            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                View Details
-              </button></td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
+      </div>
+    </nav>
   </div>
+</div>
+<div style="overflow-x:auto ;">
+  <table class="table table-striped" style="margin-top:0px;" id="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">DOB</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">MOBILE NUMBER</th>
+        <th scope="col">SKILLS</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of exportdata|
+      paginate:
+      {itemsPerPage:itemsPerPage,
+      currentPage:page,
+      totalItems:totalItems}">
+        <td>{{d.id}}</td>
+        <td>{{d.details.NAME}}</td>
+        <td>{{d.details["DOB:"]}}</td>
+        <td>{{d.details.EMAIL}}</td>
+        <td>{{d.details.MOBILE}}</td>
+        <td>{{d.details.SKILLS}}</td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="viewdetails(d)">
+            View Details
+          </button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 
 
-<!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button> 
-   -->
-<!-- <p ngIf="customer == null">No Customer</p>  -->
-<!-- <app-alldetails [customer]="customer"></app-alldetails>  -->
-
-
-
-
-
-<!-- <button mat-raised-button (click)="openDialog()" style="margin-left:10px;">Profile</button> 
-
-
- <app-filter
- [list]="filterList" 
- (onFilterChange)="filterChange($event)" style="float: right;">
-</app-filter>  -->
+<pagination-controls (pageChange)="gty(p=($event))" class="float-right" style="float: left;" *ngIf="hide">
+</pagination-controls>
+<button (click)="pagechange()">items per page change</button>
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="viewdetails1()">dialog</button>
+            <button (click)="pdf()">pdf</button> -->

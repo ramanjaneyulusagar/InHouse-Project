@@ -2,6 +2,7 @@ import { ApplicationRef, Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { InhouseService } from '../inhouse.service';
 import { IUsers } from '../users';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -24,7 +25,9 @@ export class AlldetailsComponent implements OnInit {
     //here you can add as many filters as you want.
     };
   data: any;
-  constructor() { }
+  constructor(private readonly dialog: MatDialog) { }
+
+  
   
   ngOnInit(): void {
      
@@ -34,6 +37,9 @@ export class AlldetailsComponent implements OnInit {
     this.country = _appliedfilters._appliedFiltersValues.country;
     this.sector = _appliedfilters._appliedFiltersValues.sector;
   }
+
+  
+ 
   
  
 }

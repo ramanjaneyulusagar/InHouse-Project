@@ -1,32 +1,37 @@
+<div class="login-container">
+  <div class="login-content">
+    <mat-toolbar class="login-toolbar" color="primary">GOOGLIN</mat-toolbar>
+    <mat-card>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <mat-form-field>
+          <input matInput required autocomplete="true" type="email" class="form-control-lg" formControlName="email"
+            placeholder="Email" required />
+          <small class="form-text text-muted"
+            *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid ">
+            Please enter email address.!
+          </small>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder="Password"
+            [type]="hide ? 'password' : 'text'" class="form-control-lg" minlength="6-20" />
 
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <small class="form-text text-muted"
+            *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid ">
+            Please enter valid password.!
+          </small>
 
-<div class="container" style="width:500px ;margin-top: 100px;">
-	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-		<div class="form-group">
-			<label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
-      <small class="form-text text-muted" 
-        *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
-          Please enter email address.!
-      </small>
-
-      <small class="form-text text-muted"
-      *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors">
-        Email address not well formed.!
-      </small>
-    </div>
-    
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" formControlName="password" placeholder="Password">
-      <small class="form-text text-muted" 
-        *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors">
-          Please enter password address.!
-      </small>
-    </div>
-    <div class="d-flex" style="margin-top: 30px;">
-        <span >forgotpassword</span>
-    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
-    </div>
-  </form>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" type="submit"
+          [disabled]="!loginForm.valid">Login</button> <br><br>
+        <a class="small " routerLink="/Forgot">Forgot password?</a>
+        <a class="small" routerLink="/register" style="float: right; color: blue;">New Register</a>
+      </form>
+      
+    </mat-card>
+  </div>
 </div>
+<!--
+   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? </p>
+ <a href="#!"
+                      style="color: #393f81;" routerLink="/register">Register here</a> -->

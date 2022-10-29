@@ -9,16 +9,22 @@ import { ApplicantdataComponent } from './applicantdata/applicantdata.component'
 import { HeaderComponent } from './header/header.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { RegistrationformComponent } from './registrationform/registrationform.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 const routes: Routes = [
   {path:'',component:LoginformComponent,},
   {path:'home',component:HomeComponent ,canActivate:[AuthGuard]},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]}, 
+  {path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]}, 
   {path: 'applicant', component: ApplicantComponent,canActivate:[AuthGuard]},
   {path: 'alldetails', component: AlldetailsComponent},
   {path:'Applicantdata',component:ApplicantdataComponent},
   {path: 'HeaderComponent', component:HeaderComponent},
-  {path:'**',redirectTo:'dashboard' ,pathMatch:'full'}
+  {path: 'Forgot', component:ForgotComponent,},
+  {path:'register',component:RegistrationformComponent},
+  {path:'**',redirectTo:'dashboard',pathMatch:'full'},
+  {path: 'sidenav', component:SideNavComponent}
 ];
 
 @NgModule({

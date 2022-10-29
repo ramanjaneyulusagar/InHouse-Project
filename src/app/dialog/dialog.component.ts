@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Data } from 'popper.js';
 
 @Component({
   selector: 'app-dialog',
@@ -6,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-  
-  skillsList = ["Java", "Angular", "Sql"]
-  constructor() { }
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+   }
 
   ngOnInit(): void {
+    console.log(this.data);
+    
   }
+
+  
 
 }

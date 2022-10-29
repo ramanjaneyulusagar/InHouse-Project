@@ -66,12 +66,18 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "In-House-Project:build",
+            "proxyConfig": "src/proxy.conf.json"
+        },
           "configurations": {
             "production": {
               "browserTarget": "In-House-Project:build:production"
+              
             },
             "development": {
               "browserTarget": "In-House-Project:build:development"
+              
             }
           },
           "defaultConfiguration": "development"
@@ -80,6 +86,7 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "In-House-Project:build"
+            
           }
         },
         "test": {
