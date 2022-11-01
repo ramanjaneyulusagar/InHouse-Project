@@ -8,7 +8,9 @@
         <img src="../../assets/android-chrome-512x512.png" style="width: 40px; border-radius: 50px;">
         Googlin</span>
     <span class="example-spacer"></span>
-    <button mat-button (click)="logout()"><mat-icon>input</mat-icon>Logout</button>
+    <button mat-button (click)="logout()">
+        <mat-icon>input</mat-icon>Logout
+    </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -17,30 +19,22 @@
             <mat-icon>person</mat-icon>
             <span routerLink="/applicant">Applicants</span>
         </button><br>
-        <!-- <button mat-button class="menu-button">
-            <mat-icon>person</mat-icon>
-            <span>Profile</span>
-        </button><br>
-        <button mat-button class="menu-button">
-            <mat-icon>info</mat-icon>
-            <span>About</span>
-        </button> -->
+
         <mat-divider></mat-divider>
         <div style="background-color: rgba(229, 232, 232, 0); overflow: hidden;">
 
             <h1 style="font-family: monospace;font:caption;color: white; margin-top: 80px;">Upload Document Here </h1>
 
             <div>
-                <input type="file" (change)="onChange($event)" #file  name="file"/>
+                <input type="file" (change)="onChange($event)" #file name="file" />
 
-                <button (click)="onUpload();file.value='';" class="btn btn-primary" style="margin-top: 30px;">Upload</button>
+                <button (click)="onUpload();file.value='';" mat-raised-button color="white"
+                    style="margin-top: 30px;">Upload</button>
             </div>
-            <!-- <angular-file-uploader  [config]="afuConfig" (ApiResponse)="DocUpload($event)">
-            </angular-file-uploader> -->
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div class="content mat-elevation-24">
+        <div class="content">
 
             <div>
                 <img src="../../assets/img.jpg" width="1000px" height="500px">

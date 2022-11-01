@@ -10,7 +10,7 @@ import { InhouseService } from '../inhouse.service';
 })
 export class RegistrationformComponent implements OnInit {
 
-  public hide= false
+  public hide = false
 
   loginForm!: FormGroup;
   constructor(private service: InhouseService, private _router: Router) {
@@ -47,18 +47,10 @@ export class RegistrationformComponent implements OnInit {
         let password = this.loginForm.value.confirmpassword;
         let name = this.loginForm.value.name
 
-        this.service.update({name, email, password}).subscribe((data:any)=>{
+        this.service.update({ name, email, password }).subscribe((data: any) => {
           console.log(data.message)
           this._router.navigate([''])
         })
-        // console.log(_form)
-
-        // this.service.update(this.loginForm.value).subscribe((data:any) => {
-        //   console.log(data)
-        //   console.log(this.loginForm.value)
-        //   console.log(this.loginForm.value)
-        //   this._router.navigate([''])
-        // })
       }
     }
   }

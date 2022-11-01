@@ -12,16 +12,16 @@ export class HeaderComponent implements OnInit {
   myDate = Date.now();
 
 
-  constructor(private service:InhouseService,private router:Router) { }
+  constructor(private service: InhouseService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  refresh(){
+  refresh() {
     window.location.reload()
   }
-logout(){
-  this.service.logout();
-  this.router.navigate(['login'])
-}
+  logout() {
+    this.service.logout();
+    this.router.navigate(['login'])
+  }
 }

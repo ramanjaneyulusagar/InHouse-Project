@@ -14,15 +14,6 @@
             <form #form="ngForm" (ngSubmit)="search(form.value)">
               <nav class="navbar">
                 <div class="row">
-                  <!-- <div class="col">
-                    <div class="form-outline">
-                      <div>
-                        <input type="text" [(ngModel)]="searchByKeyword" placeholder="Search by Name" style="width: auto;" class="form-control"/>
-                      </div>
-                      
-                    </div>
-
-                  </div> -->
 
                   <div class="col">
                     <div class="form-outline" style="width: 200px;">
@@ -52,12 +43,12 @@
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <button class="btn btn-primary" type="submit">Search</button>
+                      <button class="btn btn-primary" mat-raised-button color="primary" type="submit">Search</button>
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <button class="btn btn-primary" (click)="exportXl()">
+                      <button class="btn btn-primary" mat-raised-button color="primary" (click)="exportXl()">
                         Export
                       </button>
                     </div>
@@ -71,6 +62,7 @@
     </nav>
   </div>
 </div>
+
 <div style="overflow-x:auto ;">
   <table class="table table-striped" style="margin-top:0px;" id="table">
     <thead>
@@ -81,35 +73,26 @@
         <th scope="col">EMAIL</th>
         <th scope="col">MOBILE NUMBER</th>
         <th scope="col">SKILLS</th>
-        <th></th>
+        <th>USERCOUNT IS:<span style="color: blue;">{{numberOfElements}}</span></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let d of exportdata|
-      paginate:
-      {itemsPerPage:itemsPerPage,
-      currentPage:page,
-      totalItems:totalItems}">
+      <tr *ngFor="let d of exportdata">
         <td>{{d.id}}</td>
         <td>{{d.details.NAME}}</td>
         <td>{{d.details["DOB:"]}}</td>
         <td>{{d.details.EMAIL}}</td>
         <td>{{d.details.MOBILE}}</td>
         <td>{{d.details.SKILLS}}</td>
-        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            (click)="viewdetails(d)">
+        <td><button type="button" mat-raised-button color="primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" (click)="viewdetails(d)">
             View Details
           </button></td>
       </tr>
     </tbody>
   </table>
 </div>
-
-
-
-<pagination-controls (pageChange)="gty(p=($event))" class="float-right" style="float: left;" *ngIf="hide">
-</pagination-controls>
-<button (click)="pagechange()">items per page change</button>
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-            (click)="viewdetails1()">dialog</button>
-            <button (click)="pdf()">pdf</button> -->
+<div class="d-flex" *ngIf="hide">
+  <button (click)="prev()" class="btn btn-dark" style="margin-right:10px ;">Previous Page</button>
+  <button (click)="next()" class="btn btn-primary">Next Page</button>
+</div>

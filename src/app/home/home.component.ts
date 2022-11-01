@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InhouseService } from '../inhouse.service';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -9,12 +10,13 @@ import { LoginService } from '../login.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service:LoginService,private router:Router) { }
+  constructor(private service: InhouseService, private router: Router) { }
 
   ngOnInit(): void {
   }
-logout(){
-  this.service.logout();
-  this.router.navigate([''])
-}
+  
+  logout() {
+    this.service.logout();
+    this.router.navigate([''])
+  }
 }

@@ -15,7 +15,7 @@ export class ForgotComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private service: InhouseService, private _router: Router) {
     this.loginForm = new FormGroup({
-      
+
       email: new FormControl('', [Validators.required, Validators.pattern(
 
         '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$',
@@ -46,7 +46,7 @@ export class ForgotComponent implements OnInit {
       let password = this.loginForm.value.confirmpassword
       // console.log(_form)
 
-      this.service.update({ email, password }).subscribe((data:any) => {
+      this.service.update({ email, password }).subscribe((data: any) => {
         console.log(data.message)
         console.log(this.loginForm.value)
         console.log(this.loginForm.value)

@@ -4,8 +4,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AuthGuard } from './auth.guard';
 import { ApplicantComponent } from './applicant/applicant.component';
-import { AlldetailsComponent } from './alldetails/alldetails.component';
-import { ApplicantdataComponent } from './applicantdata/applicantdata.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
@@ -14,12 +12,10 @@ import { RegistrationformComponent } from './registrationform/registrationform.c
 import { SideNavComponent } from './side-nav/side-nav.component';
 
 const routes: Routes = [
-  {path:'',component:LoginformComponent,},
+  {path:'',component:LoginformComponent},
   {path:'home',component:HomeComponent ,canActivate:[AuthGuard]},
   {path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]}, 
   {path: 'applicant', component: ApplicantComponent,canActivate:[AuthGuard]},
-  {path: 'alldetails', component: AlldetailsComponent},
-  {path:'Applicantdata',component:ApplicantdataComponent},
   {path: 'HeaderComponent', component:HeaderComponent},
   {path: 'Forgot', component:ForgotComponent,},
   {path:'register',component:RegistrationformComponent},

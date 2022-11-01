@@ -12,15 +12,15 @@
                     <mat-form-field>
                         <input matInput type="text" id="name" class="form-control-lg" placeholder="Name"
                             formControlName="name" name="name" autocomplete="true" minlength="4" maxlength="20">
-                        <small class="form-text"
+                        <small class="form-text text-danger"
                             *ngIf="loginForm.controls['name'].touched&&loginForm.controls['name'].invalid">
-                            minimum 4 characters
+                            Minimum 4 characters
                         </small>
                     </mat-form-field>
                     <mat-form-field>
                         <input matInput type="email" id="email" class="form-control-lg" formControlName="email"
                             name="email" placeholder="Email" autocomplete="true">
-                        <small class="form-text"
+                        <small class="form-text text-danger"
                             *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid ">
                             Please enter email address.!
                         </small>
@@ -36,10 +36,10 @@
 
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput type="password" class="form-control-lg" formControlName="confirmpassword" autocomplete="true"
-                            placeholder="ConfirmPassword" name="confirmpassword">
+                        <input matInput type="password" class="form-control-lg" formControlName="confirmpassword"
+                            autocomplete="true" placeholder="ConfirmPassword" name="confirmpassword">
                         <small class="form-text text-muted" *ngIf="(loginForm.controls['password'].
-                                                value!==loginForm.controls['confirmpassword'].value) ">
+                            value!==loginForm.controls['confirmpassword'].value) ">
                             Please enter valid password.!
                         </small>
 
@@ -51,13 +51,7 @@
                         Register
                     </button>
                 </div>
-
             </form>
         </mat-card>
     </div>
 </div>
-
-<!--  <small
-                                                [ngStyle]="{'border': (loginForm.controls['password'].
-                                                value!==loginForm.controls['confirmpassword'].value) ? 'red solid 2px' : 'green solid 2px' }">
-                                            </small> -->

@@ -1,68 +1,23 @@
 <h1 mat-dialog-tittle>Profile</h1>
 <div mat-dialog-content style="width: 300px; height:500px">
- <!-- <div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NAME</th>
-            <th scope="col">DOB</th>
-            <th>EMAIL</th>
-            <th>MOBILENO</th>
-            <th scope="col">EDUCATIONDETAILS</th>
-            <th scope="col">SKILLS</th>
-            <th scope="col">MOBILE</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>{{data.details["DOB:"]}}</td>
-            <td>{{data.details.EMAIL}}</td>
-            <td>{{data.details.MOBILE}}</td>
-            <td>
-                <ul>
-                    <li>
-                        {{data.details.EDUCATIONDETAILS}}
-                    </li>
-                </ul>
-            </td>
-            <td>{{data.details.SKILLS}}</td>
-            
-          </tr>
-        </tbody>
-      </table>    
- </div> -->
-
- ID:<label>{{data.id}}</label><br>
- NAME:<label>{{data.details.NAME}}</label><br>
- EMAIL:<label>{{data.details.EMAIL}}</label><br>
- DOB:<label>{{data.details["DOB:"]}}</label><br>
- SKILLS:<br>
- <label><ul><li *ngFor="let d of data.details.SKILLS">{{d}}</li></ul></label><br>
- EDUCATIONDETAILS:<br>
- <label><ul><li *ngFor="let d of data.details.EDUCATION">{{d}}</li></ul></label><br>
- MOBILE:<label>{{data.details.MOBILE}}</label><br>
-
- 
- 
 
 
-
-
-
-
-    <!-- <mat-form-field appearance="outline">
-      <h1></h1><br>
-      <br>
-      <br>
-     <br>
+    <label>ID:{{data.id}}</label><br>
+    <label> NAME:{{data.details.NAME}}</label><br>
+    <label>EMAIL:{{data.details.EMAIL}}</label><br>
+    <label> DOB:{{data.details["DOB:"]}}</label><br>
     <br>
-    
-     
-      </mat-form-field> -->
-</div>  
+    <label>SKILLS:<ul>
+            <li *ngFor="let d of data.details.SKILLS">{{d}}</li>
+        </ul></label><br>
+    <br>
+    <label>EDUCATIONDETAILS:<ul>
+            <li *ngFor="let d of data.details.EDUCATION">{{d}}</li>
+        </ul></label><br>
+    <label>MOBILE:{{data.details.MOBILE}}</label><br>
+
+
+</div>
 <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-</div>  
+</div>
