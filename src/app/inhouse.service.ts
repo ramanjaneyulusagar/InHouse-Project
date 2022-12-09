@@ -27,13 +27,13 @@ export class InhouseService {
         'Access-Control-Allow-Origin': '*',
       }
     }
-    return this.http.post("https://5f82-115-117-172-107.in.ngrok.io/app/search/1/10", data, config);
+    return this.http.post("https://7889-115-117-172-107.in.ngrok.io/search/1/10", data);
   }
   logincheck(data: any) {
-    return this.http.post("https://5f82-115-117-172-107.in.ngrok.io/app/login", data)
+    return this.http.post("https://7889-115-117-172-107.in.ngrok.io/app/login", data)
   }
   update(payload: any) {
-    return this.http.post("https://5f82-115-117-172-107.in.ngrok.io/app/usersave", payload);
+    return this.http.post("https://7889-115-117-172-107.in.ngrok.io/app/usersave", payload);
   }
 
 }

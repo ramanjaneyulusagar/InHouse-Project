@@ -20,7 +20,7 @@ export class SideNavComponent implements OnInit {
   afuConfig = {
     formatsAllowed: ".jpg,.png,.pdf",
     uploadAPI: {
-      url: "https://5f82-115-117-172-107.in.ngrok.io/app/uploadFile"
+      url: "https://b067-115-117-172-107.in.ngrok.io/app/uploadFile"
     },
     multiple: false,
     fileNameIndex: false,
@@ -64,7 +64,7 @@ export class SideNavComponent implements OnInit {
     formData.append('file', this.file)
     if (this.file) {
       console.log(this.file);
-      this.http.post("https://5f82-115-117-172-107.in.ngrok.io/app/uploadFile", formData).subscribe((data: any) => console.log(data));
+      this.http.post("https://7889-115-117-172-107.in.ngrok.io/app/uploadFile", formData).subscribe((data: any) => console.log(data));
       alert('file is uploaded');
     }
   }

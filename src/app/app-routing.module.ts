@@ -14,8 +14,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 const routes: Routes = [
   {path:'',component:LoginformComponent},
   {path:'home',component:HomeComponent ,canActivate:[AuthGuard]},
-  {path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]}, 
-  {path: 'applicant', component: ApplicantComponent,canActivate:[AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent}, 
+  {path: 'applicant', component: ApplicantComponent},
   {path: 'HeaderComponent', component:HeaderComponent},
   {path: 'Forgot', component:ForgotComponent,},
   {path:'register',component:RegistrationformComponent},

@@ -63,11 +63,11 @@
   </div>
 </div>
 
-<div style="overflow-x:auto ;">
-  <table class="table table-striped" style="margin-top:0px;" id="table">
+<div style="overflow-x:auto;">
+  <table class="table table-striped" style="margin-top:0px; padding-left: 25px;" id="table">
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col" style="padding-left: 25px;">ID</th>
         <th scope="col">NAME</th>
         <th scope="col">DOB</th>
         <th scope="col">EMAIL</th>
@@ -93,6 +93,6 @@
   </table>
 </div>
 <div class="d-flex" *ngIf="hide">
-  <button (click)="prev()" class="btn btn-dark" style="margin-right:10px ;">Previous Page</button>
+  <button (click)="prev()" class="btn btn-dark" style="margin-right:10px ;margin-left:20px ;">Previous Page</button>
   <button (click)="next()" class="btn btn-primary">Next Page</button>
 </div>

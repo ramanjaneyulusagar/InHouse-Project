@@ -52,7 +52,7 @@ export class ApplicantComponent implements OnInit {
 
   }
   openDialog() {
-    const dialogRef = this.dialog.open(DialogComponent,);
+    const dialogRef = this.dialog.open(DialogComponent, this.data);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -122,11 +122,10 @@ export class ApplicantComponent implements OnInit {
   //submit file to the api url
   onUpload() {
     let formData = new FormData();
-    //formData.set('name',this.file);
     formData.append('file', this.file)
     if (this.file) {
       console.log(this.file);
-      this.http.post("https://5f82-115-117-172-107.in.ngrok.io/app/uploadFile", formData).subscribe(data => console.log(data));
+      this.http.post("https://7889-115-117-172-107.in.ngrok.io/app/uploadFile", formData).subscribe(data => console.log(data));
     }
   }
   pdf() {
@@ -135,12 +134,12 @@ export class ApplicantComponent implements OnInit {
     doc.save('table.pdf');
     //<button (click)="pdf()" class="btn btn-primary" *ngIf="hide">pdf</button> 
   }
-  page: number = 0;
+  page: number = 1;
   itemsPerPage!: number;
   totalItems!: number;
   next() {
     this.page = this.page + 1
-    this.http.post(`https://5f82-115-117-172-107.in.ngrok.io/app/search/${this.page}/10`, this.formdata
+    this.http.post(`https://7889-115-117-172-107.in.ngrok.io/app/search/${this.page}/10`, this.formdata
     ).subscribe((data: any) => {
       //debugger;
       this.exportdata = data['content'];
@@ -150,7 +149,7 @@ export class ApplicantComponent implements OnInit {
   }
   prev() {
     this.page = this.page - 1
-    this.http.post(`https://5f82-115-117-172-107.in.ngrok.io/app/search/${this.page}/10`, this.formdata
+    this.http.post(`https://7889-115-117-172-107.in.ngrok.io/app/search/${this.page}/10`, this.formdata
     ).subscribe((data: any) => {
       //debugger;
       this.exportdata = data['content'];
