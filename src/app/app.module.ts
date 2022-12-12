@@ -35,6 +35,8 @@ import { AngularFileUploaderModule } from '@anderstornkvist/angular-file-uploade
 import { ForgotComponent } from './forgot/forgot.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
+import { HeaderNavComponent } from './Header-Main/header-nav/header-nav.component';
+import { HeaderSideNavComponent } from './Header-Main/header-side-nav/header-side-nav.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { RegistrationformComponent } from './registrationform/registrationform.c
     LoginformComponent,
     HomeComponent,
     ForgotComponent,
-    RegistrationformComponent
+    RegistrationformComponent,
+    HeaderNavComponent,
+    HeaderSideNavComponent
   ],
   imports: [
     BrowserModule,

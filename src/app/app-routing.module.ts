@@ -10,11 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
+  //{path:'',component:AppComponent},
   {path:'',component:LoginformComponent},
   {path:'home',component:HomeComponent ,canActivate:[AuthGuard]},
-  {path: 'dashboard', component: DashboardComponent}, 
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'applicant', component: ApplicantComponent},
   {path: 'HeaderComponent', component:HeaderComponent},
   {path: 'Forgot', component:ForgotComponent,},

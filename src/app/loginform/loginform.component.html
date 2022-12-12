@@ -1,33 +1,80 @@
-<div class="login-container">
-  <div class="login-content">
-    <mat-toolbar class="login-toolbar" color="primary">LOGIN</mat-toolbar>
-    <mat-card>
+<div class="login-container" >
+  <div class="login-content" >
+    <mat-card style="box-shadow: 1px 2px 6px 1px black;">
+      <mat-toolbar class="login-toolbar"
+        ><img src="../../assets/android-chrome-512x512.png" width="40px" /><span
+          style="padding-left: 3px"
+          >Googlin</span
+        >
+      </mat-toolbar>
+      <h2></h2>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
         <mat-form-field>
-          <input matInput required autocomplete="true" type="email" class="form-control-lg" formControlName="email"
-            placeholder="Email" required />
-          <small class="form-text text-danger"
-            *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
+          <input
+            matInput
+            required
+            autocomplete="true"
+            type="email"
+            class="form-control-lg"
+            formControlName="email"
+            placeholder="Email"
+            required
+          />
+          <small
+            class="form-text text-danger"
+            *ngIf="
+              (loginForm.controls['email'].touched &&
+                loginForm.controls['email'].invalid)
+
+            "
+          >
             Please enter email address.!
           </small>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" formControlName="password" placeholder="Password"
-            [type]="hide ? 'password' : 'text'" class="form-control-lg" minlength="6-20" />
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            [type]="hide ? 'password' : 'text'"
+            class="form-control-lg"
+            minlength="6-20"
+          />
 
-          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          <small class="form-text text-danger"
-            *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid ">
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+          <small
+            class="form-text text-danger"
+            *ngIf="
+              loginForm.controls['password'].touched &&
+              loginForm.controls['password'].invalid
+            "
+          >
             Please enter valid password.!
           </small>
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button> <br><br>
-        <a class="small " routerLink="/Forgot">Forgot password?</a>
-        <a class="small" routerLink="/register" style="float: right; color: blue;">New Register</a>
+        <button
+          type="submit"
+          mat-raised-button
+
+          class="btn btn-success"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+        <br /><br />
+        <a class="small" routerLink="/Forgot">Forgot password?</a>
+        <a
+          class="small"
+          routerLink="/register"
+          style="float: right; color: blue"
+          >New Register</a
+        >
       </form>
     </mat-card>
   </div>
-
 </div>
 
 <!--

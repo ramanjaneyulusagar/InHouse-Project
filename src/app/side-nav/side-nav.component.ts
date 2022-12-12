@@ -17,14 +17,7 @@ export class SideNavComponent implements OnInit {
 
   constructor(private observer: BreakpointObserver, private service: InhouseService,
     private router: Router, private http: HttpClient) { }
-  afuConfig = {
-    formatsAllowed: ".jpg,.png,.pdf",
-    uploadAPI: {
-      url: "https://b067-115-117-172-107.in.ngrok.io/app/uploadFile"
-    },
-    multiple: false,
-    fileNameIndex: false,
-  };
+
   DocUpload(event: any) {
     console.log(event);
 
