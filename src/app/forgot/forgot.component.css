@@ -1,0 +1,10 @@
+#googlinImg{
+    width: 40px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+  }
+  #googlinText{
+    /* margin-top: 10px; */
+    margin-left: 3px;
+    color: rgb(9, 9, 9);
+  }

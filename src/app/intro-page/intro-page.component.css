@@ -1,0 +1,14 @@
+.container{
+width: 100%;
+}
+#bg-image {
+    /* max-width: fit-content; */
+    /* max-height: 800px; */
+    width: 600px;
+    height: 455px;
+    /* border: solid red 2px; */
+    /* box-shadow: 1px 1px 5px 1px gray; */
+  }
+  #bg-image:hover {
+    transform: scaleX(-1);
+  }

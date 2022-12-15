@@ -1,24 +1,13 @@
-<app-home></app-home>
+<app-header-nav page="applicant"></app-header-nav>
 <div class="container-fluid">
   <div class="row">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent2"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div
-          class="collapse navbar-collapse"
-          id="navbarSupportedContent2"
-          style="margin-top: 10px"
-        >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2" style="margin-top: 10px">
           <div></div>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 50px">
             <form #form="ngForm" (ngSubmit)="search(form.value)">
@@ -26,12 +15,8 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-outline" style="width: 200px">
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                        [(ngModel)]="formdata.EDUCATION"
-                        name="education"
-                      >
+                      <select class="form-select" aria-label="Default select example" [(ngModel)]="formdata.EDUCATION"
+                        name="education">
                         <option selected value="">EDUCATION</option>
                         <option value="SSC">SSC</option>
                         <option value="INTER">INTER</option>
@@ -43,12 +28,8 @@
                   </div>
                   <div class="col">
                     <div class="form-outline" style="width: 200px">
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                        [(ngModel)]="formdata.SKILLS"
-                        name="skills"
-                      >
+                      <select class="form-select" aria-label="Default select example" [(ngModel)]="formdata.SKILLS"
+                        name="skills">
                         <option selected value="">SKILLS</option>
                         <option value="JAVA">JAVA</option>
                         <option value="SQL">SQL</option>
@@ -60,24 +41,14 @@
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <button
-                        class="btn btn-primary"
-                        mat-raised-button
-                        color="primary"
-                        type="submit"
-                      >
+                      <button class="btn btn-primary" mat-raised-button color="primary" type="submit" style="background-color: rgb(243, 245, 245);color: black;">
                         Search
                       </button>
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <button
-                        class="btn btn-primary"
-                        mat-raised-button
-                        color="primary"
-                        (click)="exportXl()"
-                      >
+                      <button class="btn btn-primary" mat-raised-button color="primary" (click)="exportXl()" style="background-color: rgb(254, 254, 254);color: black;">
                         Export
                       </button>
                     </div>
@@ -93,41 +64,31 @@
 </div>
 
 <div style="overflow-x: auto">
-  <table
-    class="table table-striped"
-    style="margin-top: 0px; padding-left: 25px"
-    id="table"
-  >
+  <table class="table table-striped" style="margin-top: 0px; padding-left: 25px" id="table">
     <thead>
       <tr>
-        <th scope="col" style="padding-left: 25px">ID</th>
+        <!-- <th scope="col" style="padding-left: 25px">ID</th> -->
         <th scope="col">NAME</th>
-        <th scope="col">DOB</th>
+        <!-- <th scope="col">DOB</th> -->
         <th scope="col">EMAIL</th>
-        <th scope="col">MOBILE NUMBER</th>
+        <!-- <th scope="col">MOBILE NUMBER</th> -->
         <th scope="col">SKILLS</th>
-        <th>
+        <!-- <th>
           USERCOUNT IS:<span style="color: blue">{{ numberOfElements }}</span>
-        </th>
+        </th> -->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let d of exportdata">
-        <td>{{ d.id }}</td>
+        <!-- <td>{{ d.id }}</td> -->
         <td>{{ d.details.NAME }}</td>
-        <td>{{ d.details["DOB:"] }}</td>
+        <!-- <td>{{ d.details["DOB:"] }}</td> -->
         <td>{{ d.details.EMAIL }}</td>
-        <td>{{ d.details.MOBILE }}</td>
+        <!-- <td>{{ d.details.MOBILE }}</td> -->
         <td>{{ d.details.SKILLS }}</td>
         <td>
-          <button
-            type="button"
-            mat-raised-button
-            color="primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            (click)="viewdetails(d)"
-          >
+          <button type="button" mat-raised-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="viewdetails(d)">
             View Details
           </button>
         </td>
@@ -136,11 +97,7 @@
   </table>
 </div>
 <div class="d-flex" *ngIf="hide">
-  <button
-    (click)="prev()"
-    class="btn btn-dark"
-    style="margin-right: 10px; margin-left: 20px"
-  >
+  <button (click)="prev()" class="btn btn-dark" style="margin-right: 10px; margin-left: 20px">
     Previous Page
   </button>
   <button (click)="next()" class="btn btn-primary">Next Page</button>

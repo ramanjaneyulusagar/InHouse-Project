@@ -1,53 +1,28 @@
-<mat-toolbar>
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-  </button>
-  <div>
-    <img
-      src="../../assets/android-chrome-512x512.png"
-      style="width: 40px; border-radius: 50px"
-    />
-    Googlin</div
-  >
-  <!-- <span class="example-spacer"></span> -->
-  <button mat-button (click)="logout()">
-    <mat-icon>input</mat-icon>Logout
-  </button>
-</mat-toolbar>
-
+<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+  <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+</button>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" style="overflow: none">
     <button mat-button class="menu-button">
       <mat-icon>person</mat-icon>
-      <span routerLink="/applicant">Applicants</span></button
-    ><br />
+      <span routerLink="/applicant" style="font-size: 13px;">APPLICANTS</span></button><br />
 
     <!-- <mat-divider></mat-divider> -->
     <div style="background-color: rgba(229, 232, 232, 0); overflow: hidden">
-      <h1
-        style="
+      <h1 style="
           font-family: monospace;
           font: caption;
           color: white;
           margin-top: 80px;
-        "
-      >
+        ">
         Upload Document Here
       </h1>
 
       <div>
         <input type="file" (change)="onChange($event)" #file name="file" />
-        <button
-          (click)="onUpload(); file.value = ''"
-          mat-raised-button
-          color="white"
-          style="margin-top: 30px"
-        >
-          Upload
+        <button (click)="onUpload(); file.value = ''" mat-raised-button color="white"
+          style="margin-top: 30px;font-size: 13px;">
+          UPLOAD
         </button>
       </div>
     </div>
@@ -55,7 +30,7 @@
   <mat-sidenav-content>
     <div class="content">
       <div>
-        <img src="../../assets/img.jpg" width="1000px" height="500px" />
+        <img src="../../assets/img.jpg" width="100%" height="500px" />
       </div>
     </div>
   </mat-sidenav-content>

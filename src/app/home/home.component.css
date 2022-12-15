@@ -2,6 +2,6 @@
     flex: 1 1 auto;
   }
   mat-toolbar{
-    background: #004a9f;
-    color: white;
+    background: #f3f4f5;
+    color: rgb(9, 9, 9);
 }

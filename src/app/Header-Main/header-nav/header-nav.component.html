@@ -1,32 +1,62 @@
 <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand">
-            <img src="../../assets/android-chrome-512x512.png" style="width: 40px; border-radius: 50px" />
-            Googlin
-        </a>
-        <form class="d-flex" role="search">
-            <mat-icon>input</mat-icon>
-            <a style="margin-left: 3px; font-size: medium; margin-top: 2px">
-                LogOut</a>
-        </form>
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="route.navigate([''])">
+      <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
+      <span id="googlinText"> Googlin</span>
+    </a>
+    <div class="d-flex" role="search">
+      <button mat-raised-button class="btn btn" *ngIf="page == 'applicant'" (click)="DashboardPage()"
+        style="background-color: rgb(88, 121, 167)">
+        <span style="color: rgb(242, 237, 237); font-size: 14px">DASHBOARD</span>
+      </button>
+      <button mat-raised-button class="btn btn" *ngIf="page != 'login' && page != 'register' && page == 'applicant'"
+        (click)="LogOut()" style="background-color: rgb(15, 54, 109)">
+        <span style="color: white; font-size: 14px">LOGOUT</span>
+      </button>
+      <button mat-raised-button class="btn btn" *ngIf="page != 'login' && page != 'applicant'" (click)="LoginTo()"
+        style="background-color: rgb(15, 54, 109)">
+        <span style="color: white; font-size: 14px">LOGIN</span>
+      </button>
+
+      <button mat-raised-button class="btn btn-dark" *ngIf="page != 'register' && page != 'applicant'"
+        (click)="SignInTo()" style="background-color: rgb(20, 109, 172); font-size: 14px">
+        SIGNUP
+      </button>
     </div>
+  </div>
 </nav>
+<div class="d-flex" *ngIf="page != 'register' && page != 'login' && page != 'applicant'">
+  <div>
+    <img src="/assets/images/searching_for_candidate_isometric_illustrating-06.jpg" id="bg-image" />
+  </div>
+  <!-- <img src=" assets/2014-06-11-0e-Recruit.a9f4e.jpg" id="bg-image" /> -->
+  <div style="width: inherit; height: 100%;margin-top: 50px;margin-left: 30px;">
+    <div>
+      <h3 style="color: rgb(64, 107, 99)">Upload Candidate profiles</h3>
+    </div>
+    <div>
+      <h3 style="border-radius: 2px; color: rgb(18, 86, 146)">
+        Search based on skills and experience
+      </h3>
+    </div>
+    <div>
+      <h3 style="
+          border-radius: 2px;
+          justify-content: center;
+          color: rgb(19, 19, 20);
+        ">
+        Fetch full details of the Candidate
+      </h3>
+    </div>
+    <div>
+      <h3>we helped recruiters to ease the process</h3>
+    </div>
+    <h3>of selecting candidates within short period of time</h3>
+    <div style="color: rgb(71, 9, 133)">
+      <h3>Googlin will do the selection</h3>
+      <h3>for the perfect candidate by filtering the profiles</h3>
+    </div>
+  </div>
+</div>
 
-<!--  <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarScroll"
-      aria-controls="navbarScroll"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div
-      class="collapse navbar-collapse"
-      id="navbarScroll"
-      style="background-color: rgb(15, 134, 239); float: left; width: auto"
-    >
-
-    </div> -->
+<!-- <div style="width: 100px;"><h1>hwllo</h1></div> -->

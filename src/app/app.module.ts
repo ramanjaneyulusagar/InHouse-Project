@@ -37,7 +37,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
 import { HeaderNavComponent } from './Header-Main/header-nav/header-nav.component';
 import { HeaderSideNavComponent } from './Header-Main/header-side-nav/header-side-nav.component';
-
+import { NgOptimizedImage } from '@angular/common';
+import { provideImageKitLoader } from '@angular/common';
+import { provideCloudflareLoader } from '@angular/common';
+import { IntroPageComponent } from './intro-page/intro-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,22 +55,42 @@ import { HeaderSideNavComponent } from './Header-Main/header-side-nav/header-sid
     ForgotComponent,
     RegistrationformComponent,
     HeaderNavComponent,
-    HeaderSideNavComponent
+    HeaderSideNavComponent,
+    IntroPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    , NgbModule, ReactiveFormsModule, BrowserAnimationsModule,
-    MatToolbarModule, MatSidenavModule, MatButtonModule, MatIconModule, MatDividerModule,
-    MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule,
-    MatNativeDateModule, MatRadioModule, NgMultiSelectDropDownModule.forRoot(),
-    GenericListFilterModule, MatCardModule, MatListModule, AngularFileUploaderModule, NgxPaginationModule
-
-
+    HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    GenericListFilterModule,
+    MatCardModule,
+    MatListModule,
+    AngularFileUploaderModule,
+    NgxPaginationModule,
+    NgOptimizedImage,
   ],
-  providers: [InhouseService],
-  bootstrap: [AppComponent]
+  providers: [
+    InhouseService,
+    // provideImageKitLoader('https://ik.imagekit.io/arungudelli/'),
+    // provideCloudflareLoader("<cloudflare cdn url>")
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
