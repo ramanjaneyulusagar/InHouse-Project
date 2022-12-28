@@ -37,19 +37,30 @@ background-size: 100% 100%;
   float: right;
   color: blue;
 }
-#googlinImg{
+#googlinImg {
   width: 40px;
   margin-bottom: 3px;
   border-radius: 50px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-#googlinText{
-  /* margin-top: 10px; */
-  /* margin-left: 3px; */
-  color: rgb(9, 9, 9);
+/* .btn {
+ width: inherit;
+ height: inherit;
+  margin-right: 30px;
+} */
+#googlinText {
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(39, 21, 74);
+  margin-left: 3px;
 }
 mat-toolbar{
   background-color: transparent;
   /* margin-left: 20px; */
   justify-content: center;
   justify-items: center;
+}
+mat-label{
+font-size: 11px;
 }

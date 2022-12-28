@@ -41,6 +41,16 @@ import { NgOptimizedImage } from '@angular/common';
 import { provideImageKitLoader } from '@angular/common';
 import { provideCloudflareLoader } from '@angular/common';
 import { IntroPageComponent } from './intro-page/intro-page.component';
+import { AccordionModule } from 'primeng/accordion'; //accordion and accordion tab
+import { MenuItem } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api'; //api
+import { FileUploadModule } from 'primeng/fileupload';
+import { CommonModule } from '@angular/common';
+// import { NgxCsvModule } from 'ngx-csv';
+// import{CsvFormat} from '@angular/common';
+// import { NgxCsvModule } from 'ngx-csv';
+import {MatMenuModule} from '@angular/material/menu';
+import { ImagesSliderComponent } from './Header-Main/images-slider/images-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +67,7 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
     HeaderNavComponent,
     HeaderSideNavComponent,
     IntroPageComponent,
+    ImagesSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +84,7 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
     MatDividerModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatMenuModule,
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
@@ -85,9 +97,11 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
     AngularFileUploaderModule,
     NgxPaginationModule,
     NgOptimizedImage,
+    AccordionModule,FileUploadModule,CommonModule,NgOptimizedImage
   ],
   providers: [
     InhouseService,
+
     // provideImageKitLoader('https://ik.imagekit.io/arungudelli/'),
     // provideCloudflareLoader("<cloudflare cdn url>")
   ],

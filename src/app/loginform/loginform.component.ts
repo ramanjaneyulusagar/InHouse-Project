@@ -19,7 +19,8 @@ export class LoginformComponent implements OnInit, OnDestroy {
   isValidFormSubmitted: any;
   loginCredentials!: Subscription;
   loginForm!: FormGroup;
-
+  emailValid: string = '';
+  passwordValid: string = '';
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -41,8 +42,10 @@ export class LoginformComponent implements OnInit, OnDestroy {
       ]),
     });
   }
-validLogin:any
-  ngOnInit(): void {this.validLogin='hello'}
+  validLogin: any;
+  ngOnInit(): void {
+    this.validLogin = 'hello';
+  }
   public error: any;
 
   onSubmit() {
@@ -52,25 +55,29 @@ validLogin:any
       password: this.loginForm.value.password,
     };
     if (this.loginForm.invalid) {
-      return;
       console.log(this.loginForm.value);
+      return;
     } else {
       if (this.loginForm.valid) {
-        console.log(this.loginForm.value)
+        console.log(this.loginForm.value);
         this.loginCredentials = this.service
           .logincheck(obj)
+          .pipe(catchError((res) => of(res)))
           .subscribe((data: any) => {
-            let cred = data;
+            let cred = JSON.stringify(data);
             console.log(cred);
             let e = (error: any) => {
               console.log(error);
             };
-            if (cred) {
+            if (data.response) {
               localStorage.setItem('admin', 'loggedin');
-              this.router.navigate(['/dashboard']);
+              this.router.navigate(['/applicant']);
             }
-            if (e) {
-              console.log(e);
+            if (data.message) {
+              console.log(data.error.message);
+              alert(data.error.message);
+              this.emailValid = data.error.message;
+              this.loginForm.reset();
             }
           });
       } else {

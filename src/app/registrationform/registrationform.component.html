@@ -1,13 +1,14 @@
-<app-header-nav page="register"></app-header-nav>
-<div class="login-container">
+<!-- <app-header-nav page="register"></app-header-nav> -->
+<div class="login-container" style="margin-top: 40px;">
   <div class="login-content">
-    <mat-card style="box-shadow: 1px 1px 10px 0px rgb(130, 127, 127)">
+    <mat-card style="box-shadow: 1px 1px 10px 0px rgb(148, 148, 146)">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="mb-3">
           <mat-toolbar>
-            <!-- <img src="../assets/android-chrome-512x512.png" id="googlinImg" /> -->
-            <span style="font-size: 19px;" id="googlinText">REGISTER</span></mat-toolbar>
+            <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
+            <span style="font-size: 15px;" id="googlinText">GOOGLIN</span></mat-toolbar>
           <mat-form-field>
+            <mat-label>Name</mat-label>
             <input matInput type="text" id="name" class="form-control-lg" placeholder="Name" formControlName="name"
               name="name" autocomplete="true" minlength="4" maxlength="20" />
             <small class="form-text text-danger" *ngIf="
@@ -18,23 +19,32 @@
             </small>
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Email</mat-label>
             <input matInput type="email" id="email" class="form-control-lg" formControlName="email" name="email"
               placeholder="Email" autocomplete="true" />
             <small class="form-text text-danger" *ngIf="
                 loginForm.controls['email'].touched &&
-                loginForm.controls['email']
+                loginForm.controls['email'].invalid
               ">
               Please enter valid email address.!
             </small>
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Password</mat-label>
             <input matInput type="password" formControlName="password" placeholder="Password"
               [type]="hide ? 'password' : 'text'" class="form-control-lg" minlength="6-20" />
 
             <mat-icon matSuffix (click)="hide = !hide">{{ hide ? "visibility_off" : "visibility" }}
             </mat-icon>
+            <small class="form-text text-danger" *ngIf="
+            loginForm.controls['password'].touched &&
+            loginForm.controls['password'].invalid
+          ">
+          Please enter valid password.!
+        </small>
           </mat-form-field>
           <mat-form-field>
+            <mat-label>ConfirmPassword</mat-label>
             <input matInput type="password" class="form-control-lg" formControlName="confirmpassword"
               autocomplete="true" placeholder="ConfirmPassword" name="confirmpassword" />
             <small class="form-text text-muted" *ngIf="
@@ -47,9 +57,9 @@
         </div>
 
         <div class="mb-3 d-grid">
-          <button type="submit" class="btn btn-primary" style="background-color: rgb(15, 54, 109)"
-            [disabled]="!loginForm.valid">
-            REGISTER
+          <button type="submit" class="btn btn-primary" style="background-color: rgb(15, 54, 109)" routerLink="/dashboard"
+           >
+            <span style="font-size: 13px;">REGISTER</span>
           </button>
         </div>
       </form>

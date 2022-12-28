@@ -7,10 +7,10 @@ mat-form-field{
     margin: 15px 0;
     align-items: flex-start;
   }
-  
+
   .example-radio-button {
     margin: 5px;
   }
   label{
-    font-weight: bold;
+    font-weight: lighter;
   }

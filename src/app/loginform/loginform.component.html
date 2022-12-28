@@ -1,12 +1,40 @@
-<app-header-nav page="login"></app-header-nav>
-<div class="d-flex justify-content-center">
-  <mat-card style="box-shadow: 1px 1px 10px 0px rgb(148, 146, 146);width: 400px;height: 400px;">
-    <mat-toolbar >
-      <!-- <img src="../assets/android-chrome-512x512.png" id="googlinImg" /> -->
-      <span id="googlinText" style="font-size: 19px;"> LOGIN</span></mat-toolbar
-    >
+<!-- <app-header-nav page="login"></app-header-nav> -->
+<div
+  class="d-flex justify-content-center"
+  style="
+    /* background-image: url('../assets/background-dp.jpg'); */
+    background-repeat: no-repeat;
+    /* background-size: 100% 90%; */
+    /* height: 620px; */
+    /* background-color: transparent; */
+  "
+>
+  <mat-card
+    style="
+      box-shadow: 1px 1px 10px 0px rgb(148, 146, 146);
+      width: 400px;
+      height: 400px;
+      /* background-color: transparent; */
+      margin-top: 50px;
+    "
+  >
+    <div class="mb-4">
+      <mat-toolbar
+        style="
+          background-color: transparent;
+          justify-content: center;
+          justify-items: center;
+        "
+      >
+        <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
+        <span id="googlinText"> GOOGLIN</span></mat-toolbar
+      >
+      <!-- <h4 style="justify-content: center;justify-items: center;">LOGIN</h4> -->
+      <p class="mb-2"></p>
+    </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
       <mat-form-field>
+        <mat-label>Email</mat-label>
         <input
           id="emaila"
           (keypress)="EmailValue()"
@@ -16,19 +44,26 @@
           type="email"
           class="form-control-lg"
           formControlName="email"
-          placeholder="Email"
+          placeholder="Enter your email"
           required
           maxlength="30"
         />
+        <small
+          class="form-text text-danger"
+          *ngIf="loginForm.controls['email'].invalid"
+        >
+          {{ emailValid }}
+        </small>
       </mat-form-field>
 
       <mat-form-field>
+        <mat-label>Password</mat-label>
         <input
           maxlength="20"
           matInput
           type="password"
           formControlName="password"
-          placeholder="Password"
+          placeholder="Enter your password"
           [type]="hide ? 'password' : 'text'"
           class="form-control-lg"
           minlength="6-20"
@@ -37,19 +72,30 @@
         <mat-icon matSuffix (click)="hide = !hide">{{
           hide ? "visibility_off" : "visibility"
         }}</mat-icon>
+        <small
+          class="form-text text-danger"
+          *ngIf="loginForm.controls['password'].invalid"
+        >
+          {{ passwordValid }}
+        </small>
       </mat-form-field>
       <button
-        type="submit"
+        type="button"
         mat-raised-button
         class="btn btn-success"
-
-        routerLink="/dashboard"
+        [disabled]="!loginForm.valid"
       >
-        LOGIN
+        <span style="font-size: 13px" routerLink="/applicant">LOGIN</span>
       </button>
       <br /><br />
       <!-- <a class="small" routerLink="/Forgot">Forgot password?</a> -->
-      <a class="small" routerLink="/Forgot" id="newregister" style="font-size: 15px;">Forgot password? </a>
+      <a
+        class="small"
+        routerLink="/Forgot"
+        id="newregister"
+        style="font-size: 11px"
+        >Forgot password?
+      </a>
     </form>
   </mat-card>
 </div>

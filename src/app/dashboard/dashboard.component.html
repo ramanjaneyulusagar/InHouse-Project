@@ -1,37 +1,101 @@
 
-<nav class="navbar navbar-expand-lg">
+<!-- <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" (click)="route.navigate([''])">
       <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
-      <span id="googlinText" > Googlin</span>
+      <span id="googlinText"> GOOGLIN</span>
     </a>
     <div class="d-flex" role="search">
       <button
-        mat-raised-button
-        class="btn btn"
-        (click)="LoginOut()"
-        style="background-color:rgb(15, 54, 109);"
+        style="
+          border: none;
+          background: none;
+          background-color: transparent;
+          margin-right: 15px;
+        "
       >
-        <span style="color: white;font-size: 14px;">LOGOUT</span>
+        <span
+          style="
+            font-size: 13px;
+            font-weight: 500;
+            color: rgb(39, 29, 74);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          "
+          >SERVICES</span
+        >
+      </button>
+      <button
+        style="
+          border: none;
+          background: none;
+          /* background-color: transparent; */
+          margin-right: 15px;
+        "
+      >
+        <span
+          style="
+            font-size: 13px;
+            font-weight: 500;
+            color: rgb(39, 29, 74);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          "
+          >FEATURES</span
+        >
+      </button>
+      <button
+        style="
+          border: none;
+          background: none;
+          /* background-color: transparent; */
+          margin-right: 15px;
+        "
+      >
+        <span id="about"
+          style="
+            font-size: 13px;
+            font-weight: 500;
+            color: rgb(39, 29, 74);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          "
+          >ABOUT</span
+        >
+      </button>
+      <button
+        style="
+          border: none;
+          background: none;
+          /* background-color: transparent; */
+          margin-right: 30px;
+        "
+      >
+        <mat-icon style="color: rgb(39, 29, 74);margin-top: 5px;" [matMenuTriggerFor]="afterMenu"
+          >person</mat-icon
+        >
+
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+          <button mat-menu-item>Profile</button>
+          <button mat-menu-item>LogOut</button>
+        </mat-menu>
       </button>
     </div>
   </div>
-</nav>
-<app-side-nav></app-side-nav>
+</nav> -->
+<app-header-nav page="dashboard"></app-header-nav>
+<div style="margin-top: 5px"><app-side-nav></app-side-nav></div>
 <!-- <div style="display: flex">
   <div class="content">
     <div>
       <img src="/assets/hiring.webp" id="dashboardImage" height="450px" />
     </div>
   </div> -->
-  <!-- <button mat-button class="menu-button">
+<!-- <button mat-button class="menu-button">
     <mat-icon>person</mat-icon>
 
   </button> -->
-  <!-- <span routerLink="/applicant" style="font-size: 20px; margin-left: 10px"
+<!-- <span routerLink="/applicant" style="font-size: 20px; margin-left: 10px"
     >Applicants</span -->
 
-  <!-- <div>
+<!-- <div>
     <div style="background-color: rgba(229, 232, 232, 0); overflow: hidden">
       <h1
         style="
@@ -46,10 +110,10 @@
       </h1>
       <div style="margin-top: 20px;">
         <input type="file" #file name="file" />
-        <!-- <button mat-raised-button color="primary" style="margin-top: 0px;background-color: rgb(54, 89, 229);">
+         <button mat-raised-button color="primary" style="margin-top: 0px;background-color: rgb(54, 89, 229);">
           Upload
         </button> -->
-    <!--  </div>
+<!--  </div>
     </div>
     <div>
       <h2
@@ -172,3 +236,21 @@
 </div> -->
 
 <!-- <div style="width: 100px;"><h1>hwllo</h1></div> -->
+<!-- <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="route.navigate([''])">
+      <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
+      <span id="googlinText" > </span>
+    </a>
+    <div class="d-flex" role="search">
+      <button
+        mat-raised-button
+        class="btn btn"
+        (click)="LoginOut()"
+        style="background-color:rgb(15, 54, 109);"
+      >
+        <span style="color: white;font-size: 13px;">LOGOUT</span>
+      </button>
+    </div>
+  </div>
+</nav> -->

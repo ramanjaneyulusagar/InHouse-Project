@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { LoginformComponent } from 'src/app/loginform/loginform.component';
-
+import { NgOptimizedImage } from '@angular/common'
 @Component({
   selector: 'app-header-nav',
   templateUrl: './header-nav.component.html',
@@ -14,10 +14,11 @@ export class HeaderNavComponent implements OnInit {
   signInButton = true;
   divContent = true;
   @Input() page: string = '';
-  constructor(public route: Router) {}
+  constructor(public route: Router) { }
 
   ngOnInit() {
-    // throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.')/////
+
   }
   LoginTo() {
     this.loginButton = false;
@@ -29,7 +30,7 @@ export class HeaderNavComponent implements OnInit {
   DashboardPage() {
     this.route.navigate(['dashboard']);
   }
-  LogOut(){
+  LogOut() {
     this.route.navigate(['']);
   }
 }

@@ -19,7 +19,7 @@ export class RegistrationformComponent implements OnInit {
   loginForm!: FormGroup;
   constructor(private service: InhouseService, private _router: Router) {
     this.loginForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z{20,30}$]')]),
       email: new FormControl('', [
         Validators.required,
         Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$'),

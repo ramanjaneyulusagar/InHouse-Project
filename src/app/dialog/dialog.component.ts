@@ -11,9 +11,10 @@ export class DialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
   }
-
+edu:any;
   ngOnInit(): void {
     console.log(this.data);
+this.edu=JSON.parse(JSON.stringify( this.data.details.EDUCATIONDETAILS))
 
   }
 

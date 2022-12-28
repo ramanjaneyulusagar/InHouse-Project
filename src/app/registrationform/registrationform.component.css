@@ -56,3 +56,6 @@ form {
   /* width:500px; */
   height: fit-content;
 }
+mat-label{
+  font-size: 13px;
+}

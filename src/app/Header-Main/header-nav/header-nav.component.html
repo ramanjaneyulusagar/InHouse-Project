@@ -1,62 +1,220 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" (click)="route.navigate([''])">
-      <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
-      <span id="googlinText"> Googlin</span>
+      <img src="/assets/android-chrome-512x512.png" id="googlinImg" priority fill rel="preconnect"  />
+      <span id="googlinText"> GOOGLIN </span>
+      <!-- <span style="margin-top: 10px;"><mat-icon>search</mat-icon></span> -->
     </a>
     <div class="d-flex" role="search">
-      <button mat-raised-button class="btn btn" *ngIf="page == 'applicant'" (click)="DashboardPage()"
-        style="background-color: rgb(88, 121, 167)">
-        <span style="color: rgb(242, 237, 237); font-size: 14px">DASHBOARD</span>
-      </button>
-      <button mat-raised-button class="btn btn" *ngIf="page != 'login' && page != 'register' && page == 'applicant'"
-        (click)="LogOut()" style="background-color: rgb(15, 54, 109)">
-        <span style="color: white; font-size: 14px">LOGOUT</span>
-      </button>
-      <button mat-raised-button class="btn btn" *ngIf="page != 'login' && page != 'applicant'" (click)="LoginTo()"
-        style="background-color: rgb(15, 54, 109)">
-        <span style="color: white; font-size: 14px">LOGIN</span>
+      <div class="d-flex">
+        <button class="flex-button">
+          <span class="flex-span">HOME</span>
+        </button>
+        <button class="flex-button">
+          <span class="flex-span">ABOUT</span>
+        </button>
+        <button class="flex-button">
+          <span class="flex-span">SERVICES</span>
+        </button>
+        <button class="flex-button">
+          <span class="flex-span">PORTFOLIO</span>
+        </button>
+        <button class="flex-button">
+          <span class="flex-span" id="about">CONTACT</span>
+        </button>
+        <button
+          class="flex-button"
+          *ngIf="page == 'applicant' || page == 'dashboard'"
+        >
+          <mat-icon [matMenuTriggerFor]="afterMenu">person</mat-icon>
+          <mat-menu #afterMenu="matMenu" xPosition="after">
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item (click)="LogOut()">LogOut</button>
+          </mat-menu>
+        </button>
+      </div>
+      <button
+        mat-raised-button
+        class="btn"
+        *ngIf="page != 'applicant' && page != 'dashboard'"
+        (click)="LoginTo()"
+        style="background-color: rgb(15, 54, 109)"
+      >
+        LOGIN
       </button>
 
-      <button mat-raised-button class="btn btn-dark" *ngIf="page != 'register' && page != 'applicant'"
-        (click)="SignInTo()" style="background-color: rgb(20, 109, 172); font-size: 14px">
-        SIGNUP
+      <button
+        mat-raised-button
+        class="btn"
+        *ngIf="page != 'applicant' && page != 'dashboard'"
+        (click)="SignInTo()"
+        style="background-color: rgb(20, 109, 172)"
+      >
+        SIGN UP
       </button>
     </div>
   </div>
 </nav>
-<div class="d-flex" *ngIf="page != 'register' && page != 'login' && page != 'applicant'">
+<!-- <div><div style="margin: 100px; width: 800px; height: 300px;">
+  <app-images-slider></app-images-slider>
+</div></div> -->
+<div
+  style="
+    background-image: url('../assets/android-chrome-512x512.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  "
+  class="d-flex"
+  *ngIf="
+    page != 'register' &&
+    page != 'login' &&
+    page != 'applicant' &&
+    page != 'dashboard'
+  "
+>
+  <!-- <img src="/assets/images/searching_for_candidate_isometric_illustrating-06.jpg" id="bg-image" /> -->
+
   <div>
-    <img src="/assets/images/searching_for_candidate_isometric_illustrating-06.jpg" id="bg-image" />
-  </div>
-  <!-- <img src=" assets/2014-06-11-0e-Recruit.a9f4e.jpg" id="bg-image" /> -->
-  <div style="width: inherit; height: 100%;margin-top: 50px;margin-left: 30px;">
-    <div>
-      <h3 style="color: rgb(64, 107, 99)">Upload Candidate profiles</h3>
-    </div>
-    <div>
-      <h3 style="border-radius: 2px; color: rgb(18, 86, 146)">
-        Search based on skills and experience
-      </h3>
-    </div>
-    <div>
-      <h3 style="
-          border-radius: 2px;
-          justify-content: center;
-          color: rgb(19, 19, 20);
-        ">
-        Fetch full details of the Candidate
-      </h3>
-    </div>
-    <div>
-      <h3>we helped recruiters to ease the process</h3>
-    </div>
-    <h3>of selecting candidates within short period of time</h3>
-    <div style="color: rgb(71, 9, 133)">
-      <h3>Googlin will do the selection</h3>
-      <h3>for the perfect candidate by filtering the profiles</h3>
+    <h1
+      style="
+        font-weight: bolder;
+        font-size: 50px;
+        margin-top: 70px;
+        font-family: papyrys;
+        color: rgb(104, 58, 31);
+      "
+    >
+      The Art Of Hiring
+    </h1>
+    <br />
+    <div
+      style="line-height: 40px; font-size: 15px; width: auto; height: auto"
+      class="textInfo"
+    >
+      <span
+        style="margin-top: 40px; font-weight: bold; color: rgb(64, 138, 138)"
+        >Do You need An Developer Who Develop Your Product</span
+      ><br />
+      <span
+        style="margin-top: 30px; font-family: papyrys; color: rgb(74, 96, 105)"
+        >Here Is The Super Platform To Find The Perfect One</span
+      ><br />
+      <span style="font-weight: bold; margin-top: 30px; color: rgb(88, 46, 146)"
+        >Hire Candidates In Googlin With Excellent Skills</span
+      >
     </div>
   </div>
 </div>
 
+<!-- <div class="d-flex" *ngIf="page != 'register' && page != 'login' && page != 'applicant'" style="display:-ms-inline-flexbox;"> -->
+
+<!-- <img src="/assets/images/searching_for_candidate_isometric_illustrating-06.jpg" id="bg-image" /> -->
+<!-- <img src="/assets/christamas.jpg" width="300px" height="200px" style="margin: 20px;" /> -->
+<!-- </div> -->
+<!-- <div style="width: inherit; height: 100%; margin-top: 50px; margin-left: 30px"
+  *ngIf="page != 'register' && page != 'login' && page != 'applicant'">
+  <div>
+    <h3 style="color: rgb(64, 107, 99)">Upload Candidate profiles</h3>
+  </div>
+  <div>
+    <h3 style="border-radius: 2px; color: rgb(18, 86, 146)">
+      Search based on skills and experience
+    </h3>
+  </div>
+  <div>
+    <h3 style="
+        border-radius: 2px;
+        justify-content: center;
+        color: rgb(19, 19, 20);
+      ">
+      Fetch full details of the Candidate
+    </h3>
+  </div>
+  <div>
+    <h3>we helped recruiters to ease the process</h3>
+  </div>
+  <h3>of selecting candidates within short period of time</h3>
+  <div style="color: rgb(71, 9, 133)">
+    <h3>Googlin will do the selection</h3>
+    <h3>for the perfect candidate by filtering the profiles</h3>
+  </div>
+</div> -->
 <!-- <div style="width: 100px;"><h1>hwllo</h1></div> -->
+<!-- <button mat-raised-button class="btn btn" *ngIf="page != 'applicant'" (click)="DashboardPage()"
+        style="background-color: rgb(88, 121, 167)">
+        <span style="color: rgb(242, 237, 237); font-size: 14px">DASHBOARD</span>
+      </button> -->
+<!-- <img src=" assets/2014-06-11-0e-Recruit.a9f4e.jpg" id="bg-image" /> -->
+<!-- <button mat-raised-button class="btn btn" *ngIf="page != 'login' && page !='applicant'"
+        (click)="LogOut()" style="background-color: rgb(15, 54, 109)">
+        <span class="nav-span">LOGOUT</span>
+      </button> -->
+<!-- <footer >
+
+  <div class="container">
+
+    <section >
+
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-google"></i
+      ></a>
+
+
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+
+  </div>
+  Grid container
+
+  Copyright
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+
+</footer> -->

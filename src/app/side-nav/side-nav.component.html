@@ -1,37 +1,53 @@
-<button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+<button
+  mat-icon-button
+  *ngIf="sidenav.mode === 'over'"
+  (click)="sidenav.toggle()"
+>
   <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
 </button>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" style="overflow: none">
+<mat-sidenav-container
+  style="overflow: hidden; background-color: white; width: 100%;"
+>
+<mat-sidenav-content>
+  <div class="content">
+    <div style=" height: 480px;">
+      <!-- <img src="../../assets/img.jpg" width="100%" height="500px" /> -->
+    </div>
+  </div>
+</mat-sidenav-content>
+  <mat-sidenav #sidenav="matSidenav" style="overflow: hidden">
     <button mat-button class="menu-button">
-      <mat-icon>person</mat-icon>
-      <span routerLink="/applicant" style="font-size: 13px;">APPLICANTS</span></button><br />
+      <mat-icon style="color: black; width: 35px">person</mat-icon>
+      <span routerLink="/applicant" style="font-size: 13px">APPLICANTS</span>
+    </button>
 
     <!-- <mat-divider></mat-divider> -->
     <div style="background-color: rgba(229, 232, 232, 0); overflow: hidden">
-      <h1 style="
-          font-family: monospace;
+      <h1
+        style="
+          /* font-family: sans-serif; */
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           font: caption;
-          color: white;
+          /* color: white; */
           margin-top: 80px;
-        ">
-        Upload Document Here
+          font-size: 15px;
+        "
+      >
+        upload document here
       </h1>
-
+      <!--  accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" -->
       <div>
-        <input type="file" (change)="onChange($event)" #file name="file" />
-        <button (click)="onUpload(); file.value = ''" mat-raised-button color="white"
-          style="margin-top: 30px;font-size: 13px;">
-          UPLOAD
+        <input type="file" (change)="onChange($event)" #file name="file"  />
+        <button
+          (click)="onUpload(); file.value = ''  "
+          mat-raised-button
+          color="white"
+          style="margin-top: 30px; font-size: 11px; line-height: 30px"
+        >
+          <span>UPLOAD</span>
         </button>
       </div>
     </div>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content">
-      <div>
-        <img src="../../assets/img.jpg" width="100%" height="500px" />
-      </div>
-    </div>
-  </mat-sidenav-content>
+
 </mat-sidenav-container>
