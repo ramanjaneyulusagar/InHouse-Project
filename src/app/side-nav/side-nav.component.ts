@@ -19,7 +19,7 @@ export class SideNavComponent implements OnInit {
   uploadedFiles: File[] = [];
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-
+page:string='';
   constructor(
     private observer: BreakpointObserver,
     private service: InhouseService,
@@ -61,7 +61,7 @@ export class SideNavComponent implements OnInit {
     this.router.navigate(['']);
   }
   hide: any;
-  file: any = File;
+  file: any=File ;
   onChange(event: any) {
     this.file = event.target.files[0];
   }
@@ -77,10 +77,11 @@ export class SideNavComponent implements OnInit {
         .post(apis.UPLOADFILE(), formData,{responseType: 'text'})
         .subscribe((data: any) => console.log(JSON.stringify(data),alert(data)
 
-        )
+        ),
+
       // formData.reset()
       );
-
+this.file='';
       // console.log
       }
 

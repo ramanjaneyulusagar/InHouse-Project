@@ -13,7 +13,7 @@
     style="
       box-shadow: 1px 1px 10px 0px rgb(148, 146, 146);
       width: 400px;
-      height: 400px;
+      height: 380px;
       /* background-color: transparent; */
       margin-top: 50px;
     "
@@ -29,6 +29,7 @@
         <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
         <span id="googlinText"> GOOGLIN</span></mat-toolbar
       >
+      <h1 style="text-align: center;">Login</h1>
       <!-- <h4 style="justify-content: center;justify-items: center;">LOGIN</h4> -->
       <p class="mb-2"></p>
     </div>
@@ -81,13 +82,14 @@
       </mat-form-field>
       <button
         type="button"
-        mat-raised-button
+
+        style="font-size: 13px;float:right;width: 90px;" routerLink="/applicant"
         class="btn btn-success"
         [disabled]="!loginForm.valid"
       >
-        <span style="font-size: 13px" routerLink="/applicant">LOGIN</span>
+        Login
       </button>
-      <br /><br />
+
       <!-- <a class="small" routerLink="/Forgot">Forgot password?</a> -->
       <a
         class="small"

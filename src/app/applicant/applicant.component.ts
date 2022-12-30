@@ -29,14 +29,12 @@ export interface exd {
   styleUrls: ['./applicant.component.css'],
 })
 export class ApplicantComponent implements OnInit {
-  p: number = 1;
-  total: number = 0;
-  url = apis.url;
   @Input() groupFilters!: Object;
   @Input() searchByKeyword!: string;
   page: number = 1;
   itemsPerPage!: number;
   totalItems!: number;
+
   constructor(
     private route: Router,
     private dialog: MatDialog,
@@ -61,7 +59,10 @@ export class ApplicantComponent implements OnInit {
     noDownload: false,
     headers: ['id', 'NAME', 'EMAIL', 'EDUCATION', 'EDUCATIONDETAILS', 'SKILLS'],
   };
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('server data found');
+  }
+ increase=0;
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, this.data);
 
@@ -75,7 +76,9 @@ export class ApplicantComponent implements OnInit {
     EDUCATION: '',
   };
   numberOfElements: any;
+  dataNumber: any;
   exceldata: any;
+  datasize: any;
   // search data using dropdown
   search(data: any) {
     console.log(data);
@@ -83,13 +86,16 @@ export class ApplicantComponent implements OnInit {
       console.log(data);
       if (data !== null) this.hide = true;
       this.exportdata = data['content'];
+      this.dataNumber = data.totalRows;
+      this.datasize = data.size;
 
       this.numberOfElements = data.numberOfElements;
 
       let id = this.exportdata.map((a: any) => {
         console.log();
       });
-      // console.log(a.id);
+      this.formdata.SKILLS='';
+      this.formdata.EDUCATION='';
     });
     (Error: HttpErrorResponse) => {
       alert('no data found' + Error);
@@ -146,145 +152,31 @@ export class ApplicantComponent implements OnInit {
       });
     }
   }
-  pageCount: number = 1;
-  pageCountPrevious: boolean = true;
-  pageCountNext: boolean = false;
-  nextPage() {
-    if (this.pageCount === 1) this.pageCountPrevious = false;
-    this.pageCount++;
+
+  paginated(page: any) {
+    // debugger
+    // window.location.reload();
+    this.page = page;
     this.http
-      .post(
-        `http://localhost:8080/app/search/${this.pageCount}/10`,
-        this.formdata
-      )
+      .post(`http://localhost:8080/app/search/${this.page}/10`, this.formdata)
       .pipe(
         catchError(async (err: any) =>
-          alert('no data found' + JSON.stringify(err) + this.pageCount--)
+          alert('no data found' + JSON.stringify(err))
         )
       )
-      .subscribe(
-        (data: any) => {
-          // this.exportdata=data['content'];
-          if (data !== null) {
-            this.exportdata = data['content'];
-            this.numberOfElements = data.numberOfElements;
-          } else {
-            alert('no data from server');
-            console.log(this.pageCount);
-          }
-        },
-        (err: any) => {
-          alert(err);
-        }
-      );
-  }
-  previousPage() {
-    if (this.pageCount === 2) {
-      this.pageCountPrevious = true;
-    } else {
-      this.pageCountPrevious = false;
-    }
-    this.pageCount--;
-    let page = this.pageCount;
-    console.log(this.pageCount, page);
-    this.http
-      .post(
-        `http://localhost:8080/app/search/${this.pageCount}/10`,
-        this.formdata
-      )
-      .pipe(catchError(async (err) => alert(this.pageCount)))
-      .subscribe((data: any) => {
-        //debugger;
-        if (data) {
-          this.exportdata = data['content'];
-          this.numberOfElements = data.numberOfElements;
-        } else {
-          // alert('no data from server');
-        }
+      .subscribe((d: any) => {
+
+       if(d){
+         // debugger
+         this.exportdata = d['content'];
+         this.numberOfElements = d.numberOfElements;
+         this.itemsPerPage = 10;
+         this.totalItems = d.totalElements;
+         console.log(this.page);
+       }
+       else{
+        this.page--
+       }
       });
-    (Error: HttpErrorResponse) => {
-      alert(Error);
-    };
   }
 }
-// pdf() {
-//   const doc = new jsPDF();
-//   autoTable(doc, { html: '#table' });
-//   doc.save('table.pdf');
-//   //<button (click)="pdf()" class="btn btn-primary" *ngIf="hide">pdf</button>
-// }
-// let name=this.exportdata.map((e:any)=>{
-//   e['details'].NAME
-// });
-// let email=this.exportdata.map((e:any)=>{
-//   e['details'].EMAIL
-// });
-// let education=this.exportdata.map((e:any)=>{
-//   e['details']['EDUCATION']
-// });
-// let educationdetails=this.exportdata.map((e:any)=>{
-//   e['details']['EDUCATIONDETAILS']
-// });
-// let skills=this.exportdata.map((e:any)=>{
-//   e['details']['SKILLLS']
-// });
-// exportCsv() {
-//   const formattedData = this.data.map((dataItem: any) => {
-//     return {
-//       Name: dataItem.name,
-//       Age: dataItem.age,
-//       City: dataItem.city,
-//     };
-//   });
-
-//   const d = CsvFormat.format(formattedData);
-//   const blob = new Blob([d], { type: 'text/csv' });
-//   saveAs(blob, 'data.csv');
-// }
-// let d:exd[]=[];
-// this.exportdata.map((a:any)=>{
-//   const id =a['id'];
-//     const name= a['details']['NAME'];
-//      const email =a['details']['EMAIL']
-//    const education =a['details']['EDUCATION']
-//     const educationdetails=a['details']['EDUCATIONDETAILS']
-//     const  skills =a['details']['SKILLS']
-
-//       d.push(id,name,email,education,educationdetails,skills)
-// })
-// d.push(csv);
-// arrayToString(data: any) {
-//   let result: string = '';
-//   for (let i = 0; i < data.length; i++) {
-//     result = result.concat(data[i] + ',');
-//   }
-//   result = result.substring(0, result.length - 1);
-//   //console.log(result)
-//   return result;
-// }
-
-// console.log(exp);
-
-//
-// });
-
-// let exportView = this.exportdata.flatMap((e: any) => ({
-//   id: e.id,
-//   ...e.details,
-// }));
-// console.log(exportView);
-// let tempData = this.exportdata;
-// for (let i = 0; i < tempData.length; i++) {
-//   //console.log(tempData[i]["details"]["SKILLS"])
-//   tempData[i]['details']['SKILLS'] = this.arrayToString(
-//     tempData[i]['details']['SKILLS']
-//   );
-//   console.log(tempData[i]["details"]["SKILLS"])
-// }
-//tempData["SKILLS"] = this.arrayToString(tempData["SKILLS"])
-// console.log(tempData);
-// let id = this.exportdata.map((e: any) => {
-//   e['details'].id
-// });
-// console.log(id, "id");
-//

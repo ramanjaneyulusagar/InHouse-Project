@@ -1,8 +1,8 @@
 <app-header-nav page="applicant"></app-header-nav>
-<div class="container-fluid" >
+<div class="container-fluid" style="background-color: rgb(226, 230, 233)">
   <div class="row">
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid"  id="container-fluid1">
+      <div class="container-fluid" id="container-fluid1">
         <button
           class="navbar-toggler"
           type="button"
@@ -17,9 +17,8 @@
         <div
           class="collapse navbar-collapse"
           id="navbarSupportedContent2"
-          style="margin-top: 15px"
+          style="margin-top: 10px"
         >
-          <div></div>
           <ul
             class="navbar-nav mb-lg-0"
             style="margin-left: 15px"
@@ -32,14 +31,14 @@
             >
               <nav class="navbar" id="navbar1">
                 <div class="row">
-                  <div class="col" style="width: 230px">
+                  <div class="col">
                     <div class="form-outline">
                       <select
                         class="form-select"
                         aria-label="Default select example"
                         [(ngModel)]="formdata.EDUCATION"
                         name="education"
-                        style="font-size: 12px"
+                        style="font-size: 12px; width: 100%"
                       >
                         <option selected value="">EDUCATION</option>
                         <option value="B.TECH">B.TECH</option>
@@ -49,13 +48,13 @@
                     </div>
                   </div>
                   <div class="col">
-                    <div class="form-outline" >
+                    <div class="form-outline">
                       <select
                         class="form-select"
                         aria-label="Default select example"
                         [(ngModel)]="formdata.SKILLS"
                         name="skills"
-                        style="font-size: 12px"
+                        style="font-size: 12px; width: 100%"
                       >
                         <option selected value="">SKILLS</option>
                         <option value="JAVA">JAVA</option>
@@ -78,7 +77,7 @@
                         class="form-select"
                         aria-label="Default select example"
                         name="education"
-                        style="font-size: 12px"
+                        style="font-size: 12px; width: 100%"
                       >
                         <option selected value="">EXPERIENCE</option>
                         <option value="B.TECH">1</option>
@@ -92,48 +91,12 @@
                   </div>
                   <div class="col" id="sbtn">
                     <div>
-                      <button
-                        class="btn btn"
-                        mat-raised-button
-
-                        type="submit"
-                        style="
-                          background-color: rgb(99, 165, 224);
-                          color: rgb(251, 251, 251);
-                          font-size: 11px;
-                          /* height: 35px; */
-                          line-height: 26px;
-                          font-weight: 500;
-                          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        "
-                      >
+                      <button class="btn btn" mat-raised-button type="submit">
                         <span>SEARCH</span>
                       </button>
                     </div>
                   </div>
                 </div>
-                <!-- <div style="float: right; display: flex; margin-right: 20px">
-                  <div class="col" id="ebtn">
-                    <div>
-                      <button
-                        class="btn btn"
-                        mat-raised-button
-                        color="primary"
-                        (click)="exportXl()"
-                        style="
-                          background-color: rgb(15, 54, 109);
-                          color: rgb(250, 250, 250);
-                          font-size: 11px;
-                          line-height: 26px;
-                          margin-bottom: 7px;
-                          /* height: 35px; */
-                        "
-                      >
-                        <span >EXPORT</span>
-                      </button>
-                    </div>
-                  </div>
-                </div> -->
               </nav>
             </form>
           </ul>
@@ -143,14 +106,14 @@
   </div>
 </div>
 
-<div *ngIf="numberOfElements>0"  id="tableDiv">
+<div id="tableDiv" *ngIf="numberOfElements > 1">
   <table
-    class="table table-hover table-responsive-lg"
-    style=" padding:.1rem; "
+    class="table table-hover table-borderless table-sm table-striped"
+    style="padding: 0.1rem"
     id="table"
   >
     <thead class="table-light">
-      <tr style="font-size: 13px">
+      <tr style="font-size: 12px">
         <th>#</th>
         <th scope="col">NAME</th>
         <th scope="col">EMAIL</th>
@@ -158,49 +121,40 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let d of exportdata; let i = index" (click)="viewdetails(d)">
-        <td>{{ i + 1 }}</td>
+      <tr
+        *ngFor="
+          let d of exportdata
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: page,
+                  totalItems: totalItems
+                };let i =index
+        "
+      >
+        <td >{{i+1}}</td>
         <td>{{ d.details.NAME }}</td>
         <td>{{ d.details.EMAIL }}</td>
         <td>{{ d.details.SKILLS }}</td>
+        <!-- <td (click)="viewdetails(d)">details</td> -->
+        <td>
+          <i
+            class="fa fa-user"
+            aria-hidden="true"
+            (click)="viewdetails(d)"
+            style="color: rgb(89, 84, 167)"
+          ></i>
+        </td>
       </tr>
     </tbody>
   </table>
-</div>
-<div
-  class="d-flex"
-  *ngIf="numberOfElements > 1"
-  style="float: right;"
->
-  <button
-    mat-raised-button
-    [disabled]="pageCountPrevious"
-    (click)="previousPage()"
-    class="btn btn"
-    style="
-      margin-right: 10px;
-      margin-left: 20px;
-      color: white;
-      background-color: rgb(103, 174, 236);
-      font-size: 13px;
-    "
-  >
-    Previous Page
-  </button>
-  <button
-    mat-raised-button
-    (click)="nextPage()"
-    class="btn btn-primary"
-    [disabled]="pageCountNext"
-    style="
-      color: white;
-      background-color: rgb(15, 54, 109);
-      justify-items: center;
-      font-size: 13px;
-      margin-right: 30px;
-    "
-  >
-    Next Page
-  </button>
-  <!-- <div>{{ pageCount }}</div> -->
+  <!-- <span style="float: left;margin-right: 100px;">showing {{numberOfElements}} results in {{page}} page </span> -->
+  <div class="d-flex justify-content-end">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="paginated((page = $event))"
+    >
+    </pagination-controls>
+  </div>
 </div>

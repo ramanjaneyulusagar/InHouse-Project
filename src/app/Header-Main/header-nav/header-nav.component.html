@@ -1,35 +1,58 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" (click)="route.navigate([''])">
-      <img src="/assets/android-chrome-512x512.png" id="googlinImg" priority fill rel="preconnect"  />
+      <img
+        src="/assets/android-chrome-512x512.png"
+        id="googlinImg"
+        loading="lazy"
+        fill
+        rel="preconnect"
+      />
       <span id="googlinText"> GOOGLIN </span>
       <!-- <span style="margin-top: 10px;"><mat-icon>search</mat-icon></span> -->
     </a>
     <div class="d-flex" role="search">
       <div class="d-flex">
-        <button class="flex-button">
-          <span class="flex-span">HOME</span>
+        <button
+          class="flex-button"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          HOME
         </button>
-        <button class="flex-button">
-          <span class="flex-span">ABOUT</span>
+        <button
+          class="flex-button"
+          routerLink="/dashboard"
+          routerLinkActive="active"
+        >
+          ABOUT
         </button>
-        <button class="flex-button">
-          <span class="flex-span">SERVICES</span>
+        <button
+          class="flex-button"
+          routerLink="/applicant"
+          routerLinkActive="active"
+        >
+          SERVICES
         </button>
-        <button class="flex-button">
-          <span class="flex-span">PORTFOLIO</span>
-        </button>
-        <button class="flex-button">
-          <span class="flex-span" id="about">CONTACT</span>
-        </button>
+        <button class="flex-button">PORTFOLIO</button>
+        <button class="flex-button">CONTACT</button>
         <button
           class="flex-button"
           *ngIf="page == 'applicant' || page == 'dashboard'"
         >
-          <mat-icon [matMenuTriggerFor]="afterMenu">person</mat-icon>
+          <!-- <mat-icon [matMenuTriggerFor]="afterMenu">person</mat-icon> -->
+          <i id="profileid"
+            class="fa fa-user-circle-o fa-2x"
+            aria-hidden="true"
+            [matMenuTriggerFor]="afterMenu"
+
+          ></i>
           <mat-menu #afterMenu="matMenu" xPosition="after">
-            <button mat-menu-item>Profile</button>
-            <button mat-menu-item (click)="LogOut()">LogOut</button>
+            <button mat-menu-item lass="flex-button">PROFILE</button>
+            <button mat-menu-item (click)="LogOut()" lass="flex-button">
+              LOGOUT
+            </button>
           </mat-menu>
         </button>
       </div>
@@ -55,31 +78,94 @@
     </div>
   </div>
 </nav>
-<!-- <div><div style="margin: 100px; width: 800px; height: 300px;">
-  <app-images-slider></app-images-slider>
-</div></div> -->
-<div
-  style="
-    background-image: url('../assets/android-chrome-512x512.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-  "
-  class="d-flex"
-  *ngIf="
-    page != 'register' &&
-    page != 'login' &&
-    page != 'applicant' &&
-    page != 'dashboard'
-  "
->
-  <!-- <img src="/assets/images/searching_for_candidate_isometric_illustrating-06.jpg" id="bg-image" /> -->
+<div>
+  <div
+    style="
+      /* background-image: url('../assets/android-chrome-512x512.png'); */
+      background-repeat: no-repeat;
+      background-size: contain;
+    "
+    class="d-flex"
+    *ngIf="
+      page != 'register' &&
+      page != 'login' &&
+      page != 'applicant' &&
+      page != 'dashboard' &&
+      page != 'sidenav'
+    "
+  >
+    <img
+      src="../assets/people4.webp"
+      alt=""
+      width="100%"
+      height="auto"
+      style="background-color: transparent; margin-top: 0px"
+    />
+  </div>
+</div>
+<section *ngIf="page == ''">
+  <a
+    class="btn btn-link btn-floating btn-lg text-dark m-1"
+    href="#!"
+    role="button"
+    data-mdb-ripple-color="dark"
+    ><i class="fab fa-facebook-f"></i
+  ></a>
 
-  <div>
+  <a
+    class="btn btn-link btn-floating btn-lg text-dark"
+    href="#!"
+    role="button"
+    data-mdb-ripple-color="dark"
+    ><i class="fab fa-twitter"></i
+  ></a>
+
+  <a
+    class="btn btn-link btn-floating btn-lg text-dark m-1"
+    href="#!"
+    role="button"
+    data-mdb-ripple-color="dark"
+    ><i class="fab fa-google"></i
+  ></a>
+
+  <a
+    class="btn btn-link btn-floating btn-lg text-dark"
+    href="#!"
+    role="button"
+    data-mdb-ripple-color="dark"
+    ><i class="fab fa-instagram"></i
+  ></a>
+
+  <a
+    class="btn btn-link btn-floating btn-lg text-dark m-1"
+    href="#!"
+    role="button"
+    data-mdb-ripple-color="dark"
+    ><i class="fab fa-linkedin"></i
+  ></a>
+
+  <a
+    class="btn btn-link btn-floating btn-lg text-dark m-1"
+    href="#!"
+    role="button"
+    data-mdb-ripple-color="dark"
+    ><i class="fab fa-github"></i
+  ></a>
+  <footer style="float: right">
+    <h4 style="text-align: left; color: rgb(208, 208, 215); margin-top: 10px">
+      @2022 kanerika software sollutions
+    </h4>
+  </footer>
+</section>
+
+<!-- <h1 style="top: 40%;left: 40%;position: absolute;">hello </h1> -->
+<!-- <div>
+    <h1 style="text-align: center;font-weight: bolder;color: rgb(9, 9, 9);font-size:70px;margin: 20px;">WELCOME</h1>
     <h1
       style="
         font-weight: bolder;
         font-size: 50px;
-        margin-top: 70px;
+        margin-top:10px;
         font-family: papyrys;
         color: rgb(104, 58, 31);
       "
@@ -104,7 +190,8 @@
       >
     </div>
   </div>
-</div>
+</div >
+<h1></h1></div> -->
 
 <!-- <div class="d-flex" *ngIf="page != 'register' && page != 'login' && page != 'applicant'" style="display:-ms-inline-flexbox;"> -->
 
@@ -137,84 +224,5 @@
   <div style="color: rgb(71, 9, 133)">
     <h3>Googlin will do the selection</h3>
     <h3>for the perfect candidate by filtering the profiles</h3>
-  </div>
-</div> -->
-<!-- <div style="width: 100px;"><h1>hwllo</h1></div> -->
-<!-- <button mat-raised-button class="btn btn" *ngIf="page != 'applicant'" (click)="DashboardPage()"
-        style="background-color: rgb(88, 121, 167)">
-        <span style="color: rgb(242, 237, 237); font-size: 14px">DASHBOARD</span>
-      </button> -->
-<!-- <img src=" assets/2014-06-11-0e-Recruit.a9f4e.jpg" id="bg-image" /> -->
-<!-- <button mat-raised-button class="btn btn" *ngIf="page != 'login' && page !='applicant'"
-        (click)="LogOut()" style="background-color: rgb(15, 54, 109)">
-        <span class="nav-span">LOGOUT</span>
-      </button> -->
-<!-- <footer >
-
-  <div class="container">
-
-    <section >
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-      ></a>
-
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-
-  </div>
-  Grid container
-
-  Copyright
-  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-
-</footer> -->
+  </div>-->
+<!--  -->

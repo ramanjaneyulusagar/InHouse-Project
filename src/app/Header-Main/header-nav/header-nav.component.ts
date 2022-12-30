@@ -13,12 +13,19 @@ export class HeaderNavComponent implements OnInit {
   loginButton = true;
   signInButton = true;
   divContent = true;
+  isActive:boolean=false;
   @Input() page: string = '';
   constructor(public route: Router) { }
 
   ngOnInit() {
     // throw new Error('Method not implemented.')/////
 
+  }
+  toggleActive(){
+    this.isActive=!this.isActive;
+  }
+  goto(){
+    this.route.navigate(['/'])
   }
   LoginTo() {
     this.loginButton = false;

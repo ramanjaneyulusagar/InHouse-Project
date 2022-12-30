@@ -20,7 +20,9 @@ const routes: Routes = [
   //{path:'',component:LoginformComponent},
   { path: 'intropage', component: IntroPageComponent },
   { path: 'header', component: HeaderNavComponent },
-  { path: '', component: HeaderNavComponent },
+  { path: '', component: HeaderNavComponent , },
+  {path: '', redirectTo: '', pathMatch: 'full' },
+
   {
     path: 'loginform',
     component: LoginformComponent,

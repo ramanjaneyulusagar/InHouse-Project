@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { IUsers } from './users';
-import { catchError, config, map, Observable, Subject } from 'rxjs';
+import { catchError, config, map, Observable, Subject, throwError } from 'rxjs';
 import { Applicant } from './applicant';
 import { apis } from './apis';
 interface loginform {
@@ -15,7 +15,7 @@ export class InhouseService {
   // public API='http://localhost:8080/app';
 
   constructor(private http: HttpClient) {}
-
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   logout() {
     localStorage.removeItem('user');
   }
@@ -69,5 +69,17 @@ export class InhouseService {
     //   'https://7889-115-117-172-107.in.ngrok.io/app/usersave',
     //   payload
     // );
+  }
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Handle client error
+      errorMessage = error.error.message;
+    } else {
+      // Handle server error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 }
