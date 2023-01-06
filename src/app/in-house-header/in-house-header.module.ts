@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup } from '@angular/forms';
+// import { FormGroupModule } from '../form-group/form-group.module';
 import { INHOUSEHEADERRoutingModule } from './in-house-header-routing.module';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';

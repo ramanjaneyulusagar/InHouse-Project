@@ -1,0 +1,31 @@
+{
+  "name": "inhouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramanjaneyulusagar/InHouse-project.git"
+  },
+  "author": "ram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramanjaneyulusagar/InHouse-project/issues"
+  },
+  "homepage": "https://github.com/ramanjaneyulusagar/InHouse-project#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "errorhandler": "^1.5.1",
+    "express-session": "^1.17.3",
+    "http": "^0.0.1-security",
+    "json": "^11.0.0",
+    "logger": "^0.0.1",
+    "nano": "^10.1.0",
+    "nodemon": "^2.0.20",
+    "url": "^0.11.0"
+  }
+}

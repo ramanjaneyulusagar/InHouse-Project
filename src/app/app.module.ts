@@ -27,7 +27,7 @@ import { ImagesSliderComponent } from './Header-Main/images-slider/images-slider
 import { INHOUSEHEADERModule } from './in-house-header/in-house-header.module';
 import { INHOUSEHEADERRoutingModule } from './in-house-header/in-house-header-routing.module';
 import { MaterialModule } from './material/material.module';
-
+// import { FormGroupModule } from './form-group/form-group.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +43,6 @@ import { MaterialModule } from './material/material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
