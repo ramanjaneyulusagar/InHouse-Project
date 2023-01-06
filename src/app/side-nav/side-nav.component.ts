@@ -19,7 +19,7 @@ export class SideNavComponent implements OnInit {
   uploadedFiles: File[] = [];
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-page:string='';
+  page: string = '';
   constructor(
     private observer: BreakpointObserver,
     private service: InhouseService,
@@ -61,32 +61,28 @@ page:string='';
     this.router.navigate(['']);
   }
   hide: any;
-  file: any=File ;
+  file: any = File;
   onChange(event: any) {
     this.file = event.target.files[0];
   }
 
   onUpload() {
-    let ext =this.file.name.split('.').pop();
+    let ext = this.file.name.split('.').pop();
     let formData = new FormData();
     formData.append('file', this.file);
-    if (ext=='pdf'||ext=='docx'||ext=='doc') {
-
+    if (ext == 'pdf' || ext == 'docx' || ext == 'doc') {
       console.log(this.file);
       this.http
-        .post(apis.UPLOADFILE(), formData,{responseType: 'text'})
-        .subscribe((data: any) => console.log(JSON.stringify(data),alert(data)
+        .post(apis.UPLOADFILE(), formData, { responseType: 'text' })
+        .subscribe(
+          (data: any) => console.log(JSON.stringify(data), alert(data))
 
-        ),
-
-      // formData.reset()
-      );
-this.file='';
+          // formData.reset()
+        );
+      this.file = '';
       // console.log
-      }
-
-    else{
-      alert('invalid file format, upload pdf,doc ,docx only ')
+    } else {
+      alert('invalid file format, upload pdf,doc ,docx only ');
     }
   }
 }

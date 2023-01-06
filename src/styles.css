@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {  }
+/* html, body { font-family:  Verdana; } */
 body { margin: 0;
-  background-color: rgb(252, 251, 251);
+  font-variant: initial;
+
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  /* background-color: rgb(252, 251, 251); */
+}
+#googlinText{
+    font-family: 'julee';
+    font-size: 20px;
 }

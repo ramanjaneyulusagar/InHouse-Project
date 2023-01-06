@@ -4,6 +4,7 @@ import { IUsers } from './users';
 import { catchError, config, map, Observable, Subject, throwError } from 'rxjs';
 import { Applicant } from './applicant';
 import { apis } from './apis';
+// import{exd} from
 interface loginform {
   email: string;
   password: string;
@@ -22,7 +23,7 @@ export class InhouseService {
   public get log(): boolean {
     return localStorage.getItem('user') !== null;
   }
-  user(data: any) {
+  user(data:any):Observable<any> {
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -31,9 +32,7 @@ export class InhouseService {
     };
     return this.http.post(apis.SEARCH(), data).pipe(catchError(async (err:any)=>{
       alert(err);
-    }))
-
-    ;
+    }));
   }
   logincheck(data: any) {
     let config = {

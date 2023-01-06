@@ -1,0 +1,51 @@
+<!-- <p>login-page works!</p> -->
+<!-- <app-header-nav page="login"></app-header-nav> -->
+
+<div class="d-flex justify-content-center">
+  <mat-card style="height: 370px;">
+    <div>
+      <mat-toolbar>
+        <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
+        <span id="googlinText"> GOOGLIN</span></mat-toolbar>
+      <h2 style="text-align: center;">{{userLogin}}</h2>
+
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input id="emaila" (keypress)="EmailValue()" matInput required autocomplete="true" type="email"
+          class="form-control-lg" formControlName="email" placeholder="Enter your email" required maxlength="30" />
+        <small class="form-text text-danger" *ngIf="loginForm.controls['email'].invalid">
+          {{ emailValid }}
+        </small>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input maxlength="20" matInput type="password" formControlName="password" placeholder="Enter your password"
+          [type]="hide ? 'password' : 'text'" class="form-control-lg" minlength="6-20" />
+
+        <mat-icon matSuffix (click)="hide = !hide">{{
+          hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        <small class="form-text text-danger" *ngIf="loginForm.controls['password'].invalid">
+          {{ passwordValid }}
+        </small>
+      </mat-form-field>
+      <button type="submit" style="font-size: 13px;float:right;width: 90px;"
+        class="btn btn-success" [disabled]="!loginForm.valid">
+        Login
+      </button>
+      <a class="small" routerLink="/forget-password" id="newregister" style="font-size: 11px">Forgot password?
+      </a>
+    </form>
+
+  </mat-card>
+  <div id="bgrt"></div>
+</div>
+
+<!--
+   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? </p>
+ <a href="#!"
+                      style="color: #393f81;" routerLink="/register">Register here</a>
+                       <h4 style="justify-content: center;justify-items: center;">LOGIN</h4> -->
+<!-- <p class="mb-2"></p> -->

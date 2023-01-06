@@ -1,0 +1,81 @@
+#LoginType{
+  margin-top: 20px;
+}
+.typeButton{
+background-color: transparent;
+border:none ;
+}
+.user{
+  border-radius: 8px ;
+  background-color: rgb(226, 229, 252);
+  font-size: 16px;
+  /* width: auto; */
+  height: 45px;
+  /* color: white; */
+}
+#user{
+  border-radius: 10px ;
+  background-color: aqua;
+}
+mat-form-field {
+  width: 100%;
+}
+.mat-raised-button {
+  width: 100%;
+  margin-top: 15px;
+}
+a {
+  color: rgb(57, 57, 230);
+  text-decoration: none;
+}
+mat-card {
+  /* height:400px; */
+  box-shadow: 1px 1px 10px 0px rgb(148, 146, 146);
+  width: 470px;
+  height: 780px;
+  /* margin-top: 10px; */
+  margin-top: 80px;
+  /* width: max-content; */
+  /* height: max-content; */
+  border-radius: 5px;
+  /* background-color:rgb(246, 245, 255); */
+  /* background-color: white; */
+  /* opacity: 0.9; */
+}
+#googlinImg {
+  width: 40px;
+  margin-bottom: 3px;
+  border-radius: 50px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+/* .btn {
+ width: inherit;
+ height: inherit;
+  margin-right: 30px;
+} */
+#googlinText {
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(39, 21, 74);
+  margin-left: 5px;
+}
+mat-toolbar {
+  background-color: transparent;
+  /* margin-left: 20px; */
+  justify-content: center;
+  justify-items: center;
+}
+mat-label {
+  font-size: 11px;
+}
+#bgrt{
+  width: 200px;
+  height: 150px;
+  transform: rotate(50deg);
+  top:80%;
+  left: -10%;
+  position: absolute;
+  border-radius: 20px;
+  background-image: linear-gradient(20deg ,rgb(167, 165, 165) , rgb(37, 120, 169) , rgb(40, 51, 163));
+}

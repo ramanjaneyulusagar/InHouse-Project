@@ -1,0 +1,199 @@
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans); */
+@import url("https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=julee&display=swap");
+/* Merienda One */
+
+/* :host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.open-close-container {
+  border: 1px solid #dddddd;
+  margin-top: 1em;
+  padding: 20px 20px 0px 20px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+} */
+
+
+a{
+  text-decoration: none;
+}
+#footerC {
+  margin-left: 30px;
+  /* margin-top: 20px; */
+  /* justify-content: center; */
+  /* justify-items: center; */
+  /* text-align: center; */
+}
+.active {
+  color: rgb(90, 51, 168);
+  list-style-type: lower-alpha;
+}
+.fab {
+  color: black;
+}
+.navbar {
+  white-space: pre-line;
+  width: 100%;
+  height: 100%;
+  --bs-navbar-padding-x: 0;
+  /* padding-right: calc(var(--bs-gutter-x) * 0); */
+  justify-content: baseline;
+  --bs-gutter-x: 1.5rem;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  /* font-family: papyrys; */
+  box-shadow: 0px 0px 4px 0px rgb(110, 106, 106);
+  font-size: 13px;
+  border-radius: 2px;
+  /* margin: 0px; */
+
+  top: 0;
+}
+.container-fluid {
+  --bs-gutter-x: 2rem;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+}
+.navbar-brand {
+  cursor: pointer;
+  height: 100%;
+  /* padding-top: 0; */
+  /* padding-bottom:0; */
+  /* margin-right: var(--bs-navbar-brand-margin-end); */
+  white-space: normal;
+}
+#googlinImg {
+  width: 34px;
+  margin-bottom: 4px;
+}
+
+#googlinText {
+  /* margin-top: 5px; */
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(39, 21, 74);
+}
+#googlinText:hover {
+  /* color: rgb(10, 56, 243); */
+}
+.mat-raised-button {
+  line-height: 26px;
+  font-size: 13px;
+  color: white;
+  /* margin-right: 2 0px; */
+  margin-right: 20px;
+  font-weight: 500;
+}
+.flex-button {
+  border: none;
+  background: none;
+  background-color: transparent;
+  margin-right: 34px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.flex-button:hover {
+  color: rgb(65, 11, 244);
+}
+#profileid {
+  color: rgb(39, 29, 74);
+  font-size: 20px;
+}
+#profileid:hover {
+  color: rgb(57, 5, 245);
+}
+#below-nav-content1 {
+  background-image: url("/assets/hireGif1.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 420px;
+  height: 500px;
+  background-color: aqua;
+}
+#below-nav-content {
+  margin: 10px;
+  /* margin-bottom: 10px; */
+  display: flex;
+  /* font-family: 'Passions Conflict', cursive; */
+
+  /* font-style: Snell Roundhand; */
+  /* background-image: url("src/assets/people5.webp"); */
+  /* background-size: 60% ; */
+  /* background-repeat: no-repeat; */
+  /* height: 700px; */
+  /* width: 100%; */
+  position: relative;
+  text-align: center;
+}
+#below-nav-image {
+/* transform: scale3d(1); */
+/* transform: scale3d(2); */
+  animation-name: example;
+  /* animation-duration:1s; */
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  from {
+    /* background-color: red; */
+     transform: scaleX(-1);
+  }
+  to {
+    /* background-color: yellow; */
+     transform: scaleX(1);
+  }
+}
+#below-nav-text {
+  top: 10%;
+  left: 18%;
+  position: absolute;
+  font-size: 40px;
+}
+#below-nav-text1 {
+  top: 10%;
+  left: 18%;
+  position: absolute;
+  font-size: 30px;
+}
+@media only screen and (max-width: 300px) {
+  #below-nav-text1 {
+    top: 6%;
+    left: 4%;
+    position: absolute;
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #below-nav-text1 {
+    top: 10%;
+    left: 12%;
+    position: absolute;
+    font-size: 15px;
+  }
+  #below-nav-content1 {
+    /* background-image: url('/assets/hireGif1.gif'); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 500px;
+    background-color: aqua;
+  }
+}
+@media only screen and (max-width: 650px) {
+  #below-nav-content {
+    /* margin-top: 10px; */
+    display: grid;
+    /* background-image: url("src/assets/people5.webp"); */
+    /* background-size: 60% ; */
+    /* background-repeat: no-repeat; */
+    /* height: 700px; */
+    /* width: 100%; */
+    position: relative;
+    text-align: center;
+  }
+}

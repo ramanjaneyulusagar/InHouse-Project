@@ -1,7 +1,17 @@
 <!-- <app-header></app-header> -->
-<router-outlet></router-outlet>
+<!-- <div style="width: 30%;height: 50%;margin-left: 25%;margin-top:7%;display: flex;" *ngIf="loader!=true">
+  <img src="/assets/googlin.gif" width="100%" height="100%" alt="">
+  <span style="position: absolute;top:47%;left:50%;font-size: 70px;">GOOGLIN</span>
+</div> -->
+<router-outlet *ngIf="loader"></router-outlet>
+<div >
+  <div style="width: 30%;height: 50%;margin-left: 25%;margin-top:7%;" *ngIf="loader!=true">
+    <img src="/assets/googlin.gif" width="100%" height="100%" alt="">
+    <span style="position: absolute;top:47%;left:50%;font-size: 70px;">GOOGLIN</span>
+  </div>
+
+</div>
+<div></div>
 <!-- <app-header-nav></app-header-nav> -->
 <!-- <app-side-nav></app-side-nav> -->
 <!-- <app-header-side-nav></app-header-side-nav> -->
-
-

@@ -1,0 +1,19 @@
+<!-- <p>user-admin-type-login works!</p> -->
+<div class="d-flex justify-content-center" id="LoginType" style="background-color: rgb(235, 240, 240);">
+  <mat-card style="height: 290px;">
+    <div>
+      <mat-toolbar>
+        <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
+        <span id="googlinText"> GOOGLIN</span>
+      </mat-toolbar>
+      <h2 style="text-align: center;">Login As</h2>
+    </div>
+    <div style="margin:20px">
+      <mat-toolbar class="user" (click)="loginAsUser()"><button type="button"
+        class="typeButton">User</button></mat-toolbar>
+    <br>
+    <mat-toolbar class="user" (click)="loginAsAdmin()"><button type="button"
+        class="typeButton">Admin</button></mat-toolbar>
+    </div>
+  </mat-card>
+</div>
