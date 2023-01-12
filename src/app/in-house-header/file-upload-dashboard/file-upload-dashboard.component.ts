@@ -1,5 +1,6 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { UploadFilesService } from 'src/app/upload-files.service';
 
@@ -9,19 +10,27 @@ import { UploadFilesService } from 'src/app/upload-files.service';
   styleUrls: ['./file-upload-dashboard.component.css']
 })
 export class FileUploadDashboardComponent {
+
   selectedFiles!: FileList;
   progressInfos: any = [];
   message = '';
   @ViewChild('fileName') fileName!: ElementRef;
   fileInfos!: Observable<any>;
-  constructor(private service: UploadFilesService) {}
+  constructor(private service: UploadFilesService,private _snackBar: MatSnackBar,) {}
   ngOnInit(): void {
     this.fileInfos = this.service.getFiles();
     // throw new Error('Method not implemented.');
   }
+  cancelSelectedFile(){
+    this.fileName.nativeElement.value='';
+  }
   selectFiles(event: any) {
     this.progressInfos = [];
     this.selectedFiles = event.target.files;
+    console.log(event,this.fileName.nativeElement.value,event,this.selectedFiles)
+    this._snackBar.open(" file selected Successfully, click on upload!", 'Close', {
+      duration: 2000,
+    });
     // { target: { files: FileList; }; }
   }
   uploadFiles() {
@@ -29,7 +38,10 @@ export class FileUploadDashboardComponent {
 
     for (let i = 0; i < this.selectedFiles.length; i++) {
       this.upload(i, this.selectedFiles[i]);
+      console.log(i)
     }
+    console.log(this.selectFiles);
+
   }
   upload(idx: any, file: any) {
     let ext = file.name.split('.').pop();

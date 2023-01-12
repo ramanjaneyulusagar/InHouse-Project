@@ -1,0 +1,87 @@
+<!-- <p>app-header1 works!</p> -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" (click)="goto()">
+        <img
+          src="/assets/android-chrome-512x512.png"
+          id="googlinImg"
+          loading="lazy"
+          fill
+          rel="preconnect"
+        />
+        <span id="googlinText" style="font-family: 'julee'"> GOOGLIN </span>
+      </a>
+      <div>
+        <div>
+          <button
+            class="flex-button"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            style="font-size: 14px"
+          >
+            HOME
+          </button>
+          <!-- <button
+            class="flex-button"
+            routerLink="/applicant-dashboard"
+            routerLinkActive="active"
+
+          >
+            ABOUT
+          </button> -->
+          <button
+            class="flex-button"
+            routerLink="/applicant-search"
+            routerLinkActive="active"
+          >
+            SERVICES
+          </button>
+          <button class="flex-button" routerLinkActive="active">
+            PORTFOLIO
+          </button>
+          <button class="flex-button">CONTACT</button>
+          <button class="flex-button">
+            <i
+              id="profileid"
+              class="fa fa-user-circle-o"
+              aria-hidden="true"
+              [matMenuTriggerFor]="afterMenu"
+            ></i>
+            <mat-menu #afterMenu="matMenu" xPosition="after">
+              <button
+                mat-menu-item
+                class="flex-button"
+                routerLink="/profile"
+                routerLinkActive="active"
+              >
+                PROFILE
+              </button>
+              <button mat-menu-item (click)="LogOut()" class="flex-button">
+                LOGOUT
+              </button>
+            </mat-menu>
+          </button>
+          <button
+            mat-raised-button
+            *ngIf="page!= ''"
+            (click)="LoginTo()"
+            style="background-color: rgb(28, 101, 202)"
+          >
+            LOGIN
+          </button>
+          <button
+            mat-raised-button
+            *ngIf="page != ''"
+            (click)="SignInTo()"
+            style="background-color: rgb(2, 68, 116)"
+          >
+            SIGN UP
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+

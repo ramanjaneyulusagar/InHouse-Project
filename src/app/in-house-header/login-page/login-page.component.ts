@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, of } from 'rxjs';
+import { bindCallback, catchError, of } from 'rxjs';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { InhouseService } from 'src/app/inhouse.service';
 import { LoginService } from 'src/app/login.service';
+import { setInterval } from 'timers/promises';
+import { callbackify } from 'util';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
   isValidFormSubmitted: any;
@@ -45,8 +52,8 @@ export class LoginPageComponent {
     this.validLogin = 'hello';
     this.userLogin = this.activatedRoute.snapshot.paramMap.get('title');
     this.activatedRoute.data.subscribe((value: any) => {
-      this.userLogin = value.loginType ?? "User Login";
-    })
+      this.userLogin = value.loginType ?? 'User Login';
+    });
   }
   public error: any;
 
@@ -72,13 +79,20 @@ export class LoginPageComponent {
               console.log(error);
             };
             if (data.response) {
-              localStorage.setItem('admin', 'loggedin');
+              // globalThis.alert("You have successfully purchased product"+"OK"+bindCallback );
+              localStorage.setItem('token', 'passCode');
+              localStorage.setItem('is_admin', 'true');
               this.router.navigate(['/applicant-search']);
             }
             if (data.message) {
               console.log(data.error.message);
               alert(data.error.message);
-              this.emailValid = data.error.message;
+              this.emailValid = 'enter valid email';
+              this.passwordValid = 'enyter valid password';
+              setTimeout(() => {
+                this.emailValid = '';
+                this.passwordValid = '';
+              }, 2000);
               this.loginForm.reset();
             }
           });
@@ -108,5 +122,8 @@ export class LoginPageComponent {
     // this.router.navigate([''])
     // this.loginCredentials.unsubscribe();
     // this.router.navigate([''])
+  }
+  emailvalisd() {
+    return (this.emailValid = 'enter valid email');
   }
 }

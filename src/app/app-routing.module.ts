@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { INHOUSEHEADERModule } from './in-house-header/in-house-header.module';
+// import { AuthGuard } from './auth.guard';
 import {
   NoPreloading,
   PreloadAllModules,
@@ -9,6 +10,8 @@ import {
 import { MainHeaderComponent } from './in-house-header/main-header/main-header.component';
 import * as path from 'path';
 import * as Module from 'module';
+import { AuthGuard } from './auth.guard';
+import { InHouseGuard } from './in-house-header/in-house.guard';
 // import { MainHeaderComponent } from './in-house-header/main-header/main-header.component';
 const routes: Routes = [
   {
@@ -16,7 +19,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./in-house-header/main-header/main-header.component').then(
         (m: any) => m.INHOUSEHEADERModule
-      ),
+      )
   },
 ];
 

@@ -2,43 +2,96 @@
 <!-- <app-header-nav page="login"></app-header-nav> -->
 
 <div class="d-flex justify-content-center">
-  <mat-card style="height: 370px;">
+  <mat-card style="height: 370px">
     <div>
       <mat-toolbar>
         <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
-        <span id="googlinText"> GOOGLIN</span></mat-toolbar>
-      <h2 style="text-align: center;">{{userLogin}}</h2>
-
+        <span id="googlinText"> GOOGLIN</span></mat-toolbar
+      >
+      <h2 style="text-align: center">{{ userLogin }}</h2>
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input id="emaila" (keypress)="EmailValue()" matInput required autocomplete="true" type="email"
-          class="form-control-lg" formControlName="email" placeholder="Enter your email" required maxlength="30" />
-        <small class="form-text text-danger" *ngIf="loginForm.controls['email'].invalid">
+        <input
+          id="emaila"
+          (keypress)="EmailValue()"
+          matInput
+          required
+          autocomplete="true"
+          type="email"
+          class="form-control-lg"
+          formControlName="email"
+          placeholder="Enter your email"
+          required
+          maxlength="30"
+        />
+        <small
+          class="form-text text-danger"
+          *ngIf="
+            loginForm.controls['email'].hasError('required') &&
+            loginForm.controls['email'].touched
+          "
+        >
+          email is required
+        </small>
+        <small class="form-text text-danger">
           {{ emailValid }}
         </small>
+        <!-- <small *ngIf="loginForm.controls['email'].invalid&&loginForm.controls['email'].dirty"> enter valid email </small> -->
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input maxlength="20" matInput type="password" formControlName="password" placeholder="Enter your password"
-          [type]="hide ? 'password' : 'text'" class="form-control-lg" minlength="6-20" />
+        <input
+          maxlength="20"
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          [type]="hide ? 'password' : 'text'"
+          class="form-control-lg"
+          minlength="6-20"
+        />
 
         <mat-icon matSuffix (click)="hide = !hide">{{
           hide ? "visibility_off" : "visibility"
-          }}</mat-icon>
-        <small class="form-text text-danger" *ngIf="loginForm.controls['password'].invalid">
+        }}</mat-icon>
+        <!-- <small
+          class="form-text text-danger"
+          *ngIf="loginForm.controls['password'].invalid"
+        >
+          {{ passwordValid }}
+        </small> -->
+        <small
+          class="form-text text-danger"
+          *ngIf="
+            loginForm.controls['password'].hasError('required') &&
+            loginForm.controls['password'].touched
+          "
+        >
+          password is required
+        </small>
+        <!-- <small *ngIf="loginForm.controls['password'].invalid&&loginForm.controls['password'].dirty&&loginForm.controls['password'].hasError('submit')"> enter valid password </small> -->
+        <small class="form-text text-danger">
           {{ passwordValid }}
         </small>
       </mat-form-field>
-      <button type="submit" style="font-size: 13px;float:right;width: 90px;"
-        class="btn btn-success" [disabled]="!loginForm.valid">
+      <button
+        type="submit"
+        style="font-size: 13px; float: right; width: 90px"
+        class="btn btn-success"
+        [disabled]="!loginForm.valid"
+      >
         Login
       </button>
-      <a class="small" routerLink="/forget-password" id="newregister" style="font-size: 11px">Forgot password?
+      <a
+        class="small"
+        routerLink="/forget-password"
+        id="newregister"
+        style="font-size: 11px"
+        >Forgot password?
       </a>
     </form>
-
   </mat-card>
   <div id="bgrt"></div>
 </div>

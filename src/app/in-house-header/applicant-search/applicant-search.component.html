@@ -1,5 +1,6 @@
 <app-main-header page="applicant-search"></app-main-header>
-<div style="background-color: rgb(226, 230, 233); margin: 5px; border-radius: 3px">
+<div
+  style="background-color: rgb(226, 230, 233);border-radius: 3px;box-shadow: 0px 0px 5px 0px #1f1f20;margin-top: 10px;margin-left:3px;margin-right: 3px;margin-bottom: 10px;">
   <div class="row" style="width: 100%">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -7,8 +8,8 @@
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent2" style="margin-top: 10px">
-          <ul class="navbar-nav mb-lg-0" style="margin-left: 15px" style="width: 100%">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+          <ul class="navbar-nav mb-lg-0">
             <form #form="ngForm" (ngSubmit)="search(form.value)" style="width: 100%">
               <nav class="navbar" id="navbar1">
                 <div class="row">
@@ -84,7 +85,7 @@
                       </button>
                     </div>
                   </div>
-                </div> -->
+                 </div> -->
                 </div>
               </nav>
             </form>
@@ -97,39 +98,34 @@
 <div>
   <header *ngIf="exportdata==null">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-
-      </div>
-    </nav>
-    <!-- Navbar -->
-
-    <!-- Jumbotron -->
-    <!-- <div class="p-5 text-center bg-light" style="color: rgb(70, 40, 236);">
+    <div class="p-4 text-center bg-light" style="color: rgb(39, 35, 63);margin: 5px;">
       <div>
-        <h1 class="mb-3">Search Profiles of the Candidates </h1>
-      <h1>Based On Skills,Education and Experience</h1>
+        <h1 class="mb-1">Search Profiles of the Candidates </h1>
+        <h1>Based On Skills,Education and Experience</h1>
       </div>
       <div>
-        <img src="assets/hireGif7.webp" alt="" width="50%" >
+        <img src="assets/hireGif7.webp" alt="" width="40%">
+        <!-- <a class="btn btn" href="" role="button">Call to action</a> -->
       </div>
-        <a class="btn btn-primary" href="" role="button">Call to action</a>
-    </div> -->
-    <!-- Jumbotron -->
+
+    </div>
+
   </header>
 </div>
 <div id="tableDiv" *ngIf="exportdata">
   <table class="table table-hover table-borderless table-sm table-striped" style="padding: 0.1rem" id="table">
-    <thead class="table-light">
-      <tr style="font-size: 12px">
+    <thead class="table" style="background-color: #63a5e0;color: white;">
+      <tr style="font-size: 12px;">
         <th>#</th>
         <th scope="col">NAME</th>
         <th scope="col">EMAIL</th>
         <th scope="col">SKILLS</th>
+        <th>
+          <a>
+            <i class="fa fa-user" aria-hidden="true" style="color: rgb(246, 242, 242);font-size: 15px;">
+            </i>
+          </a>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -149,7 +145,8 @@
         <td>{{ d.details.SKILLS }}</td>
         <!-- <td (click)="viewdetails(d)">details</td> -->
         <td>
-          <i class="fa fa-user" aria-hidden="true" (click)="viewdetails(d)" style="color: rgb(89, 84, 167)"></i>
+          <!-- <i class="fa fa-user" aria-hidden="true" (click)="viewdetails(d)" style="color: rgb(89, 84, 167)"></i> -->
+          <a (click)="viewdetails(d)" style="text-decoration: underline;cursor: pointer;">viewDetails</a>
         </td>
       </tr>
     </tbody>
@@ -160,4 +157,4 @@
     </pagination-controls>
   </div>
 </div>
-
+<app-main-footer></app-main-footer>

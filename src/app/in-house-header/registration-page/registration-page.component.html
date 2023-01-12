@@ -1,66 +1,185 @@
 <!-- <p>registration-page works!</p> -->
 <!-- <app-header-nav page="register"></app-header-nav> -->
-<div class="login-container" style="margin-top: 40px;">
+<div class="login-container" style="margin-top: 40px">
   <div class="login-content">
     <mat-card style="box-shadow: 1px 1px 10px 0px rgb(148, 148, 146)">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="mb-3">
           <mat-toolbar>
             <img src="../assets/android-chrome-512x512.png" id="googlinImg" />
-            <span style="font-size: 20px;" id="googlinText">GOOGLIN</span></mat-toolbar>
+            <span style="font-size: 20px" id="googlinText"
+              >GOOGLIN</span
+            ></mat-toolbar
+          >
           <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput type="text" id="name" class="form-control-lg" placeholder="Name" formControlName="name"
-              name="name" autocomplete="true" minlength="4" maxlength="20" />
-            <small class="form-text text-danger" *ngIf="
-                loginForm.controls['name'].touched &&
-                loginForm.controls['name'].invalid
+            <input
+              matInput
+              type="text"
+              id="name"
+              class="form-control-lg"
+              placeholder="Name"
+              formControlName="name"
+              value="name"
+              name="name"
+              autocomplete="false"
+              title="Only Letters"
+              value="Type Letters Only"
+              onblur="if (this.value == '') {this.value = 'Type Letters Only';}"
+              onfocus="if (this.value == 'Type Letters Only') {this.value = '';}"
+            />
+            <!-- <small class="form-text text-danger" *ngIf="
+                loginForm.controls['name'].touched
+onkeydown="return alphaOnly(event);"
               ">
               Minimum 4 characters
-            </small>
+            </small> -->
+            <div class="error-messages">
+              <ng-container *ngFor="let error of error_messages.name">
+                <div
+                  class="error-message"
+                  *ngIf="
+                    loginForm.controls['name'].hasError(error.type) &&
+                    (loginForm.controls['name'].dirty ||
+                      loginForm.controls['name'].touched)
+                  "
+                >
+                  <span class="form-text text-danger">{{ error.message }}</span>
+                </div>
+              </ng-container>
+            </div>
           </mat-form-field>
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput type="email" id="email" class="form-control-lg" formControlName="email" name="email"
-              placeholder="Email" autocomplete="true" />
-            <small class="form-text text-danger" *ngIf="
-                loginForm.controls['email'].touched &&
-                loginForm.controls['email'].invalid
-              ">
+            <input
+              matInput
+              type="email"
+              id="email"
+              class="form-control-lg"
+              formControlName="email"
+              name="email"
+              placeholder="Email"
+              autocomplete="true"
+            />
+            <!-- <small class="form-text text-danger" *ngIf="loginForm.controls['email'].invalid&&loginForm.controls['email'].touched ">
               Please enter valid email address.!
-            </small>
+            </small> -->
+            <div class="error-messages">
+              <ng-container *ngFor="let error of error_messages.email">
+                <div
+                  class="error-message"
+                  *ngIf="
+                    loginForm.controls['email'].hasError(error.type) &&
+                    (loginForm.controls['email'].dirty ||
+                      loginForm.controls['email'].touched)
+                  "
+                >
+                  <span class="form-text text-danger">{{ error.message }}</span>
+                </div>
+              </ng-container>
+            </div>
           </mat-form-field>
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password" placeholder="Password"
-              [type]="hide ? 'password' : 'text'" class="form-control-lg" minlength="6-20" />
+            <input
+              matInput
+              type="password/text"
+              formControlName="password"
+              placeholder="Password"
+              class="form-control-lg"
+              minlength="6-20"
+            />
 
-            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? "visibility_off" : "visibility" }}
-            </mat-icon>
-            <small class="form-text text-danger" *ngIf="
-            loginForm.controls['password'].touched &&
-            loginForm.controls['password'].invalid
-          ">
+            <!-- <mat-icon matSuffix (click)="hide = !hide">{{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon> -->
+            <!-- <small class="form-text text-danger" *ngIf="loginForm.controls['password'].touched &&
+                loginForm.controls['password'].invalid
+              ">
               Please enter valid password.!
-            </small>
+            </small> -->
+            <div class="error-messages">
+              <ng-container *ngFor="let error of error_messages.password">
+                <div
+                  class="error-message"
+                  *ngIf="
+                    loginForm.controls['password'].hasError(error.type) &&
+                    (loginForm.controls['password'].dirty ||
+                      loginForm.controls['password'].touched)
+                  "
+                >
+                  <span class="form-text text-danger">{{ error.message }}</span>
+                </div>
+              </ng-container>
+              <small
+                class="form-text text-danger"
+                *ngIf="
+                  loginForm.controls['password'].value.length > 7 &&
+                  loginForm.controls['password'].invalid
+                "
+              >
+                invalid password</small
+              >
+            </div>
           </mat-form-field>
           <mat-form-field>
             <mat-label>ConfirmPassword</mat-label>
-            <input matInput type="password" class="form-control-lg" formControlName="confirmpassword"
-              autocomplete="true" placeholder="ConfirmPassword" name="confirmpassword" />
-            <small class="form-text text-muted" *ngIf="
+            <input
+              matInput
+              type="password"
+              class="form-control-lg"
+              formControlName="confirmpassword"
+              autocomplete="true"
+              placeholder="ConfirmPassword"
+              name="confirmpassword"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <small
+              class="form-text text-danger"
+              *ngIf="
                 loginForm.controls['password'].value !==
+                  loginForm.controls['confirmpassword'].value &&
                 loginForm.controls['confirmpassword'].value
-              ">
-              Please enter valid password.!
+              "
+            >
+              password does not match
             </small>
+            <mat-icon matSuffix (click)="hide = !hide"
+              >{{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+            <div class="error-messages">
+              <ng-container
+                *ngFor="let error of error_messages.confirmpassword"
+              >
+                <div
+                  class="error-message"
+                  *ngIf="
+                    loginForm.controls['confirmpassword'].hasError(
+                      error.type
+                    ) &&
+                    (loginForm.controls['confirmpassword'].dirty ||
+                      loginForm.controls['confirmpassword'].touched)
+                  "
+                >
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="
+                      loginForm.controls['confirmpassword'].value.length > 0
+                    "
+                    >{{ error.message }}</span
+                  >
+                </div>
+              </ng-container>
+            </div>
           </mat-form-field>
         </div>
 
         <div class="mb-3 d-grid">
-          <button type="submit" class="btn btn-primary" style="background-color: rgb(15, 54, 109)"
-        >
-            <span style="font-size: 13px;">REGISTER</span>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="background-color: rgb(15, 54, 109)"
+          >
+            <span style="font-size: 13px">REGISTER</span>
           </button>
         </div>
       </form>

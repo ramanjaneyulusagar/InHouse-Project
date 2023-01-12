@@ -19,17 +19,10 @@
   font-size: 20px;
 } */
 
-
-a{
+a {
   text-decoration: none;
 }
-#footerC {
-  margin-left: 30px;
-  /* margin-top: 20px; */
-  /* justify-content: center; */
-  /* justify-items: center; */
-  /* text-align: center; */
-}
+
 .active {
   color: rgb(90, 51, 168);
   list-style-type: lower-alpha;
@@ -47,7 +40,7 @@ a{
   --bs-gutter-x: 1.5rem;
   /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
   /* font-family: papyrys; */
-  box-shadow: 0px 0px 4px 0px rgb(110, 106, 106);
+  box-shadow: 0px 0px 10px 0px rgb(110, 106, 106);
   font-size: 13px;
   border-radius: 2px;
   /* margin: 0px; */
@@ -108,97 +101,14 @@ a{
 #profileid:hover {
   color: rgb(57, 5, 245);
 }
-#below-nav-content1 {
-  background-image: url("/assets/hireGif1.gif");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 70%;
-  height: 500px;
-  background-color: rgb(64, 0, 255);
-}
-#below-nav-content {
-  margin: 10px;
-  /* margin-bottom: 10px; */
-  display: flex;
-  /* font-family: 'Passions Conflict', cursive; */
-/* background-color: aqua; */
-  /* font-style: Snell Roundhand; */
-  /* background-image: url("src/assets/people5.webp"); */
-  /* background-size: 60% ; */
-  /* background-repeat: no-repeat; */
-  /* height: 700px; */
-  /* width: 100%; */
-  position: relative;
-  text-align: center;
-}
-#below-nav-image {
-/* transform: scale3d(1); */
-/* transform: scale3d(2); */
-  animation-name: example;
-  /* animation-duration:1s; */
-  animation-iteration-count: infinite;
-}
+
 @keyframes example {
   from {
     /* background-color: red; */
-     transform: scaleX(-1);
+    transform: scaleX(-1);
   }
   to {
     /* background-color: yellow; */
-     transform: scaleX(1);
+    transform: scaleX(1);
   }
-}
-#below-nav-text {
-  top: 10%;
-  left: 18%;
-  position: absolute;
-  font-size: 40px;
-}
-#below-nav-text1 {
-  top: 10%;
-  left: 18%;
-  position: absolute;
-  font-size: 30px;
-}
-@media only screen and (max-width: 300px) {
-  #below-nav-text1 {
-    top: 6%;
-    left: 4%;
-    position: absolute;
-    font-size: 10px;
-  }
-
-}
-@media only screen and (max-width: 500px) {
-  #below-nav-text1 {
-    top: 10%;
-    left: 12%;
-    position: absolute;
-    font-size: 15px;
-  }
-  #below-nav-content1 {
-    /* background-image: url('/assets/hireGif1.gif'); */
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 200px;
-    height: 500px;
-    background-color: aqua;
-  }
-
-}
-@media only screen and (max-width: 650px) {
-  #below-nav-content {
-    /* margin-top: 10px; */
-    display: grid;
-    /* background-image: url("src/assets/people5.webp"); */
-    /* background-size: 60% ; */
-    /* background-repeat: no-repeat; */
-    /* height: 700px; */
-    /* width: 100%; */
-    position: relative;
-    text-align: center;
-  }
-}
-@media only screen and (max-width: 950px) {
-
 }

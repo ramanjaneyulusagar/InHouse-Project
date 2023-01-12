@@ -21,10 +21,14 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (localStorage.getItem('admin')) {
+    if (localStorage.getItem('token')) {
+
+      // this.route.navigate(['']);
       return true;
     }
+    else{
+      return false;
+    }
 
-    return false;
   }
 }

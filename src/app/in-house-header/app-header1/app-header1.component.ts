@@ -1,19 +1,13 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
 import { InHouseService } from '../in-house.service';
 
 @Component({
-  selector: 'app-main-header',
-  templateUrl: './main-header.component.html',
-  styleUrls: ['./main-header.component.css'],
+  selector: 'app-app-header1',
+  templateUrl: './app-header1.component.html',
+  styleUrls: ['./app-header1.component.css']
 })
-export class MainHeaderComponent {
-  //  isOpen = true;
-
-  // toggle() {
-  //   this.isOpen = !this.isOpen;
-  // }
+export class AppHeader1Component {
   loader: boolean = false;
   isLoginPage!: boolean;
   loginButton = true;
@@ -21,14 +15,8 @@ export class MainHeaderComponent {
   divContent = true;
   isActive: boolean = false;
   @Input() page: string = '';
-  constructor(private route: Router, private _service: InHouseService) {}
+  constructor(private route: Router, private _service: InHouseService){
 
-  ngOnInit() {
-    // throw new Error('Method not implemented.')/////
-    // this.loader=true;
-    setTimeout(() => {
-      this.loader = true;
-    }, 100);
   }
   toggleActive() {
     this.isActive = !this.isActive;

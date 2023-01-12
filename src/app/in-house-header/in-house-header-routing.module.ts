@@ -13,10 +13,14 @@ import {
 } from '@angular/router';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 import { ApplicantSearchComponent } from './applicant-search/applicant-search.component';
+import { ContactComponent } from './contact/contact.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { InHouseGuard } from './in-house.guard';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
+import { ProfileComponent } from './profile/profile.component';
+import { Profile1Component } from './profile1/profile1.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { UserAdminTypeLoginComponent } from './user-admin-type-login/user-admin-type-login.component';
 import { UserProfileDialogComponent } from './user-profile-dialog/user-profile-dialog.component';
@@ -46,8 +50,8 @@ interface ExtraOptions extends InMemoryScrollingOptions, RouterConfigOptions {
 const routes: Routes = [
   { path: 'main-header', component: MainHeaderComponent },
   { path: '', component: MainHeaderComponent },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'applicant-search', component: ApplicantSearchComponent },
+  // { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: 'applicant-search', component: ApplicantSearchComponent, },
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'login-page', component: LoginPageComponent },
   {
@@ -64,11 +68,15 @@ const routes: Routes = [
       loginType: 'Admin Login',
     },
   },
-  { path: 'main-footer', component: MainFooterComponent },
-  { path: 'registration-page', component: RegistrationPageComponent },
-  { path: 'user-admin-type-login', component: UserAdminTypeLoginComponent },
-  { path: 'user-profile-dialog', component: UserProfileDialogComponent },
-  { path: 'applicant-dashboard', component: ApplicantDashboardComponent },
+  { path: 'main-footer', component: MainFooterComponent, },
+  { path: 'registration-page', component: RegistrationPageComponent,  },
+  { path: 'user-admin-type-login', component: UserAdminTypeLoginComponent, },
+  { path: 'user-profile-dialog', component: UserProfileDialogComponent , },
+  { path: 'applicant-dashboard', component: ApplicantDashboardComponent , },
+  {path:'profile',component:ProfileComponent},
+  {path:'profile1',component:Profile1Component},
+  {path:'contact',component:ContactComponent}
+
 ];
 
 @NgModule({

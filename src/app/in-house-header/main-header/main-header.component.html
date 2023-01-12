@@ -1,89 +1,158 @@
-
 <div>
-  <nav class="navbar navbar-expand-lg" >
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" (click)="route.navigate([''])">
-        <img src="/assets/android-chrome-512x512.png" id="googlinImg" loading="lazy" fill rel="preconnect" />
-        <span id="googlinText" style="font-family:'julee';"> GOOGLIN </span>
+      <a class="navbar-brand" (click)="goto()">
+        <img
+          src="/assets/android-chrome-512x512.png"
+          id="googlinImg"
+          loading="lazy"
+          fill
+          rel="preconnect"
+        />
+        <span id="googlinText" style="font-family: 'julee'"> GOOGLIN </span>
       </a>
       <div>
         <div>
-          <button class="flex-button" routerLink="/" routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }" style="font-size: 14px">
+          <button
+            class="flex-button"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            style="font-size: 14px"
+          >
             HOME
           </button>
-          <button class="flex-button" routerLink="/applicant-dashboard" routerLinkActive="active">
-            ABOUT
-          </button>
-          <button class="flex-button" routerLink="/applicant-search" routerLinkActive="active">
+          <!-- <button
+            class="flex-button"
+            routerLink="/applicant-dashboard"
+            routerLinkActive="active"
+
+          >
+            USERS
+          </button> -->
+          <button
+            class="flex-button"
+            routerLink="/applicant-dashboard"
+            routerLinkActive="active"
+          >
             SERVICES
           </button>
-          <button class="flex-button" routerLinkActive="active">PORTFOLIO</button>
-          <button class="flex-button">CONTACT</button>
-          <button class="flex-button" *ngIf="page != ''">
-            <i id="profileid" class="fa fa-user-circle-o" aria-hidden="true" [matMenuTriggerFor]="afterMenu"></i>
+          <button class="flex-button" routerLinkActive="active" routerLink="/applicant-search"
+          routerLinkActive="active">
+            PORTFOLIO
+          </button>
+          <button
+            class="flex-button"
+            routerLink="/contact"
+            routerLinkActive="active"
+          >
+            CONTACT
+          </button>
+          <button class="flex-button" *ngIf="page !== ''">
+            <i
+              id="profileid"
+              class="fa fa-user-circle-o"
+              aria-hidden="true"
+              [matMenuTriggerFor]="afterMenu"
+            ></i>
             <mat-menu #afterMenu="matMenu" xPosition="after">
-              <button mat-menu-item class="flex-button">PROFILE</button>
-              <button mat-menu-item (click)="LogOut()" lass="flex-button">
+              <button
+                mat-menu-item
+                class="flex-button"
+                routerLink="/profile"
+                routerLinkActive="active"
+              >
+                PROFILE
+              </button>
+              <button mat-menu-item (click)="LogOut()" class="flex-button">
                 LOGOUT
               </button>
             </mat-menu>
           </button>
-          <button mat-raised-button *ngIf="page == ''" (click)="LoginTo()" style="background-color: rgb(28, 101, 202)">
+          <button
+            mat-raised-button
+            *ngIf="page == ''"
+            (click)="LoginTo()"
+            style="background-color: rgb(28, 101, 202)"
+          >
             LOGIN
           </button>
-          <button mat-raised-button *ngIf="page == ''" (click)="SignInTo()" style="background-color: rgb(2, 68, 116)">
+          <button
+            mat-raised-button
+            *ngIf="page == ''"
+            (click)="SignInTo()"
+            style="background-color: rgb(2, 68, 116)"
+          >
             SIGN UP
           </button>
         </div>
       </div>
     </div>
   </nav>
-  <div id="below-nav-content" *ngIf="page == ''" >
-    <div style="width: 65%">
+  <div id="below-nav-content" *ngIf="page == ''">
+    <div style="width: 75%; height: 100%">
       <img src="assets/people5.webp" alt="" id="below-nav-image" width="100%" />
       <div id="below-nav-text1">
-        <span style="font-size: 50px;font-family: 'Italianno';font-weight: 500;"> The Art of Hiring </span>
+        <span
+          style="font-size: 50px; font-family: 'Italianno'; font-weight: 500"
+        >
+          The Art of Hiring
+        </span>
       </div>
     </div>
     <div id="below-nav-content1">
-      <h1 style="font-size: 30px;color: rgb(71, 55, 194);margin-right:30%;margin-top: 10px;font-family: julee;">Welcome
-        To
-        Googlin</h1>
-      <h1 style="position: relative;">Select your candidates </h1>
-
+      <h1
+        style="
+          font-size: 30px;
+          color: rgb(71, 55, 194);
+          margin-right: 30%;
+          margin-top: 10px;
+          font-family: julee;
+        "
+      >
+        Welcome To Googlin
+      </h1>
+      <h1 style="position: relative">Select your candidates</h1>
 
       <!-- <img src="/assets/hireGif2.gif" width="100%" height="100%"> -->
     </div>
   </div>
-  <div class="container" *ngIf="page==''" style="text-indent: 10px;letter-spacing:.7;line-height:2;font-size: 15px;
-  background-color: rgb(253, 253, 253);box-shadow: 0px 0px 1px 0px silver;justify-content:center;">
-    <h1 style="text-align: center;padding-top:20px ;">Types of recruiting</h1>
+  <div
+    class="container"
+    *ngIf="page == ''"
+    style="
+      text-indent: 10px;
+      letter-spacing: 0.7;
+      line-height: 2;
+      font-size: 15px;
+      background-color: rgb(253, 253, 253);
+      box-shadow: 0px 0px 1px 0px silver;
+      justify-content: center;
+    "
+  >
+    <h1 style="text-align: center; padding-top: 20px">Types of recruiting</h1>
     <h2>There are several types of recruiting. Here’s an overview:</h2>
 
-    <span>Internal Recruiting: internal recruiting involves
+    <span
+      >Internal Recruiting: internal recruiting involves filling vacancies with
+      existing employees from within an organization.</span
+    >
 
-      filling vacancies with existing employees from within an
-      organization.</span>
-
-    <p> Retained Recruiting: When organization hire a recruiting firm,
-      there are several ways to do so; retained
-      recruiting is
-      a common one. When an organization retains a recruiting firm to fill a vacancy,
-      they pay an upfront fee to fill the
-      position.
-      <br> The firm is responsible for finding candidates until the position is filled.
-      The organization also agrees
-      to
-      work exclusively with the firm. Companies cannot, <br>
-      in other words,<br>
-      hire multiple recruiting firms to fill the same
-      position.
+    <p>
+      Retained Recruiting: When organization hire a recruiting firm, there are
+      several ways to do so; retained recruiting is a common one. When an
+      organization retains a recruiting firm to fill a vacancy, they pay an
+      upfront fee to fill the position. <br />
+      The firm is responsible for finding candidates until the position is
+      filled. The organization also agrees to work exclusively with the firm.
+      Companies cannot, <br />
+      in other words,<br />
+      hire multiple recruiting firms to fill the same position.
     </p>
-    <br>
+    <br />
 
-
-    <br>
+    <br />
   </div>
-  <app-main-footer *ngIf="page==''"></app-main-footer>
+  <app-main-footer *ngIf="page == ''"></app-main-footer>
 </div>
+<!-- <button style="color: white;width: 100px;height: 50px;background-color: #2f3251;">login</button> -->

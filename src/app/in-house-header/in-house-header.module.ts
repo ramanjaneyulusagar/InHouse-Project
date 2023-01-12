@@ -28,6 +28,11 @@ import { FilterPipe } from './filter.pipe';
 import { FileUploadDashboardComponent } from './file-upload-dashboard/file-upload-dashboard.component';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { MatDrawer } from '@angular/material/sidenav';
+import { ProfileComponent } from './profile/profile.component';
+import { AppHeader1Component } from './app-header1/app-header1.component';
+import { Profile1Component } from './profile1/profile1.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,10 @@ import { DataTableComponent } from './data-table/data-table.component';
     FileUploadDashboardComponent,
     ApplicantDashboardComponent,
     DataTableComponent,
+    ProfileComponent,
+    AppHeader1Component,
+    Profile1Component,
+    ContactComponent,
   ],
   imports: [
     CommonModule,
