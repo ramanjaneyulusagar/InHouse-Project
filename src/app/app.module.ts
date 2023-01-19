@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { InhouseService } from './inhouse.service';
+import { InhouseService } from './app.service';
 import { GenericListFilterModule } from 'generic-list-filter';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AngularFileUploaderModule } from '@anderstornkvist/angular-file-uploader';
@@ -24,8 +24,8 @@ import { CommonModule } from '@angular/common';
 // import{CsvFormat} from '@angular/common';
 // import { NgxCsvModule } from 'ngx-csv';
 import { ImagesSliderComponent } from './Header-Main/images-slider/images-slider.component';
-import { INHOUSEHEADERModule } from './in-house-header/in-house-header.module';
-import { INHOUSEHEADERRoutingModule } from './in-house-header/in-house-header-routing.module';
+import { INHOUSEModule } from './in-house/in-house.module';
+import { INHOUSERoutingModule } from './in-house/in-house-routing.module';
 import { MaterialModule } from './material/material.module';
 // import { FormGroupModule } from './form-group/form-group.module';
 @NgModule({
@@ -54,8 +54,8 @@ import { MaterialModule } from './material/material.module';
     AccordionModule,
     FileUploadModule,
     CommonModule,
-    INHOUSEHEADERModule,
-    INHOUSEHEADERRoutingModule,
+    INHOUSEModule,
+    INHOUSERoutingModule,
     MaterialModule,
   ],
 })

@@ -37,6 +37,7 @@
     "install": "^0.13.0",
     "jquery": "^3.6.1",
     "json-server": "^0.17.0",
+    "json2csv": "^5.0.7",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.25",
     "material": "^0.4.3",
@@ -51,6 +52,8 @@
     "primeng": "^14.2.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "vue-nested-json-to-csv": "^0.0.23",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -59,7 +62,9 @@
     "@angular/compiler-cli": "^14.2.4",
     "@types/file-saver": "^2.0.5",
     "@types/jasmine": "~4.0.0",
+    "@types/json2csv": "^5.0.3",
     "@types/node": "^18.11.17",
+    "angular-rename": "^1.0.7",
     "copy-webpack-plugin": "^11.0.0",
     "husky": "^8.0.0",
     "jasmine-core": "~4.3.0",
