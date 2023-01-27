@@ -9,7 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { InhouseService } from './app.service';
-// import { GenericListFilterModule } from 'generic-list-filter';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AngularFileUploaderModule } from '@anderstornkvist/angular-file-uploader';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -54,9 +53,8 @@ import { MaterialModule } from './material/material.module';
     AccordionModule,
     FileUploadModule,
     CommonModule,
-    INHOUSEModule,
     INHOUSERoutingModule,
-    MaterialModule,
+    MaterialModule,INHOUSEModule
   ],
 })
 export class AppModule {}

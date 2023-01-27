@@ -52,7 +52,6 @@
     "primeng": "^14.2.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "vue-nested-json-to-csv": "^0.0.23",
     "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
