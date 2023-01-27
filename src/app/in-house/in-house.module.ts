@@ -66,7 +66,6 @@ import { ContactComponent } from './HEADER/contact/contact.component';
     FileUploadModule,
     NgbModule,
     NgOptimizedImage,
-
     AccordionModule,
     AngularFileUploaderModule,
     NgxPaginationModule,
