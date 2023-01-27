@@ -15,7 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileUploadModule } from 'primeng/fileupload';
 import { NgOptimizedImage } from '@angular/common';
-import { GenericListFilterModule } from 'generic-list-filter';
+// import { GenericListFilterModule } from 'generic-list-filter';
 import { AccordionModule } from 'primeng/accordion'; //accordion and accordion tab
 import { AngularFileUploaderModule } from '@anderstornkvist/angular-file-uploader';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -66,7 +66,7 @@ import { ContactComponent } from './HEADER/contact/contact.component';
     FileUploadModule,
     NgbModule,
     NgOptimizedImage,
-    GenericListFilterModule,
+
     AccordionModule,
     AngularFileUploaderModule,
     NgxPaginationModule,
