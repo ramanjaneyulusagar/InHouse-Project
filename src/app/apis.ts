@@ -7,7 +7,7 @@ export class apis {
   // newUserApi:'http://localhost:8080/app/usersave',
 
   public static  SEARCH(){
-   return 'http://localhost:8080/app/search/1/10';
+   return 'http://localhost:8080/app/search/1/1000';
   }
   public static  LOGIN(){
     return 'http://localhost:8080/app/login';

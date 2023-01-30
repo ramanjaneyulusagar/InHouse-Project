@@ -54,6 +54,7 @@ export class FileUploadDashboardComponent {
     console.log(this.selectFiles);
   }
   upload(idx: any, file: any) {
+    console.log(file);
     let ext = file.name.split('.').pop();
     this.progressInfos[idx] = { value: 0, fileName: file.name };
     if (ext == 'pdf' || ext == 'docx' || ext == 'doc') {

@@ -144,7 +144,7 @@ export class ApplicantSearchComponent implements OnInit {
     // window.location.reload();
     this.page = page;
     this.http
-      .post(`http://localhost:8080/app/search/${this.page}/10`, this.formdata)
+      .post(`http://localhost:8080/app/search/${this.page}/80`, this.formdata)
       .pipe(
         catchError(async (err: any) =>
           alert('no data found' + JSON.stringify(err) + this.paginated(1))

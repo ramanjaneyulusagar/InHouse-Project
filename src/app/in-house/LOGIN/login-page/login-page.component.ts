@@ -91,7 +91,7 @@ export class LoginPageComponent {
               console.log(data.error.message);
               alert(data.error.message);
               this.emailValid = 'enter valid email';
-              this.passwordValid = 'enyter valid password';
+              this.passwordValid = 'enter valid password';
               setTimeout(() => {
                 this.emailValid = '';
                 this.passwordValid = '';
