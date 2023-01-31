@@ -30,7 +30,7 @@ export class ApplicantSearchComponent implements OnInit {
     private fb: FormBuilder,
     private ref: ChangeDetectorRef,
     private http: HttpClient
-  ) {}
+  ) { }
   form!: FormGroup;
   public file: any = File;
   public data: any;
@@ -71,35 +71,23 @@ export class ApplicantSearchComponent implements OnInit {
   // search data using dropdown
   search(data: any) {
     console.log(data);
-    this.service.user(this.formdata).subscribe((data: any) => {
+    this.service.user(this.formdata).pipe(
+      catchError(async (err: any) => {
+        alert(err + 'no data found');
+      })
+    ).subscribe((data: any) => {
       console.log(data);
-      if (data !== null) this.hide = true;
-      // this.loader=false
-      this.exportdata = data['content'];
-      this.dataNumber = data.totalRows;
-      this.datasize = data.size;
-      this.numberOfElements = data.numberOfElements;
-      let id: any;
-
-      // this.exceldata = this.exportdata.map((a: any) => {
-      //   // console.log(a['details'],a['id']);
-      //   console.log(a['details']['EDUCATION']);
-      //   console.log(JSON.stringify(a['details']['EDUCATION']))
-      //   console.log(a['details']['SKILLS']);
-      //   console.log(a['details']['EDUCATIONDETAILS']);
-      //   let name=[{}]
-      //   name.push(a['details']['NAME']);
-      //   console.log(name)
-      //   let email=[{}]
-      //   email.push(a['details']['EMAIL']);
-      //   console.log(email)
-      //   console.log(JSON.stringify(a['details']['EMAIL']));
-      //   console.log(JSON.stringify(a['details']['NAME']));
-      // });
-      // console.log(id);
-
-      this.formdata.SKILLS = '';
-      this.formdata.EDUCATION = '';
+      if (data === true) {
+        this.hide = true;
+        // this.loader=false
+        this.exportdata = data['content'];
+        this.dataNumber = data.totalRows;
+        this.datasize = data.size;
+        this.numberOfElements = data.numberOfElements;
+        let id: any;
+        this.formdata.SKILLS = '';
+        this.formdata.EDUCATION = '';
+      }
     });
     (Error: HttpErrorResponse) => {
       alert('no data found' + Error);
@@ -165,90 +153,90 @@ export class ApplicantSearchComponent implements OnInit {
   }
 
   // exportToCsv() {
-    // this.exceldata = this.exportdata.map((a: any) => {
-        // id:a.id;name:a.details
-        // id = a['id'];
-        // name = a['details']['NAME'];
-        // email = a['details']['EMAIL'];
-        // education = a['details']['EDUCATION'];
-        // educationdetails = a['details']['EDUCATIONDETAILS'];
-        // skills = a['details']['SKILLS'];
-        // console.log(id);
-        // console.log(a['details']['EDUCATION']);
-        // console.log(a['details']['SKILLS']);
-        // console.log(a['details']['EDUCATIONDETAILS']);
-        // console.log(a['details']['EMAIL']);
-        // console.log(a['details']['EMAIL']);
-        // console.log(id);
-        // let data = [];
-        // data.push(id, name, email, education, educationdetails, skills);
-      //   let jsonData = [
-      //     { id: a['id']},
-      //     { name: a['details']['NAME'] },
-      //     { email: a['details']['EMAIL'] },
-      //     { education:a['details']['EDUCATION'] },
-      //     { educationdetails: a['details']['EDUCATIONDETAILS'] },
-      //     { skills: a['details']['SKILLS'] },
-      //   ];
-      // });
-    /* get the data from the JSON object */
-    // let jsonData = [
-      // id = a['id'];
-      //   name = a['details']['NAME'];
-      //   email = a['details']['EMAIL'];
-      //   education = a['details']['EDUCATION'];
-      //   educationdetails = a['details']['EDUCATIONDETAILS'];
-      //   skills = a['details']['SKILLS'];
-    //   { id: this.exportdata['id']},
-    //   { name: JSON.stringify(this.exportdata.details['NAME']) },
-    //   { email: JSON.stringify(this.exportdata.details['EMAIL']) },
-    //   { education: this.exportdata.details['EDUCATION'] },
-    //   { educationdetails: this.exportdata.details['EDUCATIONDETAILS'] },
-    //   { skills: this.exportdata.details['SKILLS'] },
-    // ];
-// let cdata=[]
-// cdata.push(jsonData);
-    /* convert the JSON data to CSV */
-    // let csv = json2csv.parse(jsonData);
-    // let fields = [
-    //   {
-    //     label: 'id',
-    //     value: 'id',
-    //   },
-    //   {
-    //     label: 'name',
-    //     value: 'name',
-    //   },
-    //   {
-    //     label: 'email',
-    //     value: 'email',
-    //   },
-    //   {
-    //     label: 'education',
-    //     value: 'education',
-    //   },
-    //   {
-    //     label: 'educationdetails',
-    //     value: 'educationdetails',
-    //   },
-    //   {
-    //     label: 'skills',
-    //     value: 'skills',
-    //   },
-    // ];
-    // let options = { fields };
+  // this.exceldata = this.exportdata.map((a: any) => {
+  // id:a.id;name:a.details
+  // id = a['id'];
+  // name = a['details']['NAME'];
+  // email = a['details']['EMAIL'];
+  // education = a['details']['EDUCATION'];
+  // educationdetails = a['details']['EDUCATIONDETAILS'];
+  // skills = a['details']['SKILLS'];
+  // console.log(id);
+  // console.log(a['details']['EDUCATION']);
+  // console.log(a['details']['SKILLS']);
+  // console.log(a['details']['EDUCATIONDETAILS']);
+  // console.log(a['details']['EMAIL']);
+  // console.log(a['details']['EMAIL']);
+  // console.log(id);
+  // let data = [];
+  // data.push(id, name, email, education, educationdetails, skills);
+  //   let jsonData = [
+  //     { id: a['id']},
+  //     { name: a['details']['NAME'] },
+  //     { email: a['details']['EMAIL'] },
+  //     { education:a['details']['EDUCATION'] },
+  //     { educationdetails: a['details']['EDUCATIONDETAILS'] },
+  //     { skills: a['details']['SKILLS'] },
+  //   ];
+  // });
+  /* get the data from the JSON object */
+  // let jsonData = [
+  // id = a['id'];
+  //   name = a['details']['NAME'];
+  //   email = a['details']['EMAIL'];
+  //   education = a['details']['EDUCATION'];
+  //   educationdetails = a['details']['EDUCATIONDETAILS'];
+  //   skills = a['details']['SKILLS'];
+  //   { id: this.exportdata['id']},
+  //   { name: JSON.stringify(this.exportdata.details['NAME']) },
+  //   { email: JSON.stringify(this.exportdata.details['EMAIL']) },
+  //   { education: this.exportdata.details['EDUCATION'] },
+  //   { educationdetails: this.exportdata.details['EDUCATIONDETAILS'] },
+  //   { skills: this.exportdata.details['SKILLS'] },
+  // ];
+  // let cdata=[]
+  // cdata.push(jsonData);
+  /* convert the JSON data to CSV */
+  // let csv = json2csv.parse(jsonData);
+  // let fields = [
+  //   {
+  //     label: 'id',
+  //     value: 'id',
+  //   },
+  //   {
+  //     label: 'name',
+  //     value: 'name',
+  //   },
+  //   {
+  //     label: 'email',
+  //     value: 'email',
+  //   },
+  //   {
+  //     label: 'education',
+  //     value: 'education',
+  //   },
+  //   {
+  //     label: 'educationdetails',
+  //     value: 'educationdetails',
+  //   },
+  //   {
+  //     label: 'skills',
+  //     value: 'skills',
+  //   },
+  // ];
+  // let options = { fields };
 
-    // let csv = json2csv.parse(cdata  , options);
+  // let csv = json2csv.parse(cdata  , options);
 
-    /* create a new Blob object with the CSV data */
-    // let blob = new Blob([csv], { type: 'text/csv' });
+  /* create a new Blob object with the CSV data */
+  // let blob = new Blob([csv], { type: 'text/csv' });
 
-    /* create a link element to download the CSV file */
-    // let link = document.createElement('a');
-    // link.href = window.URL.createObjectURL(blob);
-    // link.download = 'data.csv';
+  /* create a link element to download the CSV file */
+  // let link = document.createElement('a');
+  // link.href = window.URL.createObjectURL(blob);
+  // link.download = 'data.csv';
 
-    /* trigger the download */
+  /* trigger the download */
   //   link.click();
   // }
 }

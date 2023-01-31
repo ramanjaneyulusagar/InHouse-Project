@@ -48,11 +48,7 @@ export class InHouseService {
         'Access-Control-Allow-Origin': '*',
       },
     };
-    return this.http.post(apis.SEARCH(), data).pipe(
-      catchError(async (err: any) => {
-        alert(err);
-      })
-    );
+    return this.http.post(apis.SEARCH(), data);
   }
   logincheck(data: any) {
     let config = {

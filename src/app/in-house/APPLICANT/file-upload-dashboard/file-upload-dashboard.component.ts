@@ -1,7 +1,7 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import * as json2csv from 'json2csv';
 import { UploadfileService } from '../../SERVICES/uploadfile.service';
 @Component({
@@ -15,18 +15,25 @@ export class FileUploadDashboardComponent {
   message = '';
   @ViewChild('fileName') fileName!: ElementRef;
   fileInfos!: Observable<any>;
+  previousValue:any;
   constructor(
 
-    private _snackBar: MatSnackBar,private uploadfileservice:UploadfileService
-  ) {}
+    private _snackBar: MatSnackBar, private uploadfileservice: UploadfileService
+  ) { }
   ngOnInit(): void {
     this.fileInfos = this.uploadfileservice.getFiles();
     // throw new Error('Method not implemented.');
   }
+  ngAfterViewInit() {
+    // this.previousValue =this.selectFiles(Event)
+
+  }
+
   cancelSelectedFile() {
     this.fileName.nativeElement.value = '';
   }
-  selectFiles(event: any) {
+
+ selectFiles(event: any) {
     this.progressInfos = [];
     this.selectedFiles = event.target.files;
     console.log(
@@ -35,14 +42,19 @@ export class FileUploadDashboardComponent {
       event,
       this.selectedFiles
     );
-    this._snackBar.open(
-      ' file selected Successfully, click on upload!',
-      'Close',
-      {
-        duration: 2000,
-      }
-    );
+    if (this.fileName.nativeElement.value) {
+      this._snackBar.open(
+        ' file selected Successfully, click on upload!',
+        '',
+        {
+          duration: 2000,
+        }
+      );
+
+    }
+
     // { target: { files: FileList; }; }
+
   }
   uploadFiles() {
     this.message = '';
@@ -60,7 +72,7 @@ export class FileUploadDashboardComponent {
     if (ext == 'pdf' || ext == 'docx' || ext == 'doc') {
       this.uploadfileservice.upload(file).subscribe(
         (event: any) => {
-          console.log(JSON.stringify(event), alert(event));
+          console.log(JSON.stringify(event));
           this.fileName.nativeElement.value = '';
           // this.progressInfos.fileName=null;
           // this.progressInfos.value=null
@@ -76,6 +88,11 @@ export class FileUploadDashboardComponent {
         (err) => {
           this.progressInfos[idx].value = 0;
           this.message = 'Could not upload the file:' + file.name;
+          setTimeout(() => {
+            this.message = '';
+            this.fileName.nativeElement.value = '';
+            this.progressInfos = [];
+          }, 3000);
         }
       );
     } else {
@@ -134,7 +151,7 @@ export class FileUploadDashboardComponent {
       label: "skills",
       value: "skills"
     }];
-    let options = { fields , header: true};
+    let options = { fields, header: true };
 
     let csv = json2csv.parse(jsonData, options);
 
@@ -150,3 +167,4 @@ export class FileUploadDashboardComponent {
     link.click();
   }
 }
+// pipe(catchError((res:any)=> of(res)))

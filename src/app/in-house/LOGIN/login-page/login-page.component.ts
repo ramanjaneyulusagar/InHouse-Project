@@ -85,7 +85,7 @@ export class LoginPageComponent {
               // globalThis.alert("You have successfully purchased product"+"OK"+bindCallback );
               localStorage.setItem('token', 'passCode');
               localStorage.setItem('is_admin', 'true');
-              this.router.navigate(['/applicant-search']);
+              this.router.navigate(['/applicant-dashboard']);
             }
             if (data.message) {
               console.log(data.error.message);

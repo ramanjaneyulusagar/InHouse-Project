@@ -31,7 +31,7 @@
     <form #file style="text-align: center; justify-content: center">
       <div style="text-align: center; margin: 15px">
         <br />
-        <h1 style="font-size: 25px; font-weight: 500">Upload a File</h1>
+        <h1 style="font-size: 25px; font-weight: 500">Upload Files</h1>
         <div style="font-size: 22px">
           <!-- <span>Drag and Drop</span><br><br> -->
           <!-- <span>File</span><br><br> -->
@@ -43,8 +43,10 @@
             <input
               type="file"
               multiple
+
               (change)="selectFiles($event)"
               #fileName
+              id="inputFile"
               style="font-style: italic"
               accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
             <button
@@ -75,8 +77,7 @@
   </mat-card>
 </div>
 <!-- <button (click)="exportToCsv()">Export to CSV</button> -->
-<app-main-footer></app-main-footer>
-
+<!-- <app-main-footer></app-main-footer> -->
 
 <!-- <div class="card">
   <div class="card-header">List of Files</div>

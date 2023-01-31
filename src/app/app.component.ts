@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit{
-  loader:boolean=false
+  loader:boolean=false;
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     setTimeout(() => {
