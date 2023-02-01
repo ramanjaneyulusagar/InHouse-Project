@@ -10,15 +10,16 @@ import { UploadfileService } from '../../SERVICES/uploadfile.service';
   styleUrls: ['./file-upload-dashboard.component.css'],
 })
 export class FileUploadDashboardComponent {
-  selectedFiles!: FileList;
-  progressInfos: any = [];
-  message = '';
+  public selectedFiles: File[] = [];
+  public progressInfos: any[] = [];
+  public message = '';
+  public fileSelected: boolean = false;
   @ViewChild('fileName') fileName!: ElementRef;
-  fileInfos!: Observable<any>;
-  previousValue:any;
+  public fileInfos!: Observable<any>;
+  public previousValue: string = '';
   constructor(
-
-    private _snackBar: MatSnackBar, private uploadfileservice: UploadfileService
+    private _snackBar: MatSnackBar,
+    private uploadfileservice: UploadfileService
   ) { }
   ngOnInit(): void {
     this.fileInfos = this.uploadfileservice.getFiles();
@@ -26,44 +27,60 @@ export class FileUploadDashboardComponent {
   }
   ngAfterViewInit() {
     // this.previousValue =this.selectFiles(Event)
-
   }
-
-  cancelSelectedFile() {
-    this.fileName.nativeElement.value = '';
+  chooseFileButton() {
+    this.fileName.nativeElement.click();
   }
-
- selectFiles(event: any) {
-    this.progressInfos = [];
-    this.selectedFiles = event.target.files;
-    console.log(
-      event,
-      this.fileName.nativeElement.value,
-      event,
-      this.selectedFiles
+  cancelTotalFiles() {
+    this.selectedFiles = [];
+    this.fileSelected = false;
+  }
+  cancelSelectedFile(index: any) {
+    if (this.selectedFiles.length === 1) this.fileSelected = false;
+    this._snackBar.open(
+      `${this.selectedFiles[index]['name']} is removed  from the list`,
+      'close',
+      { duration: 10000 }
     );
+    this.selectedFiles.splice(index, 1);
+  }
+  selectFiles(event: any) {
+    this.fileSelected = true;
+    this.progressInfos = [];
+    if (this.fileName.nativeElement.value) {
+      this.selectedFiles = [...event.target.files];
+      console.log(
+        event,
+        this.fileName.nativeElement.value,
+        event,
+        this.selectedFiles
+      );
+    } else {
+      this.fileSelected = false;
+      var d = this.selectedFiles;
+      this.progressInfos = [];
+      this.selectedFiles = d;
+      console.log(
+        event,
+        this.fileName.nativeElement.value,
+        event,
+        this.selectedFiles
+      );
+    }
     if (this.fileName.nativeElement.value) {
       this._snackBar.open(
         ' file selected Successfully, click on upload!',
-        '',
-        {
-          duration: 2000,
-        }
+        'close',
+        { duration: 10000 }
       );
-
     }
-
-    // { target: { files: FileList; }; }
-
   }
   uploadFiles() {
     this.message = '';
-
     for (let i = 0; i < this.selectedFiles.length; i++) {
       this.upload(i, this.selectedFiles[i]);
       console.log(i);
     }
-    console.log(this.selectFiles);
   }
   upload(idx: any, file: any) {
     console.log(file);
@@ -74,8 +91,6 @@ export class FileUploadDashboardComponent {
         (event: any) => {
           console.log(JSON.stringify(event));
           this.fileName.nativeElement.value = '';
-          // this.progressInfos.fileName=null;
-          // this.progressInfos.value=null
           this.progressInfos = [];
           if (event.type === HttpEventType.UploadProgress) {
             this.progressInfos[idx].value = Math.round(
@@ -87,31 +102,19 @@ export class FileUploadDashboardComponent {
         },
         (err) => {
           this.progressInfos[idx].value = 0;
-          this.message = 'Could not upload the file:' + file.name;
+          this.message = 'Could not upload the files';
           setTimeout(() => {
             this.message = '';
             this.fileName.nativeElement.value = '';
             this.progressInfos = [];
+            this.selectedFiles = [];
           }, 3000);
         }
       );
     } else {
       alert('choose different file format');
     }
-    // idx.value='';
-    // file.value='';
-
-    // this.selectFiles.value=[0]   // this.selectFiles.
   }
-
-  myFelds = [
-    { alias: 'id' },
-    { alias: 'name' },
-    { alias: 'email' },
-    { alias: 'education' },
-    { alias: 'educationdetails' },
-    { alias: 'skills' },
-  ];
   exportToCsv() {
     /* get the data from the JSON object */
     let jsonData = [
@@ -129,28 +132,32 @@ export class FileUploadDashboardComponent {
 
     /* convert the JSON data to CSV */
     // let csv = json2csv.parse(jsonData);
-    let fields = [{
-      label: "id",
-      value: "id"
-    }, {
-      label: "name",
-      value: "name"
-    }, {
-      label: "email",
-      value: "email"
-    },
-    {
-      label: "education",
-      value: "education"
-    },
-    {
-      label: "educationdetails",
-      value: "educationdetails"
-    },
-    {
-      label: "skills",
-      value: "skills"
-    }];
+    let fields = [
+      {
+        label: 'id',
+        value: 'id',
+      },
+      {
+        label: 'name',
+        value: 'name',
+      },
+      {
+        label: 'email',
+        value: 'email',
+      },
+      {
+        label: 'education',
+        value: 'education',
+      },
+      {
+        label: 'educationdetails',
+        value: 'educationdetails',
+      },
+      {
+        label: 'skills',
+        value: 'skills',
+      },
+    ];
     let options = { fields, header: true };
 
     let csv = json2csv.parse(jsonData, options);

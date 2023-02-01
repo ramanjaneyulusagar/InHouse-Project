@@ -20,12 +20,15 @@ import { InHouseService } from '../../SERVICES/in-house.service';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
-  isValidFormSubmitted: any;
-  loginCredentials!: Subscription;
-  loginForm!: FormGroup;
-  emailValid: string = '';
-  passwordValid: string = '';
-  userLogin: any;
+  public isValidFormSubmitted: any;
+  public loginCredentials!: Subscription;
+  public loginForm!: FormGroup;
+  public emailValid: string = '';
+  public passwordValid: string = '';
+  public userLogin: any;
+  public validLogin: any;
+  public newAccount: string = '';
+  public error: any;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -48,18 +51,14 @@ export class LoginPageComponent {
       ]),
     });
   }
-  validLogin: any;
-  newAccount:string='';
   ngOnInit(): void {
     this.validLogin = 'hello';
     this.userLogin = this.activatedRoute.snapshot.paramMap.get('title');
     this.activatedRoute.data.subscribe((value: any) => {
       this.userLogin = value.loginType ?? 'User Login';
-      this.newAccount=`<h1>dont have an account `
+      this.newAccount = `<h1>dont have an account `
     });
   }
-  public error: any;
-
   onSubmit() {
     this.isValidFormSubmitted = false;
     let obj = {

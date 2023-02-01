@@ -1,6 +1,7 @@
 <app-main-header page="applicant-search"></app-main-header>
 <!-- <app-file-upload-dashboard></app-file-upload-dashboard> -->
-<div style="
+<div
+  style="
     background-color: rgb(226, 230, 233);
     border-radius: 3px;
     box-shadow: 0px 0px 5px 0px #1f1f20;
@@ -8,23 +9,40 @@
     margin-left: 3px;
     margin-right: 3px;
     margin-bottom: 10px;
-  ">
+  "
+>
   <div class="row" style="width: 100%">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent2"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent2">
           <ul class="navbar-nav mb-lg-0">
-            <form #form="ngForm" (ngSubmit)="search(form.value)" style="width: 100%">
+            <form
+              #form="ngForm"
+              (ngSubmit)="search(form.value)"
+              style="width: 100%"
+            >
               <nav class="navbar" id="navbar1">
                 <div class="row">
                   <div class="col">
                     <div class="form-outline">
-                      <select class="form-select" aria-label="Default select example" [(ngModel)]="formdata.EDUCATION"
-                        name="education" style="font-size: 12px; width: 100%">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        [(ngModel)]="formdata.EDUCATION"
+                        name="education"
+                        style="font-size: 12px; width: 100%"
+                      >
                         <option selected value="">EDUCATION</option>
                         <option value="B.TECH">B.TECH</option>
                         <option value="M.TECH">M.TECH</option>
@@ -34,8 +52,13 @@
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <select class="form-select" aria-label="Default select example" [(ngModel)]="formdata.SKILLS"
-                        name="skills" style="font-size: 12px; width: 100%">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        [(ngModel)]="formdata.SKILLS"
+                        name="skills"
+                        style="font-size: 12px; width: 100%"
+                      >
                         <option selected value="">SKILLS</option>
                         <option value="JAVA">JAVA</option>
                         <option value="JAVASCRIPT">ANGULAR</option>
@@ -53,8 +76,12 @@
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <select class="form-select" aria-label="Default select example" name="education"
-                        style="font-size: 12px; width: 100%">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        name="education"
+                        style="font-size: 12px; width: 100%"
+                      >
                         <option selected value="">EXPERIENCE</option>
                         <option value="B.TECH">1</option>
                         <option value="M.TECH">2</option>
@@ -106,7 +133,10 @@
 <div>
   <header *ngIf="exportdata == null">
     <!-- Navbar -->
-    <div class="p-4 text-center bg-light" style="color: rgb(39, 35, 63); margin: 5px">
+    <div
+      class="p-4 text-center bg-light"
+      style="color: rgb(39, 35, 63); margin: 5px"
+    >
       <div>
         <h1 class="mb-1">Search Profiles of the Candidates</h1>
         <h1>Based On Skills,Education and Experience</h1>
@@ -119,7 +149,11 @@
   </header>
 </div>
 <div id="tableDiv" *ngIf="exportdata">
-  <table class="table table-hover table-borderless table-sm table-striped" style="padding: 0.1rem" id="table">
+  <table
+    class="table table-hover table-borderless table-sm table-striped"
+    style="padding: 0.1rem"
+    id="table"
+  >
     <thead class="table" style="background-color: #63a5e0; color: white">
       <tr style="font-size: 12px">
         <th>#</th>
@@ -128,14 +162,19 @@
         <th scope="col">SKILLS</th>
         <th>
           <a>
-            <i class="fa fa-user" aria-hidden="true" style="color: rgb(246, 242, 242); font-size: 15px">
+            <i
+              class="fa fa-user"
+              aria-hidden="true"
+              style="color: rgb(246, 242, 242); font-size: 15px"
+            >
             </i>
           </a>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="
+      <tr
+        *ngFor="
           let d of exportdata
             | paginate
               : {
@@ -144,7 +183,8 @@
                   totalItems: totalItems
                 };
           let i = index
-        ">
+        "
+      >
         <td>{{ i + 1 }}</td>
         <td>{{ d.details.NAME }}</td>
         <td>{{ d.details.EMAIL }}</td>
@@ -152,14 +192,22 @@
         <!-- <td (click)="viewdetails(d)">details</td> -->
         <td>
           <!-- <i class="fa fa-user" aria-hidden="true" (click)="viewdetails(d)" style="color: rgb(89, 84, 167)"></i> -->
-          <a (click)="viewdetails(d)" style="text-decoration: underline; cursor: pointer">viewDetails</a>
+          <a
+            (click)="viewdetails(d)"
+            style="text-decoration: underline; cursor: pointer"
+            >viewDetails</a
+          >
         </td>
       </tr>
     </tbody>
   </table>
   <!-- <span style="float: left;margin-right: 100px;">showing {{numberOfElements}} results in {{page}} page </span> -->
   <div class="d-flex justify-content-end">
-    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="paginated((page = $event))">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="paginated((page = $event))"
+    >
     </pagination-controls>
   </div>
 </div>

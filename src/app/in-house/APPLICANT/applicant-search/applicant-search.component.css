@@ -1,19 +1,22 @@
 /* background-color: rgb(226, 230, 233); */
 /* search abr color */
-header{
+header {
   /* border: solid rgb(231, 226, 226) 1px; */
   /* box-shadow: 0px 0px 3px 0px rgb(109, 112, 112); */
   border-radius: 3px;
-  margin: 3px ;
+  margin: 3px;
 
 }
+
 mat-toolbar {
   /* background-color: #eff1f3; */
   color: white;
 }
+
 .nav-item {
   margin-left: 10px;
 }
+
 #navbar1 {
   font-family: Arial, "papyrys" sans-serif;
   --bs-navbar-padding-x: 1;
@@ -27,7 +30,7 @@ mat-toolbar {
 #navbar1 .row {
   padding-right: calc(var(--bs-gutter-x) * .2);
   /* margin: 3px; */
-  width:auto;
+  width: auto;
   padding: 5px;
   margin: 3px;
   /* border: solid black 1px; */
@@ -40,22 +43,27 @@ mat-toolbar {
   /* border-right: none ; */
   /* border-bottom: 1px solid rgb(199, 76, 76); */
 }
-.form-outline{
+
+.form-outline {
   width: 220px;
   justify-content: center;
   text-align: center;
   /* box-shadow: 0px 0px 10px 0px rgb(236, 226, 226); */
 }
+
 .example-spacer {
   flex: 1 1 auto;
 }
+
 @media only screen and (max-width: 500px) {
   #ebtn {
     margin-top: 4px;
   }
+
   #sbtn {
     margin-top: 4px;
   }
+
   #navbar1 {
     /* font-family: Arial, "papyrys" sans-serif; */
     /* --bs-navbar-padding-x: 1; */
@@ -67,6 +75,7 @@ mat-toolbar {
     /* padding-right: calc(var(--bs-gutter-x) * 1); */
   }
 }
+
 @media only screen and (max-width: 700px) {
 
   #navbar1 {
@@ -80,6 +89,7 @@ mat-toolbar {
     /* padding-right: calc(var(--bs-gutter-x) * 1); */
   }
 }
+
 .btn {
   background-color: #63a5e0;
   color: rgb(251, 251, 251);
@@ -89,6 +99,7 @@ mat-toolbar {
   font-weight: 500;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 #table {
   font-size: 12px;
   font-family: "Segoe UI", "papyrys" Verdana, sans-serif;
@@ -96,24 +107,28 @@ mat-toolbar {
   padding: 0.2rem 0.2rem;
   /* border: solid 1px rgb(230, 228, 228); */
 }
+
 button:hover {
   box-shadow: 0px 0px 3px 0px rgb(5, 5, 5);
   /* text-shadow: 0px 0px 30px 0px rgb(161, 58, 58); */
 }
+
 tr {
   height: 10px;
 }
-.table > :not(caption) > * > * {
+
+.table> :not(caption)>*>* {
   padding: 7px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 button {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
+
 #tableDiv {
   overflow-x: auto;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 5px;
 }
-

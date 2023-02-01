@@ -11,9 +11,8 @@ import { InHouseService } from '../../SERVICES/in-house.service';
   styleUrls: ['./forget-password.component.css'],
 })
 export class ForgetPasswordComponent {
-  form: Applicant | undefined;
-
-  loginForm!: FormGroup;
+  public form: Applicant | undefined;
+  public loginForm!: FormGroup;
   constructor(private service: InHouseService, private _router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [
@@ -36,7 +35,7 @@ export class ForgetPasswordComponent {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     if (

@@ -18,7 +18,7 @@ import { InHouseService } from '../../SERVICES/in-house.service';
 export class RegistrationPageComponent {
   public hide = false;
 
-  loginForm!: FormGroup;
+  public loginForm!: FormGroup;
   constructor(private service: InHouseService, private _router: Router) {
     this.loginForm = new FormGroup({
       name: new FormControl(
@@ -32,7 +32,7 @@ export class RegistrationPageComponent {
       email: new FormControl(
         '',
         Validators.compose([
-          Validators.required,Validators.email,
+          Validators.required, Validators.email,
           // Validators.pattern(
           //   '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$'
           // ),
@@ -83,7 +83,7 @@ export class RegistrationPageComponent {
       // {type:'pattern',message:'password is invalid'}
     ],
   };
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   alphaOnly(event: any) {
     return event;
   }

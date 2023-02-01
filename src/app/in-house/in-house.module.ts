@@ -71,4 +71,4 @@ import { ContactComponent } from './HEADER/contact/contact.component';
     NgxPaginationModule,
   ],
 })
-export class INHOUSEModule {}
+export class INHOUSEModule { }

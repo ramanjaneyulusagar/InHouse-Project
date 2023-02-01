@@ -1,81 +1,62 @@
-<!-- <p>file-upload-dashboard works!</p> -->
 <app-main-header page="applicant-dashboard"></app-main-header>
-<div
-  class="d-flex justify-content-center bg-light"
-  style="background-color: rgb(202, 223, 223)"
-  (dropped)="selectFiles($event)"
->
-  <mat-card
-    style="
-      margin-top: 5%;
-      margin-bottom: 16.7%;
-      width: 550px;
-      text-align: center;
-    "
-  >
+<div id="div1" class="d-flex justify-content-center bg-light">
+  <mat-card>
     <div *ngFor="let progressInfo of progressInfos" id="d">
       <span>{{ progressInfo.fileName }}</span>
       <div class="progress">
-        <div
-          class="progress-bar progress-bar-info progress-bar-striped"
-          role="progressbar"
-          attr.aria-valuenow="{{ progressInfo.value }}"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          [ngStyle]="{ width: progressInfo.value + '%' }"
-        >
+        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+          attr.aria-valuenow="{{ progressInfo.value }}" aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{ width: progressInfo.value + '%' }">
           {{ progressInfo.value }}%
         </div>
       </div>
     </div>
-    <form #file style="text-align: center; justify-content: center">
-      <div style="text-align: center; margin: 15px">
+    <form #file class="formDiv2">
+      <div class="div3">
         <br />
-        <h1 style="font-size: 25px; font-weight: 500">Upload Files</h1>
-        <div style="font-size: 22px">
-          <!-- <span>Drag and Drop</span><br><br> -->
-          <!-- <span>File</span><br><br> -->
-          <!-- <span>Or</span><br> -->
+        <h1 class="uploadFiles">Upload Files</h1>
+        <div class="div4">
+          <div class="div5">
+            <div>
+              <!--  accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" -->
+              <button (click)="chooseFileButton()" class="chooseFileButton" mat-raised-button>
+                <span class="chooseFileText">Choose Files</span>
+              </button>
 
-          <label class="btn btn-default">
-            <!--  accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" -->
-
-            <input
-              type="file"
-              multiple
-
-              (change)="selectFiles($event)"
-              #fileName
-              id="inputFile"
-              style="font-style: italic"
-              accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
-            <button
-              mat-raised-button
-              (click)="cancelSelectedFile()"
-              style="margin-left: 10px"
-            >
-              <i class="fa fa-close"></i></button></label
-          ><br />
+              <input type="file" multiple (change)="selectFiles($event)" #fileName id="inputFile" class="fileInput"
+                accept="application/pdf,application/msword,application/vnd.
+                openxmlformats-officedocument.wordprocessingml.document" />
+            </div>
+            <div class="xmarkIconDiv">
+              <button *ngIf="fileSelected" matTooltip="Remove All Files" matTooltipPosition="right"
+                TooltipTouchGestures="on" (click)="cancelTotalFiles()" class="xmarkCancel" data-bs-toggle="tooltip"
+                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-title="This top tooltip is themed via CSS variables.">
+                <i class="fa-sharp fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
         </div>
-        <!-- <button mar-raiser-button>Browse</button> -->
       </div>
-      <button
-        mat-raised-button
-        [disabled]="!selectedFiles"
-        (click)="uploadFiles()"
-        style="
-          background-color: rgb(86, 112, 216);
-          color: rgb(248, 247, 247);
-          margin-top: 10px;
-          width: 120px;
-        "
-      >
-        Upload
+      <div *ngIf="selectedFiles" class="div6">
+        <label *ngFor="let f of selectedFiles; let i = index">{{ f["name"] }}
+          <button matTooltip="Remove This File" matTooltipPosition="right" TooltipTouchGestures="on"
+            (click)="cancelSelectedFile(i)" class="cancelSelectedFile">
+            <i class="fa-solid fa-xmark" id="xmark1"></i>
+          </button>
+        </label>
+      </div>
+      <button class="uploadFileButton" *ngIf="fileSelected" mat-raised-button [disabled]="!selectedFiles"
+        (click)="uploadFiles()">
+        <span>Upload</span>
       </button>
+      <span class="tooltip">upload</span>
     </form>
     <div class="alert alert-light" role="alert">{{ message }}</div>
   </mat-card>
 </div>
+
+<app-main-footer></app-main-footer>
 <!-- <button (click)="exportToCsv()">Export to CSV</button> -->
 <!-- <app-main-footer></app-main-footer> -->
 

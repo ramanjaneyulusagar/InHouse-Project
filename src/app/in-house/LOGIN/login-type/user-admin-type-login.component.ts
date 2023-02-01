@@ -7,20 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-admin-type-login.component.css']
 })
 export class UserAdminTypeLoginComponent {
-  isLoginCandidate: boolean = true;
-  isLoginType: boolean = true;
-  userLogin: string = '';
-  constructor(private route: Router) {}
+  public isLoginCandidate: boolean = true;
+  public isLoginType: boolean = true;
+  public userLogin: string = '';
+  constructor(private route: Router) { }
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
   }
   loginAsUser() {
-    let userLogin:string = 'User Login';
+    let userLogin: string = 'User Login';
     this.route.navigate(['login-page/user']);
     console.log(userLogin);
   }
   loginAsAdmin() {
-    let userLogin:string = 'Admin Login';
+    let userLogin: string = 'Admin Login';
     this.route.navigate(['login-page/admin']);
     console.log(userLogin);
   }

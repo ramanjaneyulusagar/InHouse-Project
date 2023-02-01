@@ -6,35 +6,35 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
-  loader:boolean=false;
+export class AppComponent implements OnInit {
+  public loader: boolean = false;
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     setTimeout(() => {
-      this.loader=true
+      this.loader = true
     }, 1000);
   }
- @Input() title = 'In-House-Project';
-    // const fileReader = new FileReader();
-    // fileReader.onload = (e:any) => {
-    //   const binary = new Uint8Array(fileReader.result as ArrayBuffer);
-    //   const decoder = new TextDecoder();
-    //   this.fileContent = decoder.decode(binary);
-    //   console.log(e)
-    // };
+  @Input() title = 'In-House-Project';
+  // const fileReader = new FileReader();
+  // fileReader.onload = (e:any) => {
+  //   const binary = new Uint8Array(fileReader.result as ArrayBuffer);
+  //   const decoder = new TextDecoder();
+  //   this.fileContent = decoder.decode(binary);
+  //   console.log(e)
+  // };
 
-    // fileReader.readAsArrayBuffer(file);
+  // fileReader.readAsArrayBuffer(file);
 
-    // fileReader.onload = (e) => {
-    //   this.fileContent = new Uint8Array(fileReader.result as ArrayBuffer);
-    // };
+  // fileReader.onload = (e) => {
+  //   this.fileContent = new Uint8Array(fileReader.result as ArrayBuffer);
+  // };
 
-    // fileReader.readAsArrayBuffer(file);
-    // fileReader.onload = (e) => {
-    //   this.fileContent = fileReader.result as string;
-    // };
+  // fileReader.readAsArrayBuffer(file);
+  // fileReader.onload = (e) => {
+  //   this.fileContent = fileReader.result as string;
+  // };
 
-    // fileReader.readAsText(file);
+  // fileReader.readAsText(file);
 
 
 }

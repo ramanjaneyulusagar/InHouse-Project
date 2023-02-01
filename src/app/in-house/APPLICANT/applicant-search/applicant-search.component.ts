@@ -19,9 +19,9 @@ import { InHouseService } from '../../SERVICES/in-house.service';
 export class ApplicantSearchComponent implements OnInit {
   @Input() groupFilters!: Object;
   @Input() searchByKeyword!: string;
-  page: number = 1;
-  itemsPerPage!: number;
-  totalItems!: number;
+  public page: number = 1;
+  public itemsPerPage!: number;
+  public totalItems!: number;
 
   constructor(
     private route: Router,
@@ -50,50 +50,50 @@ export class ApplicantSearchComponent implements OnInit {
   ngOnInit(): void {
     console.log('server data found');
   }
-  increase = 0;
   openDialog() {
     const dialogRef = this.dialog.open(UserProfileDialogComponent, this.data);
-
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
-  formdata = {
+  public formdata = {
     SKILLS: '',
     EDUCATION: '',
   };
-  numberOfElements: any;
-  dataNumber: any;
-  exceldata: any;
-  datasize: any;
+  public numberOfElements: any;
+  public dataNumber: any;
+  public exceldata: any;
+  public datasize: any;
 
   // search data using dropdown
   search(data: any) {
     console.log(data);
-    this.service.user(this.formdata).pipe(
-      catchError(async (err: any) => {
-        alert(err + 'no data found');
-      })
-    ).subscribe((data: any) => {
-      console.log(data);
-      if (data === true) {
-        this.hide = true;
-        // this.loader=false
-        this.exportdata = data['content'];
-        this.dataNumber = data.totalRows;
-        this.datasize = data.size;
-        this.numberOfElements = data.numberOfElements;
-        let id: any;
-        this.formdata.SKILLS = '';
-        this.formdata.EDUCATION = '';
-      }
-    });
+    this.service
+      .user(this.formdata)
+      .pipe(
+        catchError(async (err: any) => {
+          alert(err + 'no data found');
+        })
+      )
+      .subscribe((data: any) => {
+        console.log(data);
+        if (data === true) {
+          this.hide = true;
+          // this.loader=false
+          this.exportdata = data['content'];
+          this.dataNumber = data.totalRows;
+          this.datasize = data.size;
+          this.numberOfElements = data.numberOfElements;
+          let id: any;
+          this.formdata.SKILLS = '';
+          this.formdata.EDUCATION = '';
+        }
+      });
     (Error: HttpErrorResponse) => {
       alert('no data found' + Error);
     };
   }
-
   //ecport the data into csv format
   exportXl() {
     console.log(this.exportdata);
