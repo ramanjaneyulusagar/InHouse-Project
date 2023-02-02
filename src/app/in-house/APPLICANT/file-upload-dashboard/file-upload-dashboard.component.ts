@@ -103,6 +103,7 @@ export class FileUploadDashboardComponent {
         (err) => {
           this.progressInfos[idx].value = 0;
           this.message = 'Could not upload the files';
+          alert(this.message);
           setTimeout(() => {
             this.message = '';
             this.fileName.nativeElement.value = '';
