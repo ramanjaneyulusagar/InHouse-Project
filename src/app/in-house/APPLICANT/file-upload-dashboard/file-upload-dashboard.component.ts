@@ -50,7 +50,7 @@ export class FileUploadDashboardComponent {
     this.fileSelected = true;
 
     this.progressInfos = [];
-    if (this.fileName.nativeElement.value!==null) {
+    if (this.fileName.nativeElement.value !== null) {
       this.selectedFiles = [...event.target.files];
       console.log(
         event,
@@ -81,7 +81,7 @@ export class FileUploadDashboardComponent {
   uploadFiles() {
     this.message = '';
     let filesData: any = [];
-    this.selectedFiles.map((key:any) => {
+    this.selectedFiles.map((key: any) => {
       filesData.push(key);
 
     })
@@ -98,42 +98,42 @@ export class FileUploadDashboardComponent {
     // };
   }
   upload(file: any) {
-//     var f=file;
-//     var i:any
-// for(i=0;i<=f.length;i++){
-//   console.log(f[i]['name']);
-// }
+    //     var f=file;
+    //     var i:any
+    // for(i=0;i<=f.length;i++){
+    //   console.log(f[i]['name']);
+    // }
     // let ext = file.name.split('.').pop();
 
     console.log(this.progressInfos)
-    if (file.length>0) {
-    this.uploadfileservice.upload(file).subscribe(
-      (event: any) => {
-        console.log(JSON.stringify(event));
-        // this.fileName.nativeElement.value = '';
-        // this.progressInfos = [];
+    if (file.length > 0) {
+      this.uploadfileservice.upload(file).subscribe(
+        (event: any) => {
+          console.log(JSON.stringify(event));
+          // this.fileName.nativeElement.value = '';
+          // this.progressInfos = [];
 
-      },
-      (err) => {
-        // debugger
-        // this.progressInfos[idx].value = 0;
-        this.message = 'Could not upload the files';
-        console.log(this.message)
-        // alert(this.message);
-        setTimeout(() => {
-          this.message = '';
-          this.fileName.nativeElement.value = '';
-          this.progressInfos = [];
-          this.selectedFiles = [];
-          this.cancelTotalFiles();
-        }, 3000);
-      }
-    );
+        },
+        (err) => {
+          // debugger
+          // this.progressInfos[idx].value = 0;
+          this.message = 'Could not upload the files';
+          console.log(this.message)
+          // alert(this.message);
+          setTimeout(() => {
+            this.message = '';
+            this.fileName.nativeElement.value = '';
+            this.progressInfos = [];
+            this.selectedFiles = [];
+            this.cancelTotalFiles();
+          }, 3000);
+        }
+      );
 
     }
     else {
       alert('choose different file format');
-      this.selectedFiles=[]
+      this.selectedFiles = []
     }
   }
   exportToCsv() {
