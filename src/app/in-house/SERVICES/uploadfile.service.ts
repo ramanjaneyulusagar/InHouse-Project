@@ -11,8 +11,9 @@ export class UploadfileService {
   constructor(private http: HttpClient) { }
   // private baseUrl = 'http://localhost:8080';
   upload(file: File) {
-    const formData: FormData = new FormData();
-    formData.append('file', file);
+    const formData = new FormData();
+    formData.append('file', file)
+    // console.log(formData);
     return this.http.post(apis.UPLOADFILE(), formData, {
       responseType: 'text',
     });

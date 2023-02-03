@@ -17,12 +17,13 @@ export class FileUploadDashboardComponent {
   @ViewChild('fileName') fileName!: ElementRef;
   public fileInfos!: Observable<any>;
   public previousValue: string = '';
+  files: any;
   constructor(
     private _snackBar: MatSnackBar,
     private uploadfileservice: UploadfileService
   ) { }
   ngOnInit(): void {
-    this.fileInfos = this.uploadfileservice.getFiles();
+    // this.fileInfos = this.uploadfileservice.getFiles();
     // throw new Error('Method not implemented.');
   }
   ngAfterViewInit() {
@@ -43,11 +44,13 @@ export class FileUploadDashboardComponent {
       { duration: 10000 }
     );
     this.selectedFiles.splice(index, 1);
+
   }
   selectFiles(event: any) {
     this.fileSelected = true;
+
     this.progressInfos = [];
-    if (this.fileName.nativeElement.value) {
+    if (this.fileName.nativeElement.value!==null) {
       this.selectedFiles = [...event.target.files];
       console.log(
         event,
@@ -57,9 +60,9 @@ export class FileUploadDashboardComponent {
       );
     } else {
       this.fileSelected = false;
-      var d = this.selectedFiles;
+      // var d = this.selectedFiles;
       this.progressInfos = [];
-      this.selectedFiles = d;
+      this.selectedFiles = this.selectedFiles;;
       console.log(
         event,
         this.fileName.nativeElement.value,
@@ -70,50 +73,67 @@ export class FileUploadDashboardComponent {
     if (this.fileName.nativeElement.value) {
       this._snackBar.open(
         ' file selected Successfully, click on upload!',
-        'close',
-        { duration: 10000 }
+        '',
+        { duration: 6000 }
       );
     }
   }
   uploadFiles() {
     this.message = '';
-    for (let i = 0; i < this.selectedFiles.length; i++) {
-      this.upload(i, this.selectedFiles[i]);
-      console.log(i);
-    }
+    let filesData: any = [];
+    this.selectedFiles.map((key:any) => {
+      filesData.push(key);
+
+    })
+    console.log(filesData);
+    filesData ? this.upload(filesData) : '';
+
+    // filesData? this.upload(filesData)
+    // var i:any
+    // var files
+    // for (i= 0; i < this.selectedFiles.length; i++) {
+
+
+    //   console.log(i);
+    // };
   }
-  upload(idx: any, file: any) {
-    console.log(file);
-    let ext = file.name.split('.').pop();
-    this.progressInfos[idx] = { value: 0, fileName: file.name };
-    if (ext == 'pdf' || ext == 'docx' || ext == 'doc') {
-      this.uploadfileservice.upload(file).subscribe(
-        (event: any) => {
-          console.log(JSON.stringify(event));
+  upload(file: any) {
+//     var f=file;
+//     var i:any
+// for(i=0;i<=f.length;i++){
+//   console.log(f[i]['name']);
+// }
+    // let ext = file.name.split('.').pop();
+
+    console.log(this.progressInfos)
+    if (file.length>0) {
+    this.uploadfileservice.upload(file).subscribe(
+      (event: any) => {
+        console.log(JSON.stringify(event));
+        // this.fileName.nativeElement.value = '';
+        // this.progressInfos = [];
+
+      },
+      (err) => {
+        // debugger
+        // this.progressInfos[idx].value = 0;
+        this.message = 'Could not upload the files';
+        console.log(this.message)
+        // alert(this.message);
+        setTimeout(() => {
+          this.message = '';
           this.fileName.nativeElement.value = '';
           this.progressInfos = [];
-          if (event.type === HttpEventType.UploadProgress) {
-            this.progressInfos[idx].value = Math.round(
-              (100 * event.loaded) / event.total
-            );
-          } else if (event instanceof HttpResponse) {
-            this.fileInfos = this.uploadfileservice.getFiles();
-          }
-        },
-        (err) => {
-          this.progressInfos[idx].value = 0;
-          this.message = 'Could not upload the files';
-          alert(this.message);
-          setTimeout(() => {
-            this.message = '';
-            this.fileName.nativeElement.value = '';
-            this.progressInfos = [];
-            this.selectedFiles = [];
-          }, 3000);
-        }
-      );
-    } else {
+          this.selectedFiles = [];
+          this.cancelTotalFiles();
+        }, 3000);
+      }
+    );
+
+    }
+    else {
       alert('choose different file format');
+      this.selectedFiles=[]
     }
   }
   exportToCsv() {
@@ -176,3 +196,24 @@ export class FileUploadDashboardComponent {
   }
 }
 // pipe(catchError((res:any)=> of(res)))
+// (err) => {
+//   debugger
+//   // this.progressInfos[idx].value = 0;
+//   this.message = 'Could not upload the files';
+//   console.log(this.message)
+//   alert(this.message);
+//   setTimeout(() => {
+//     this.message = '';
+//     this.fileName.nativeElement.value = '';
+//     this.progressInfos = [];
+//     this.selectedFiles = [];
+//   }, 3000);
+// }
+// if (event.type === HttpEventType.UploadProgress) {
+//   this.progressInfos[idx].value = Math.round(
+//     (100 * event.loaded) / event.total
+//   );
+//  }
+//  else if (event instanceof HttpResponse) {
+//   // this.fileInfos = this.uploadfileservice.getFiles();
+// }

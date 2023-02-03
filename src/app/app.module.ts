@@ -26,12 +26,17 @@ import { ImagesSliderComponent } from './Header-Main/images-slider/images-slider
 import { INHOUSEModule } from './in-house/in-house.module';
 import { INHOUSERoutingModule } from './in-house/in-house-routing.module';
 import { MaterialModule } from './material/material.module';
+import { IndexLinksComponent } from './links/index-links/index-links.component';
 // import { FormGroupModule } from './form-group/form-group.module';
+// import { WebixModule } from "webix-angular";"node_modules/webix/webix.d.ts"
+// import * as webix from 'webix'
+
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
     ImagesSliderComponent,
+    IndexLinksComponent,
   ],
   providers: [
     InhouseService,
